@@ -1,0 +1,29 @@
+body {
+    font-size: 100%;
+    font-family: sans-serif;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+canvas {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+}
+
+#container {
+    width: 100%;
+    color: #FFF;
+    background-color: rgba(0, 160, 230, 0.1);
+    text-align: center;
+    position: absolute;
+    bottom: 0;
+    padding: 5px;
+}
+
+footer, footer a {
+    color: #FFF;
+    text-align: right;
+}
