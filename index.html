@@ -11,7 +11,9 @@
         </canvas>
         <div id="container">
             <form id="player-form">
-                <input type="text" size="40" placeholder="SoundCloud Track URL" value="https://soundcloud.com/dub-motion/dub-motion-awakened" />
+                <input type="text" id="track-url" size="40"
+                       placeholder="SoundCloud Track URL"
+                       value="https://soundcloud.com/dub-motion/dub-motion-awakened" />
                 <input type="submit" value="Load song" />
             </form>
             <audio id="player" controls>
@@ -21,5 +23,9 @@
                 <a href="http://github.com/PakkuDon">Source code on GitHub</a>
             </footer>
         </div>
+
+        <script src="http://connect.soundcloud.com/sdk.js"></script>
+        <script src="player.js"></script>
+        <script src="index.js"></script>
     </body>
 </html>
