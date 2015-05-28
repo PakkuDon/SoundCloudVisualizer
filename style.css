@@ -27,3 +27,7 @@ footer, footer a {
     color: #FFF;
     text-align: right;
 }
+
+#thumbnail, #details {
+    display: inline-block;
+}

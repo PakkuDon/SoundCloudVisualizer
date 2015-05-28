@@ -3,11 +3,16 @@ SC.initialize({
     client_id: clientID
 });
 
-function Player(audio, canvas) {
+function Player(audio, canvas, thumbnail, artist, title) {
     this.play =  function(trackUrl) {
         // Retrieve stream URL associated with given track
         SC.get("/resolve", { url : trackUrl }, function(sound) {
             var streamUrl = sound.stream_url + "?client_id=" + clientID;
+
+            // Display track details
+            thumbnail.innerHTML = '<img src="' + sound.artwork_url + '"/>';
+            artist.innerHTML = sound.user.username;
+            title.innerHTML = sound.title;
 
             // Play track
             audio.setAttribute("src", streamUrl);
