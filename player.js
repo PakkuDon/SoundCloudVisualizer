@@ -38,7 +38,7 @@ function Player(audio, canvas, thumbnail, artist, title) {
             var width = canvas.width;
             var height = canvas.height;
             var gridWidth = width / bufferLength;
-            var gridHeight = 2;
+            var gridHeight = height / analyser.fftSize;
 
             // Update UI as song plays
             setInterval(function() {
