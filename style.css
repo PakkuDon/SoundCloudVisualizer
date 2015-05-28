@@ -31,3 +31,11 @@ footer, footer a {
 #thumbnail, #details {
     display: inline-block;
 }
+
+#toggle-form-btn  {
+    background-color: rgba(0, 160, 230, 0.05);
+    margin: 0;
+    border-color: transparent;
+    color: #FFF;
+    width: 100%;
+}
