@@ -4,6 +4,19 @@ SC.initialize({
 });
 
 function Player(audio, canvas, thumbnail, artist, title) {
+    var self = this;
+
+    // Set up audio context and analyser
+    var audioCtx = new (window.AudioContext || window.webkitAudioContext);
+    var analyser = audioCtx.createAnalyser();
+    var source = audioCtx.createMediaElementSource(audio);
+    source.connect(analyser);
+    analyser.connect(audioCtx.destination);
+
+    // Set up visualizer
+    var graphics = canvas.getContext("2d");
+    self.visualizer = new Visualizer(graphics, analyser);
+
     this.play =  function(trackUrl) {
         // Retrieve stream URL associated with given track
         SC.get("/resolve", { url : trackUrl }, function(sound) {
@@ -19,42 +32,9 @@ function Player(audio, canvas, thumbnail, artist, title) {
             audio.crossOrigin = "anonymous";
             audio.play();
 
-            // Set up audio context and analyser
-            var audioCtx = new (window.AudioContext || window.webkitAudioContext);
-            var analyser = audioCtx.createAnalyser();
-            var source = audioCtx.createMediaElementSource(player);
-            source.connect(analyser);
-            analyser.connect(audioCtx.destination);
-
-            analyser.fftSize = 256;
-            var bufferLength = analyser.frequencyBinCount;
-            var streamData = new Uint8Array(bufferLength);
-
-            // Set up graphics context
-            var graphics = canvas.getContext("2d");
-            graphics.strokeStyle = "#69C";
-
-            // Set values used when drawing audio data
-            var width = canvas.width;
-            var height = canvas.height;
-            var gridWidth = width / bufferLength;
-            var gridHeight = height / analyser.fftSize;
-
             // Update UI as song plays
             setInterval(function() {
-                analyser.getByteFrequencyData(streamData);
-                graphics.clearRect(0, 0, width, height);
-
-                for (var i = 0; i < bufferLength; i++) {
-                    var value = streamData[i];
-                    var barHeight = height - gridHeight * value;
-
-                    graphics.beginPath();
-                    graphics.moveTo(i * gridWidth, barHeight);
-                    graphics.lineTo((i + 1) * gridWidth, barHeight);
-                    graphics.stroke();
-                    graphics.closePath();
-                }
+                self.visualizer.draw();
             }, 20);
         });
     }
