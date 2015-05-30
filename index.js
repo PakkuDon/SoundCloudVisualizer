@@ -6,9 +6,10 @@ window.onload = function(e) {
     var thumbnail = document.getElementById("thumbnail");
     var artist = document.getElementById("artist");
     var title = document.getElementById("title");
+    var genre = document.getElementById("genre");
 
     var player = new Player(audioElement, canvas,
-                            thumbnail, artist, title);
+                            thumbnail, artist, title, genre);
 
     // Populate visualizations list
     var dropdown = document.getElementById("visualizer-dropdown");

@@ -3,7 +3,7 @@ SC.initialize({
     client_id: clientID
 });
 
-function Player(audio, canvas, thumbnail, artist, title) {
+function Player(audio, canvas, thumbnail, artist, title, genre) {
     var self = this;
 
     // Set up audio context and analyser
@@ -23,9 +23,12 @@ function Player(audio, canvas, thumbnail, artist, title) {
             var streamUrl = sound.stream_url + "?client_id=" + clientID;
 
             // Display track details
-            thumbnail.innerHTML = '<img src="' + sound.artwork_url + '"/>';
+            thumbnail.innerHTML = '<a href="' + sound.permalink_url + '">'
+                + '<img src="' + sound.artwork_url + '" alt="View on SoundCloud"/>'
+                + '</a>';
             artist.innerHTML = sound.user.username;
             title.innerHTML = sound.title;
+            genre.innerHTML = sound.genre;
 
             // Play track
             audio.setAttribute("src", streamUrl);
