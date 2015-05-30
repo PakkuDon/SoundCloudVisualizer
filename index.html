@@ -13,12 +13,21 @@
         <div id="container">
             <button type="button" id="toggle-form-btn">&#9660;</button>
             <div id="collapsible-container">
-                <form id="player-form">
-                    <input type="text" id="track-url" size="40"
-                           placeholder="SoundCloud Track URL"
-                           value="https://soundcloud.com/dub-motion/dub-motion-awakened" />
-                    <input type="submit" value="Load song" />
-                </form>
+                <div>
+                    <form id="player-form">
+                        <input type="text" id="track-url" size="40"
+                               placeholder="SoundCloud Track URL"
+                               value="https://soundcloud.com/dub-motion/dub-motion-awakened" />
+                        <input type="submit" value="Load song" />
+                    </form>
+                </div>
+                <div>
+                    <label for="visualizer-dropdown">
+                        Visualizer:
+                    </label>
+                    <select id="visualizer-dropdown">
+                    </select>
+                </div>
                 <div id="song-information">
                     <div id="thumbnail">
                     </div>

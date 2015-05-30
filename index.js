@@ -10,6 +10,22 @@ window.onload = function(e) {
     var player = new Player(audioElement, canvas,
                             thumbnail, artist, title);
 
+    // Populate visualizations list
+    var dropdown = document.getElementById("visualizer-dropdown");
+    var visualizations = player.visualizer.strategies;
+    for (var key in visualizations) {
+        var option = document.createElement("option");
+        option.value = key;
+        option.innerHTML = visualizations[key].name;
+        dropdown.appendChild(option);
+    }
+
+    // Set visualizer when option changes
+    dropdown.onchange = function(e) {
+        var optionValue = dropdown.options[dropdown.selectedIndex].value;
+        player.visualizer.setStrategy(optionValue);
+    }
+
     // Load and play song on submit
     var form = document.getElementById("player-form");
     form.onsubmit = function(e) {
