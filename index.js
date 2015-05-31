@@ -1,15 +1,17 @@
 // Initialise components and register event handlers
 window.onload = function(e) {
-    // Get required elements and create Player instance
+    // Get elements required by components
     var audioElement = document.getElementById("player");
     var canvas = document.getElementById("visualizer");
+    var container = document.getElementById("collapsible-container");
+    var notifications = document.getElementById("notifications");
     var thumbnail = document.getElementById("thumbnail");
     var artist = document.getElementById("artist");
     var title = document.getElementById("title");
     var genre = document.getElementById("genre");
 
-    var player = new Player(audioElement, canvas,
-                            thumbnail, artist, title, genre);
+    var uiManager = new UIManager(container, notifications, thumbnail, artist, title, genre);
+    var player = new Player(audioElement, canvas, uiManager);
 
     // Populate visualizations list
     var dropdown = document.getElementById("visualizer-dropdown");
@@ -38,14 +40,6 @@ window.onload = function(e) {
     // Hide/show form
     var toggleFormBtn = document.getElementById("toggle-form-btn");
     toggleFormBtn.onclick = function(e) {
-        var container = document.getElementById("collapsible-container");
-        if (container.style.display === "none") {
-            container.style.display = "block";
-            toggleFormBtn.innerHTML = "&#9660;";
-        }
-        else {
-            container.style.display = "none";
-            toggleFormBtn.innerHTML = "&#9650;";
-        }
+        uiManager.toggleControls(e);
     }
 };
