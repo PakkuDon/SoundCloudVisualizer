@@ -47,3 +47,17 @@ footer, footer a {
     color: #FFF;
     width: 100%;
 }
+
+#notifications {
+    position: absolute;
+    width: 100%;
+    background-color: rgba(0, 160, 230, 0.1);
+    top: 0;
+    margin: auto;
+    z-index: 1;
+}
+
+#notifications .message {
+    text-align: center;
+    color: #FFF;
+}
