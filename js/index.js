@@ -13,11 +13,6 @@ window.onload = function(e) {
     var uiManager = new UIManager(container, notifications, thumbnail, artist, title, genre);
     var player = new Player(audioElement, canvas, uiManager);
 
-    // Display error message if user's browser does not support Web Audio API
-    if (!(window.AudioContext || window.webkitAudioContext)) {
-        uiManager.showNotification("Visualizer disabled", "Your browser does not support the Web Audio API");
-    }
-
     // Populate visualizations list
     var dropdown = document.getElementById("visualizer-dropdown");
     var visualizations = player.visualizer.strategies;

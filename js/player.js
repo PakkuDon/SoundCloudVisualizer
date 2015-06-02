@@ -8,10 +8,17 @@ function Player(audio, canvas, uiManager) {
 
     // Set up audio context and analyser
     var audioCtx = new (window.AudioContext || window.webkitAudioContext);
-    var analyser = audioCtx.createAnalyser();
-    var source = audioCtx.createMediaElementSource(audio);
-    source.connect(analyser);
-    analyser.connect(audioCtx.destination);
+    if (audioCtx) {
+        var analyser = audioCtx.createAnalyser();
+        var source = audioCtx.createMediaElementSource(audio);
+        source.connect(analyser);
+        analyser.connect(audioCtx.destination);
+    }
+    // Display error message if user's browser does not support Web Audio API
+    else {
+        uiManager.showNotification("Visualizer disabled",
+            "Your browser does not support the Web Audio API");
+    }
 
     // Set up visualizer
     var graphics = canvas.getContext("2d");
@@ -30,10 +37,12 @@ function Player(audio, canvas, uiManager) {
             audio.crossOrigin = "anonymous";
             audio.play();
 
-            // Update UI as song plays
-            setInterval(function() {
-                self.visualizer.draw();
-            }, 20);
+            // Update UI if AudioContext available
+            if (typeof analyser !== "undefined") {
+                setInterval(function() {
+                    self.visualizer.draw();
+                }, 20);
+            }
         });
     }
 };
