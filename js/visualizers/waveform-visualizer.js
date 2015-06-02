@@ -17,7 +17,7 @@ function WaveformVisualizer() {
         width = graphics.canvas.width;
         height = graphics.canvas.height;
         gridWidth = width / bufferLength;
-        gridHeight = height / analyser.fftSize * 2;
+        gridHeight = height / 256;
 
         graphics.strokeStyle = "#69C";
     }
@@ -33,7 +33,6 @@ function WaveformVisualizer() {
             // Calculate y coordinate with respect to y and
             // shift it closer to the center of the page
             var y = gridHeight * streamData[i];
-            y += height * 0.25;
 
             if (i == 0) {
                 graphics.moveTo(x, y);

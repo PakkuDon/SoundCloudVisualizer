@@ -17,7 +17,7 @@ function MinimalisticVisualizer() {
         width = graphics.canvas.width;
         height = graphics.canvas.height;
         gridWidth = width / bufferLength;
-        gridHeight = height / analyser.fftSize;
+        gridHeight = height / 256;
 
         graphics.strokeStyle = "#69C";
     }
