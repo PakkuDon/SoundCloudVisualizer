@@ -61,3 +61,30 @@ footer, footer a {
     text-align: center;
     color: #FFF;
 }
+
+#sidebar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 60%;
+    width: 30%;
+    background-color: rgba(0, 160, 230, 0.1);
+    color: #FFF;
+    z-index: 1;
+}
+
+#last-played {
+    overflow-x: auto;
+}
+
+.track {
+    border-bottom: 1px solid rgba(0, 160, 230, 0.1);
+}
+
+.track:hover {
+    background-color: rgba(0, 160, 230, 0.1);
+}
+
+.track-url {
+    display: none;
+}
