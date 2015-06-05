@@ -1,25 +1,33 @@
 body {
     font-size: 100%;
     font-family: sans-serif;
-    height: 100%;
-    margin: 0;
-    padding: 0;
+    background-color: #000;
 }
 
 canvas {
+    background-color: #000;
+}
+
+#canvas-panel {
+    text-align: center;
+}
+
+#body {
     position: absolute;
-    width: 100%;
-    height: 100%;
+    top: 0;
+    left: 250px;
+    bottom: 0;
+    right: 0;
     background-color: #000;
 }
 
 #container {
-    width: 100%;
     color: #FFF;
     background-color: rgba(0, 160, 230, 0.1);
     text-align: center;
     position: absolute;
     bottom: 0;
+    width: 100%;
 }
 
 footer, footer a {
@@ -49,12 +57,9 @@ footer, footer a {
 }
 
 #notifications {
-    position: absolute;
     width: 100%;
     background-color: rgba(0, 160, 230, 0.1);
-    top: 0;
     margin: auto;
-    z-index: 1;
 }
 
 #notifications .message {
@@ -63,18 +68,22 @@ footer, footer a {
 }
 
 #sidebar {
+    width: 250px;
+    background-color: rgba(0, 160, 230, 0.1);
+    color: #FFF;
     position: absolute;
     top: 0;
     left: 0;
-    height: 60%;
-    width: 30%;
-    background-color: rgba(0, 160, 230, 0.1);
-    color: #FFF;
-    z-index: 1;
+    bottom: 0;
+}
+
+#toggle-sidebar-menu, #last-played {
+    height: 100%;
+    display: inline-block;
 }
 
 #last-played {
-    overflow-x: auto;
+    width: 85%;
 }
 
 .track {
@@ -87,4 +96,26 @@ footer, footer a {
 
 .track-url {
     display: none;
+}
+
+input#toggle-sidebar {
+    display: none;
+}
+
+label[for="toggle-sidebar"] {
+    position: absolute;
+    background-color: rgba(0, 160, 230, 0.25);
+    border-color: transparent;
+    color: #FFF;
+    left: 250px;
+    z-index: 1;
+    padding: 2px;
+}
+
+input#toggle-sidebar:checked ~ label {
+    left: 0;
+}
+
+input#toggle-sidebar:checked ~ #body {
+    left: 0;
 }
