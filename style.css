@@ -19,6 +19,8 @@ canvas {
     bottom: 0;
     right: 0;
     background-color: #000;
+    -moz-transition: left 0.5s ease;
+    transition: left 0.5s ease;
 }
 
 #container {
@@ -110,6 +112,8 @@ label[for="toggle-sidebar"] {
     left: 250px;
     z-index: 1;
     padding: 2px;
+    -moz-transition: left 0.5s ease;
+    transition: left 0.5s ease;
 }
 
 input#toggle-sidebar:checked ~ label {
