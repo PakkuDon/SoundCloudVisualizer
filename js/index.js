@@ -37,9 +37,24 @@ window.onload = function(e) {
         player.play(url);
     }
 
-    // Hide/show form
+    // Hide/show audio player
     var toggleFormBtn = document.getElementById("toggle-form-btn");
     toggleFormBtn.onclick = function(e) {
         uiManager.toggleControls(e);
     }
+
+    // Bind events to dynamically created elements
+    document.addEventListener("click", function(e) {
+        var source = e.target;
+        // Play selected track from sidebar
+        if (source.className.indexOf("track") >= 0) {
+            // Retrieve associated song's SoundCloud url
+            if (source.className !== "track") {
+                source = source.parentElement;
+            }
+            var trackURL = source.getElementsByClassName("track-url")[0].innerHTML;
+
+            player.play(trackURL);
+        }
+    });
 };
