@@ -32,6 +32,9 @@ function Player(audio, canvas, uiManager) {
             // Display track details
             uiManager.displaySoundInformation(sound);
 
+            // Add track to history
+            uiManager.addToHistory(sound);
+
             // Play track
             audio.setAttribute("src", streamUrl);
             audio.crossOrigin = "anonymous";

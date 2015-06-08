@@ -9,8 +9,9 @@ window.onload = function(e) {
     var artist = document.getElementById("artist");
     var title = document.getElementById("title");
     var genre = document.getElementById("genre");
+    var recentlyPlayed = document.getElementById("last-played");
 
-    var uiManager = new UIManager(container, notifications, thumbnail, artist, title, genre);
+    var uiManager = new UIManager(container, notifications, recentlyPlayed, thumbnail, artist, title, genre);
     var player = new Player(audioElement, canvas, uiManager);
 
     // Populate visualizations list
