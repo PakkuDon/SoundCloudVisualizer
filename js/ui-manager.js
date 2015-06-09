@@ -43,6 +43,7 @@ function UIManager(container, notifications, recentlyPlayed, thumbnail, artist, 
         var title = document.createElement("div");
         var genre = document.createElement("div");
         var trackUrl = document.createElement("div");
+        var deleteButton = document.createElement("span");
 
         // Set attributes of containing elements
         trackElement.className = "track";
@@ -50,6 +51,7 @@ function UIManager(container, notifications, recentlyPlayed, thumbnail, artist, 
         title.className = "track-title";
         genre.className = "track-genre";
         trackUrl.className = "track-url";
+        deleteButton.className = "delete-button";
 
         // Set values of sub-elements
         artist.innerHTML = sound.user.username;
@@ -62,6 +64,7 @@ function UIManager(container, notifications, recentlyPlayed, thumbnail, artist, 
         trackElement.appendChild(title);
         trackElement.appendChild(genre);
         trackElement.appendChild(trackUrl);
+        trackElement.appendChild(deleteButton);
         recentlyPlayed.appendChild(trackElement);
     }
 }

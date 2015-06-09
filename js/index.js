@@ -57,5 +57,11 @@ window.onload = function(e) {
 
             player.play(trackURL);
         }
+
+        // Remove parent element if delete button pressed
+        else if (source.className === "delete-button") {
+            var targetElement = source.parentElement;
+            targetElement.parentElement.removeChild(targetElement);
+        }
     });
 };

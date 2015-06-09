@@ -79,17 +79,9 @@ footer, footer a {
     bottom: 0;
 }
 
-#toggle-sidebar-menu, #last-played {
-    height: 100%;
-    display: inline-block;
-}
-
-#last-played {
-    width: 85%;
-}
-
 .track {
     border-bottom: 1px solid rgba(0, 160, 230, 0.1);
+    position: relative;
 }
 
 .track:hover {
@@ -122,4 +114,21 @@ input#toggle-sidebar:checked ~ label {
 
 input#toggle-sidebar:checked ~ #body {
     left: 0;
+}
+
+.delete-button {
+    background-color: rgba(0, 160, 230, 0.1);
+    border-radius: 25%;
+    padding: 5px 10px;
+    position: absolute;
+    right: 5px;
+    top: 5px;
+}
+
+.delete-button:before {
+    content: "x";
+}
+
+.delete-button:hover {
+    background-color: rgba(0, 160, 230, 0.1);
 }
