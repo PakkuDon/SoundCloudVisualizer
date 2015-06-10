@@ -10,6 +10,11 @@ window.onload = function(e) {
     var title = document.getElementById("title");
     var genre = document.getElementById("genre");
     var recentlyPlayed = document.getElementById("last-played");
+    var toggleFormBtn = document.getElementById("toggle-form-btn");
+
+    // Set canvas size
+    canvas.width = canvas.parentElement.offsetWidth;
+    canvas.height = window.innerHeight - container.height - toggleFormBtn.height;
 
     var uiManager = new UIManager(container, notifications, recentlyPlayed, thumbnail, artist, title, genre);
     var player = new Player(audioElement, canvas, uiManager);
@@ -39,7 +44,6 @@ window.onload = function(e) {
     }
 
     // Hide/show audio player
-    var toggleFormBtn = document.getElementById("toggle-form-btn");
     toggleFormBtn.onclick = function(e) {
         uiManager.toggleControls(e);
     }
