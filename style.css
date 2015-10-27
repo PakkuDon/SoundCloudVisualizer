@@ -15,11 +15,6 @@ canvas {
     height: 100%;
 }
 
-#canvas-panel {
-    position: relative;
-    height: 100%;
-}
-
 #body {
     position: absolute;
     top: 0;
@@ -29,15 +24,20 @@ canvas {
     background-color: #000;
     -moz-transition: left 0.5s ease;
     transition: left 0.5s ease;
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+#canvas-panel {
+    position: relative;
+    flex: 1 1 auto;
 }
 
 #container {
     color: #FFF;
     background-color: rgba(0, 160, 230, 0.1);
     text-align: center;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
+    flex: 0 1 auto;
 }
 
 footer, footer a {
