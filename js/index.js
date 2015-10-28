@@ -12,8 +12,10 @@ window.onload = function(e) {
     var recentlyPlayed = document.getElementById("last-played");
     var toggleFormBtn = document.getElementById("toggle-form-btn");
 
+    // Modules
     var uiManager = new UIManager(container, notifications, recentlyPlayed, thumbnail, artist, title, genre);
-    var player = new Player(audioElement, canvas, uiManager);
+    var player = new Player(audioElement, canvas);
+    var scResolver = new SoundCloudResolver();
 
     // Populate visualizations list
     var dropdown = document.getElementById("visualizer-dropdown");
@@ -36,7 +38,7 @@ window.onload = function(e) {
     form.onsubmit = function(e) {
         e.preventDefault();
         var url = document.getElementById("track-url").value;
-        player.play(url);
+        playTrack(url);
     }
 
     // Hide/show audio player
@@ -54,8 +56,7 @@ window.onload = function(e) {
                 source = source.parentElement;
             }
             var trackURL = source.getElementsByClassName("track-url")[0].innerHTML;
-
-            player.play(trackURL);
+            playTrack(trackURL);
         }
 
         // Remove parent element if delete button pressed
@@ -64,4 +65,12 @@ window.onload = function(e) {
             targetElement.parentElement.removeChild(targetElement);
         }
     });
+    
+    // Retrieve song data and stream song
+    function playTrack(url) {
+        scResolver.load(url, function(sound) {
+            player.play(sound);
+            uiManager.displaySoundInformation(sound);
+        });
+    }
 };
