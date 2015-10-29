@@ -87,6 +87,11 @@ footer, footer a {
     bottom: 0;
 }
 
+#last-played {
+    overflow-y: auto;
+    height: 100%;
+}
+
 .track {
     border-bottom: 1px solid rgba(0, 160, 230, 0.1);
     position: relative;

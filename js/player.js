@@ -1,5 +1,6 @@
 function Player(audio, canvas) {
     var self = this;
+    var history = [];
 
     // Set up audio context and analyser
     var audioCtx = new (window.AudioContext || window.webkitAudioContext);
@@ -18,6 +19,17 @@ function Player(audio, canvas) {
     this.play =  function(sound) {
         var streamUrl = sound.stream_url + "?client_id=" + API.clientID;
 
+        // Add song to history
+        // If song already in history, pop entry 
+        // so it can be moved to the end
+        for (var i = 0; i < history.length; i++) {
+            if (history[i].id == sound.id) {
+                history.splice(i, 1);
+                break;
+            }
+        }
+        history.push(sound);
+
         // Play track
         audio.setAttribute("src", streamUrl);
         audio.crossOrigin = "anonymous";
@@ -29,5 +41,9 @@ function Player(audio, canvas) {
                 self.visualizer.draw();
             }, 20);
         }
+    }
+
+    this.getHistory = function() {
+        return history;
     }
 };

@@ -36,35 +36,43 @@ function UIManager(container, notifications, recentlyPlayed, thumbnail, artist, 
         notifications.appendChild(notification);
     }
 
-    // Adds song to list of recently played tracks
-    this.addToHistory = function(sound) {
-        var trackElement = document.createElement("div");
-        var artist = document.createElement("div");
-        var title = document.createElement("div");
-        var genre = document.createElement("div");
-        var trackUrl = document.createElement("div");
-        var deleteButton = document.createElement("span");
+    // Display recently played tracks
+    this.showHistory = function(history) {
+        // Empty sidebar
+        recentlyPlayed.innerHTML = '';
 
-        // Set attributes of containing elements
-        trackElement.className = "track";
-        artist.className = "track-artist";
-        title.className = "track-title";
-        genre.className = "track-genre";
-        trackUrl.className = "track-url";
-        deleteButton.className = "delete-button";
+        // Create elements for each entry
+        for (var i = history.length - 1; i >= 0; i--) {
+            var sound = history[i];
 
-        // Set values of sub-elements
-        artist.innerHTML = sound.user.username;
-        title.innerHTML = sound.title;
-        genre.innerHTML = sound.genre;
-        trackUrl.innerHTML = sound.permalink_url;
+            var trackElement = document.createElement("div");
+            var artist = document.createElement("div");
+            var title = document.createElement("div");
+            var genre = document.createElement("div");
+            var trackUrl = document.createElement("div");
+            var deleteButton = document.createElement("span");
 
-        // Add entry to document
-        trackElement.appendChild(artist);
-        trackElement.appendChild(title);
-        trackElement.appendChild(genre);
-        trackElement.appendChild(trackUrl);
-        trackElement.appendChild(deleteButton);
-        recentlyPlayed.appendChild(trackElement);
+            // Set attributes of containing elements
+            trackElement.className = "track";
+            artist.className = "track-artist";
+            title.className = "track-title";
+            genre.className = "track-genre";
+            trackUrl.className = "track-url";
+            deleteButton.className = "delete-button";
+
+            // Set values of sub-elements
+            artist.innerHTML = sound.user.username;
+            title.innerHTML = sound.title;
+            genre.innerHTML = sound.genre;
+            trackUrl.innerHTML = sound.permalink_url;
+
+            // Add entry to document
+            trackElement.appendChild(artist);
+            trackElement.appendChild(title);
+            trackElement.appendChild(genre);
+            trackElement.appendChild(trackUrl);
+            trackElement.appendChild(deleteButton);
+            recentlyPlayed.appendChild(trackElement);
+        }
     }
 }

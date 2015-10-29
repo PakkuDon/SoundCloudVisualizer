@@ -71,6 +71,7 @@ window.onload = function(e) {
         scResolver.load(url, function(sound) {
             player.play(sound);
             uiManager.displaySoundInformation(sound);
+            uiManager.showHistory(player.getHistory());
         });
     }
 };
