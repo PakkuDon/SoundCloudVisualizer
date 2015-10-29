@@ -1,6 +1,7 @@
 function Player(audio, canvas) {
     var self = this;
     var history = [];
+    var intervalID = null;
 
     // Set up audio context and analyser
     var audioCtx = new (window.AudioContext || window.webkitAudioContext);
@@ -37,7 +38,12 @@ function Player(audio, canvas) {
 
         // Update UI if AudioContext available
         if (typeof analyser !== "undefined") {
-            setInterval(function() {
+            // Clear previous animation interval
+            if (intervalID !== null) {
+                clearInterval(intervalID);
+            }
+
+            intervalID = setInterval(function() {
                 self.visualizer.draw();
             }, 20);
         }
