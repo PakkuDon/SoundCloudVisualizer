@@ -1,7 +1,7 @@
 function Player(audio, canvas) {
     var self = this;
     var history = [];
-    var intervalID = null;
+    var animationID = null;
 
     // Set up audio context and analyser
     var audioCtx = new (window.AudioContext || window.webkitAudioContext);
@@ -39,17 +39,20 @@ function Player(audio, canvas) {
         // Update UI if AudioContext available
         if (typeof analyser !== "undefined") {
             // Clear previous animation interval
-            if (intervalID !== null) {
-                clearInterval(intervalID);
+            if (animationID !== null) {
+                cancelAnimationFrame(animationID);
             }
-
-            intervalID = setInterval(function() {
-                self.visualizer.draw();
-            }, 20);
+            animationID = requestAnimationFrame(updateVisualizer);
         }
     }
 
     this.getHistory = function() {
         return history;
+    }
+
+    // Update graphics
+    function updateVisualizer() {
+        self.visualizer.draw();
+        animationID = requestAnimationFrame(updateVisualizer);
     }
 };
