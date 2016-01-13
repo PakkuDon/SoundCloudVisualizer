@@ -1,0 +1,22 @@
+{
+  "name": "soundcloudvisualizer",
+  "description": "Just playing around with the SoundCloud and Web Audio APIs.",
+  "main": "",
+  "authors": [
+    "PakkuDon"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/PakkuDon/SoundCloudVisualizer",
+  "moduleType": [],
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "angular": "~1.4.8"
+  }
+}
