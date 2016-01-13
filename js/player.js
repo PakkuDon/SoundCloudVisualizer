@@ -1,6 +1,7 @@
 function Player(audio, canvas) {
     var self = this;
     var history = [];
+    var playbackQueue = [];
     var animationID = null;
 
     // Set up audio context and analyser
@@ -17,6 +18,21 @@ function Player(audio, canvas) {
     var graphics = canvas.getContext("2d");
     self.visualizer = new Visualizer(graphics, analyser);
 
+    new SoundCloudResolver()
+            .load("https://soundcloud.com/zaped/paradise-feat-georgia-potter", 
+            function(sound) {
+                playbackQueue.push(sound);
+            });
+
+    // Play next song from playback queue when current song ends
+    audio.addEventListener('ended', function(e) {
+        if (playbackQueue.length > 0) {
+            var sound = playbackQueue.shift();
+            self.play(sound);
+        }
+    });
+
+    // Load and play song at given URL
     this.play =  function(sound) {
         var streamUrl = sound.stream_url + "?client_id=" + API.clientID;
 
@@ -48,6 +64,10 @@ function Player(audio, canvas) {
 
     this.getHistory = function() {
         return history;
+    }
+
+    this.getPlaybackQueue = function() {
+        return playbackQueue;
     }
 
     // Update graphics
