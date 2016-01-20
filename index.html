@@ -12,9 +12,18 @@
         <div id="notifications">
         </div>
 
-        <div id="sidebar">
+        <div id="sidebar" ng-controller="HistoryController as histCtrl">
             Recently played
             <div id="last-played">
+                <div class="track" ng-repeat="track in histCtrl.player.getHistory()">
+                    <div class="track-artist" ng-bind="track.user.username"></div>
+                    <div class="track-title" ng-bind="track.title"></div>
+                    <div class="track-genre" ng-bind="track.genre"></div>
+                    <div class="track-url"><a href="{{ track.permalink_url }}"></a></div>
+                    <div class="actions">
+                        <span class="delete-button">
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -75,6 +84,10 @@
         <script src="js/controllers/PlaybackQueueController.js"></script>
         <script src="js/controllers/PlayerController.js"></script>
         <script src="js/controllers/VisualizerController.js"></script>
+        
+        <!-- Services -->
+        <script src="js/services/player.js"></script>
+        <script src="js/services/soundcloudResolver.js"></script>
         
         <script src="js/soundcloud-resolver.js"></script>
         <script src="js/ui-manager.js"></script>
