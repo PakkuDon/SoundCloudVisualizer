@@ -21,7 +21,9 @@
                     <div class="track-genre" ng-bind="track.genre"></div>
                     <div class="track-url"><a href="{{ track.permalink_url }}"></a></div>
                     <div class="actions">
-                        <span class="delete-button">
+                        <span ng-click="histCtrl.play($index)">Play</span>
+                        <span ng-click="histCtrl.delete($index)">Delete</span>
+                        <span ng-click="histCtrl.queue($index)">Queue</span>
                     </div>
                 </div>
             </div>

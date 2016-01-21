@@ -46,25 +46,6 @@ window.onload = function(e) {
         uiManager.toggleControls(e);
     }
 
-    // Bind events to dynamically created elements
-    document.addEventListener("click", function(e) {
-        var source = e.target;
-        // Play selected track from sidebar
-        if (source.className.indexOf("track") >= 0) {
-            // Retrieve associated song's SoundCloud url
-            if (source.className !== "track") {
-                source = source.parentElement;
-            }
-            var trackURL = source.getElementsByClassName("track-url")[0].innerHTML;
-            playTrack(trackURL);
-        }
-
-        // Remove parent element if delete button pressed
-        else if (source.className === "delete-button") {
-            var targetElement = source.parentElement;
-            targetElement.parentElement.removeChild(targetElement);
-        }
-    });
     
     // Retrieve song data and stream song
     function playTrack(url) {
