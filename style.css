@@ -85,6 +85,16 @@ footer, footer a {
     top: 0;
     left: 0;
     bottom: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+#sidebar > div {
+    flex: 1 1 auto;
+}
+
+.list {
+    overflow-y: auto;
 }
 
 #last-played {
