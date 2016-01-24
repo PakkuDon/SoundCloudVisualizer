@@ -33,14 +33,6 @@ window.onload = function(e) {
         player.visualizer.setStrategy(optionValue);
     }
 
-    // Load and play song on submit
-    var form = document.getElementById("player-form");
-    form.onsubmit = function(e) {
-        e.preventDefault();
-        var url = document.getElementById("track-url").value;
-        playTrack(url);
-    }
-
     // Hide/show audio player
     toggleFormBtn.onclick = function(e) {
         uiManager.toggleControls(e);
