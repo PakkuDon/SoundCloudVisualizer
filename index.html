@@ -79,7 +79,7 @@
                             <div id="genre" ng-bind="playerCtrl.player.getCurrentTrack().genre"></div>
                         </div>
                     </div>
-                    <audio id="player" crossorigin="anonymous" controls ng-src="{{ playerCtrl.player.getCurrentTrack().stream_url }}" >
+                    <audio id="player" crossorigin="anonymous" controls ng-src="{{ playerCtrl.player.getCurrentTrack().stream_url | trusted }}" >
                         Your browser does not support the HTML5 audio element.
                     </audio>
                     <footer>
@@ -93,6 +93,7 @@
         <script src="http://connect.soundcloud.com/sdk.js"></script>
         <script src="bower_components/jquery/dist/jquery.min.js"></script>
         <script src="bower_components/angular/angular.js"></script>
+        <script src="bower_components/angular-sanitize/angular-sanitize.min.js"></script>
 
         <!-- Modules -->
         <script src="js/app.js"></script>
@@ -106,6 +107,9 @@
         <!-- Services -->
         <script src="js/services/player.js"></script>
         <script src="js/services/soundcloudResolver.js"></script>
+        
+        <!-- Filters / Directives -->
+        <script src="js/filters.js"></script>
         
         <script src="js/soundcloud-resolver.js"></script>
         <script src="js/ui-manager.js"></script>

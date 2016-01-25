@@ -8,6 +8,7 @@ angular.module('scvServices').factory('soundcloudResolver', ['$http', function($
     return {
         load: function(trackUrl, callback) {
             SC.get('/resolve', { url: trackUrl }, function(sound) {
+                sound.stream_url += '?client_id=' + clientID;
                 callback(sound);
             });
         }
