@@ -1,5 +1,5 @@
 angular.module('scvServices').factory('player', 
-['soundcloudResolver', function(soundcloudResolver) {
+['$rootScope', 'soundcloudResolver', function($rootScope, soundcloudResolver) {
     function Player() {
         var self = this;
         var history = [];
@@ -18,8 +18,10 @@ angular.module('scvServices').factory('player',
                 }
                 
                 // Play song and add to history
-                currentTrack = track;
-                history.push(track);
+                $rootScope.$apply(function() {
+                    currentTrack = track;
+                    history.push(track);
+                })
             });
         }
         
