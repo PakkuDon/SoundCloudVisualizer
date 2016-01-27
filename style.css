@@ -28,9 +28,20 @@ canvas {
     flex-flow: column nowrap;
 }
 
+visualizer {
+    flex: 1 1 auto;
+    display: flex;
+    flex-flow: column nowrap;
+}
+
 #canvas-panel {
     position: relative;
     flex: 1 1 auto;
+}
+
+#visualizer-options {
+    color: #FFF;
+    flex: 0 1 auto;
 }
 
 #container {
@@ -89,8 +100,8 @@ footer, footer a {
     flex-direction: column;
 }
 
-#sidebar > div {
-    flex: 1 1 auto;
+history, playback-queue {
+    flex: 1 0 auto;
 }
 
 .list {

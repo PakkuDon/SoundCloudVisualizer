@@ -1,0 +1,16 @@
+<div id="history">
+    Recently played
+    <div class="track" ng-repeat="track in histCtrl.player.getHistory()">
+        <div ng-bind="track.user.username"></div>
+        <div ng-bind="track.title"></div>
+        <div ng-bind="track.genre"></div>
+        <div>
+            <a href="{{ track.permalink_url }}">Permalink</a>
+        </div>
+        <div class="actions">
+            <span ng-click="histCtrl.play($index)">Play</span>
+            <span ng-click="histCtrl.delete($index)">Delete</span>
+            <span ng-click="histCtrl.queue($index)">Queue</span>
+        </div>
+    </div>
+</div>

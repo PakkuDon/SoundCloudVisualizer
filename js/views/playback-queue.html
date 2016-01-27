@@ -1,0 +1,15 @@
+<div id="playback-queue">
+    Playback Queue
+    <div class="track" ng-repeat="track in playbackCtrl.player.getPlaybackQueue()">
+        <div ng-bind="track.user.username"></div>
+        <div ng-bind="track.title"></div>
+        <div ng-bind="track.genre"></div>
+        <div>
+            <a href="{{ track.permalink_url }}">Permalink</a>
+        </div>
+        <div class="actions">
+            <span ng-click="playbackCtrl.play($index)">Play</span>
+            <span ng-click="playbackCtrl.delete($index)">Delete</span>
+        </div>
+    </div>
+</div>

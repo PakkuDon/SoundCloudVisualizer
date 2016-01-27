@@ -1,0 +1,22 @@
+<div>
+    <form id="player-form" ng-submit="playerCtrl.play()">
+        <input type="text" id="track-url" size="40"
+                placeholder="SoundCloud Track URL"
+                ng-model="playerCtrl.track_url" />
+        <input type="submit" value="Load song" />
+    </form>
+</div>
+<div id="song-information">
+    <img id="thumbnail" ng-src="{{ playerCtrl.player.getCurrentTrack().artwork_url }}" />
+    <div id="details">
+        <div id="artist" ng-bind="playerCtrl.player.getCurrentTrack().user.username"></div>
+        <div id="title" ng-bind="playerCtrl.player.getCurrentTrack().title"></div>
+        <div id="genre" ng-bind="playerCtrl.player.getCurrentTrack().genre"></div>
+    </div>
+</div>
+<audio id="player" crossorigin="anonymous" controls ng-src="{{ playerCtrl.player.getCurrentTrack().stream_url | trusted }}" >
+    Your browser does not support the HTML5 audio element.
+</audio>
+<footer>
+    <a href="https://github.com/PakkuDon/SoundCloudVisualizer">Source code on GitHub</a>
+</footer>
