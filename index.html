@@ -6,23 +6,25 @@
         <link rel="stylesheet" href="style.css" />
     </head>
     <body ng-app="SoundCloudVisualizer">
-        <input id="toggle-sidebar" type="checkbox" />
-        <label for="toggle-sidebar">&#9664;</label>
-
         <div id="notifications">
         </div>
-
-        <div id="sidebar">
-            <history></history>
-            <playback-queue></playback-queue>
-        </div>
-
-        <div id="body">
-            <visualizer></visualizer>
-            <div id="container">
-                <button type="button" id="toggle-form-btn">&#9660;</button>
-                <div id="collapsible-container">
-                    <player></player>
+        
+        <div id="main">
+            <input id="toggle-sidebar" type="checkbox" />
+            <label for="toggle-sidebar">&#9664;</label>
+            
+            <div id="sidebar">
+                <history></history>
+                <playback-queue></playback-queue>
+            </div>
+            
+            <div id="body">
+                <visualizer></visualizer>
+                <div id="container">
+                    <button type="button" id="toggle-form-btn">&#9660;</button>
+                    <div id="collapsible-container">
+                        <player></player>
+                    </div>
                 </div>
             </div>
         </div>
