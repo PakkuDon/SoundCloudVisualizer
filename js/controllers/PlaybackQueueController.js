@@ -3,11 +3,12 @@ angular.module('scvControllers').controller('PlaybackQueueController',
     this.player = player;
     
     this.play = function(index) {
-        var track = this.player.getPlaybackQueue().splice(index, 1)[0];
+        var track = this.player.getPlaybackQueue().getTracks()[0];
+        this.player.getPlaybackQueue().remove(index);
         player.play(track.permalink_url);
     }
     
     this.delete = function(index) {
-        this.player.getPlaybackQueue().splice(index, 1);
+        this.player.getPlaybackQueue().remove(index);
     }
 }]);

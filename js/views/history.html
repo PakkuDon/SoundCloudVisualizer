@@ -1,6 +1,6 @@
 Recently played
 <div class="list">
-    <div class="track" ng-repeat="track in histCtrl.player.getHistory()">
+    <div class="track" ng-repeat="track in histCtrl.player.getHistory().getTracks()">
         <div ng-bind="track.user.username"></div>
         <div ng-bind="track.title"></div>
         <div ng-bind="track.genre"></div>
