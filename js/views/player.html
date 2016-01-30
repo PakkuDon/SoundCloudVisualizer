@@ -14,7 +14,7 @@
         <div id="genre" ng-bind="playerCtrl.player.getCurrentTrack().genre"></div>
     </div>
 </div>
-<audio id="player" crossorigin="anonymous" controls ng-src="{{ playerCtrl.player.getCurrentTrack().stream_url | trusted }}" >
+<audio id="player" autoplay crossorigin="anonymous" controls ng-src="{{ playerCtrl.player.getCurrentTrack().stream_url | trusted }}" >
     Your browser does not support the HTML5 audio element.
 </audio>
 <footer>
