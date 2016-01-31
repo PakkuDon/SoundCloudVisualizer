@@ -27,6 +27,17 @@ function($rootScope, soundcloudResolver, history, playbackQueue) {
         this.getCurrentTrack = function() {
             return currentTrack;
         }
+        
+        // Retrieve and play next song in queue
+        this.next = function() {
+            if (playbackQueue.getTracks().length > 0) {
+                var nextTrack = playbackQueue.getTracks()[0];
+                $rootScope.$apply(function() {
+                    playbackQueue.remove(0);
+                    self.play(nextTrack.permalink_url);
+                })
+            }
+        }
     }
     
     var player = new Player();
