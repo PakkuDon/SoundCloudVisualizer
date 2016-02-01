@@ -1,6 +1,6 @@
 Recently played
 <div class="list">
-    <div class="track" ng-repeat="track in histCtrl.player.getHistory().getTracks() | reverse">
+    <div class="track" ng-repeat="track in tracks = (histCtrl.player.getHistory().getTracks() | reverse)">
         <div ng-bind="track.user.username"></div>
         <div ng-bind="track.title"></div>
         <div ng-bind="track.genre"></div>
@@ -8,9 +8,9 @@ Recently played
             <a href="{{ track.permalink_url }}">Permalink</a>
         </div>
         <div class="actions">
-            <span ng-click="histCtrl.play($index)">Play</span>
-            <span ng-click="histCtrl.delete($index)">Delete</span>
-            <span ng-click="histCtrl.queue($index)">Queue</span>
+            <span ng-click="histCtrl.play(tracks.length - $index - 1)">Play</span>
+            <span ng-click="histCtrl.delete(tracks.length - $index - 1)">Delete</span>
+            <span ng-click="histCtrl.queue(tracks.length - $index - 1)">Queue</span>
         </div>
     </div>
 </div>
