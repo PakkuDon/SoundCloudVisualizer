@@ -1,3 +1,4 @@
+/* Main layout and styles */
 body {
     font-size: 100%;
     font-family: sans-serif;
@@ -19,31 +20,43 @@ body, #main {
     display: flex;
 }
 
+a {
+    color: #FFF;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+h2 {
+    font-size: 1.2em;
+}
+
+button {
+    background-color: rgba(0, 160, 230, 0.1);
+    border-color: rgba(0, 160, 230, 0.25);
+    color: #FFF;
+    padding: 5px 10px;
+    border-radius: 10%;
+}
+
+button:hover {
+    background-color: rgba(0, 160, 230, 0.25);
+    border-color: rgba(0, 160, 230, 0.4);
+}
+
+footer {
+    text-align: right;
+}
+
+/* Sidebar and toggle rules */
 #sidebar {
     background-color: rgba(0, 160, 230, 0.1);
     color: #FFF;
-    flex: 0 1 auto;
+    flex: 1 0 auto;
     height: 100%;
-}
-
-history, playback-queue {
-    height: 50%;
-    flex: 1 1 auto;
-    display: flex;
-    flex-direction: column;
-}
-
-.list {
-    overflow-y: auto;
-    flex: 1 1 auto;
-}
-
-.track {
-    border-bottom: 1px solid rgba(0, 160, 230, 0.1);
-}
-
-.track:hover {
-    background-color: rgba(0, 160, 230, 0.1);
+    padding: 5px;
 }
 
 input#toggle-sidebar {
@@ -61,13 +74,42 @@ input#toggle-sidebar:checked ~ #sidebar {
     display: none;
 }
 
+/* Sidebar components */
+history, playback-queue {
+    height: 50%;
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+/* History and playback queue lists and list contents */
+.list {
+    overflow-y: auto;
+    flex: 1 1 auto;
+}
+
+.track {
+    border-bottom: 1px solid rgba(0, 160, 230, 0.1);
+    padding: 5px;
+}
+
+.track:hover {
+    background-color: rgba(0, 160, 230, 0.1);
+}
+
+.track .actions {
+    text-align: right;
+}
+
+/* Main body container */
 #body {
     background-color: #000;
-    flex: 1 1 auto;
+    flex: 3 0 auto;
     display: flex;
     flex-flow: column nowrap;
 }
 
+/* Visualizer component */
 visualizer {
     flex: 1 1 auto;
     display: flex;
@@ -81,6 +123,7 @@ visualizer {
 
 canvas {
     background-color: #000;
+    /* Fill parent panel */
     position: absolute;
     top: 0;
     left: 0;
@@ -95,6 +138,7 @@ canvas {
     flex: 0 1 auto;
 }
 
+/* Audio player component */
 #container {
     color: #FFF;
     background-color: rgba(0, 160, 230, 0.1);
@@ -102,11 +146,7 @@ canvas {
     flex: 0 1 auto;
 }
 
-footer, footer a {
-    color: #FFF;
-    text-align: right;
-}
-
+/* Track details */
 #thumbnail, #details {
     display: inline-block;
 }
@@ -120,14 +160,25 @@ footer, footer a {
     text-align: left;
 }
 
-#toggle-form-btn  {
-    background-color: rgba(0, 160, 230, 0.05);
+/* Toggle control for player component */
+#toggle-player {
+    display: none;
+}
+
+label[for="toggle-player"] {
+    background-color: rgba(0, 160, 230, 0.20);
     margin: 0;
     border-color: transparent;
     color: #FFF;
     width: 100%;
+    text-align: center;
 }
 
+#toggle-player:checked ~ #container {
+    display: none;
+} 
+
+/* Notifications */
 #notifications {
     width: 100%;
     background-color: rgba(0, 160, 230, 0.1);
@@ -137,21 +188,4 @@ footer, footer a {
 #notifications .message {
     text-align: center;
     color: #FFF;
-}
-
-.delete-button {
-    background-color: rgba(0, 160, 230, 0.1);
-    border-radius: 25%;
-    padding: 5px 10px;
-    position: absolute;
-    right: 5px;
-    top: 5px;
-}
-
-.delete-button:before {
-    content: "x";
-}
-
-.delete-button:hover {
-    background-color: rgba(0, 160, 230, 0.1);
 }

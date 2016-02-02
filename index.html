@@ -11,20 +11,18 @@
         
         <div id="main">
             <input id="toggle-sidebar" type="checkbox" />
-            <label for="toggle-sidebar">&#9664;</label>
-            
             <div id="sidebar">
                 <history></history>
                 <playback-queue></playback-queue>
             </div>
+            <label for="toggle-sidebar">&#9664;</label>
             
             <div id="body">
                 <visualizer></visualizer>
+                <label for="toggle-player">&#9660;</label>
+                <input id="toggle-player" type="checkbox" />
                 <div id="container">
-                    <button type="button" id="toggle-form-btn">&#9660;</button>
-                    <div id="collapsible-container">
-                        <player></player>
-                    </div>
+                    <player></player>
                 </div>
             </div>
         </div>

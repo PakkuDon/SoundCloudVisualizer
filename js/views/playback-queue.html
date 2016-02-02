@@ -1,4 +1,4 @@
-Playback Queue
+<h2>Playback Queue</h2>
 <div class="list">
     <div class="track" ng-repeat="track in playbackCtrl.player.getPlaybackQueue().getTracks() track by $index">
         <div ng-bind="track.user.username"></div>
@@ -8,8 +8,8 @@ Playback Queue
             <a href="{{ track.permalink_url }}">Permalink</a>
         </div>
         <div class="actions">
-            <span ng-click="playbackCtrl.play($index)">Play</span>
-            <span ng-click="playbackCtrl.delete($index)">Delete</span>
+            <button ng-click="playbackCtrl.play($index)">Play</button>
+            <button ng-click="playbackCtrl.delete($index)">Delete</button>
         </div>
     </div>
 </div>
