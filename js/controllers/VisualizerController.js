@@ -1,3 +1,5 @@
-angular.module('scvControllers').controller('VisualizerController', function() {
+angular.module('scvControllers').controller('VisualizerController', 
+['audio', function(audio) {
+    var analyser = audio.getAnalyser();
     
-});
+}]);
