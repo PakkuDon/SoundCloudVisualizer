@@ -3,7 +3,13 @@ angular.module('scvControllers').controller('VisualizerController',
     var self = this;
     this.analyser;
     this.visualizer;
+    this.strategy = '';
     
+    this.setStrategy = function(strategy) {
+        self.visualizer.setStrategy(strategy);
+    }
+    
+    // Initialise analyser and visualizer after AngularJS elements rendered
     $scope.$on('rendered', function(event, messages) {
         var graphicsContext = document.querySelector('canvas').getContext('2d');
         self.analyser = audio.getAnalyser();
