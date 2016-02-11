@@ -50,6 +50,9 @@ footer {
     text-align: right;
 }
 
+.hidden {
+    display: none;
+}
 /* Sidebar and toggle rules */
 #sidebar {
     background-color: rgba(0, 160, 230, 0.1);
@@ -99,6 +102,18 @@ history, playback-queue {
 
 .track .actions {
     text-align: right;
+}
+
+svg.icon {
+    stroke: #FFF;
+    stroke-width: 4;
+    fill: transparent;
+    width: 24px;
+    height: 24px;
+}
+
+svg.white {
+    fill: #FFF;
 }
 
 /* Main body container */
