@@ -1,4 +1,4 @@
-angular.module('scvDirectives').directive('init', 
+angular.module('scvDirectives').directive('rendered', 
 ['$rootScope', '$timeout', function($rootScope, $timeout) {
    return {
        restrict: 'A',

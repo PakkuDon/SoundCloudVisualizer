@@ -1,6 +1,6 @@
 <h2>Recently played</h2>
 <div class="list">
-    <div class="track" ng-repeat="track in tracks = (histCtrl.player.getHistory().getTracks() | reverse)">
+    <div class="track" ng-repeat="track in tracks = (histCtrl.getHistory() | reverse)">
         <div ng-bind="track.user.username"></div>
         <div ng-bind="track.title"></div>
         <div ng-bind="track.genre"></div>

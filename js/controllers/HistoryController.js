@@ -1,10 +1,13 @@
 angular.module('scvControllers')
 .controller('HistoryController', ['player', function(player) {
-    this.player = player;
+    // Return tracks listed in history
+    this.getHistory = function() {
+        return player.getHistory().getTracks();
+    }
     
     // Play selected song
     this.play = function(index) {
-        var trackUrl = player.getHistory().getTracks()[index].permalink_url;
+        var trackUrl = this.getHistory()[index].permalink_url;
         player.play(trackUrl);
     }
     
@@ -15,7 +18,7 @@ angular.module('scvControllers')
     
     // Add selected song to playback queue
     this.queue = function(index) {
-        var track = player.getHistory().getTracks()[index];
+        var track = this.getHistory()[index];
         player.getPlaybackQueue().add(track);
     }
 }]);

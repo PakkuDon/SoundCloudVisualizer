@@ -1,14 +1,19 @@
 angular.module('scvControllers').controller('PlaybackQueueController', 
 ['player', function(player) {
-    this.player = player;
+    // Return tracks in playback queue
+    this.getPlaybackQueue = function() {
+        return player.getPlaybackQueue().getTracks();
+    }
     
+    // Play and remove selected track from queue
     this.play = function(index) {
-        var track = this.player.getPlaybackQueue().getTracks()[0];
-        this.player.getPlaybackQueue().remove(index);
+        var track = this.getPlaybackQueue()[index];
+        player.getPlaybackQueue().remove(index);
         player.play(track.permalink_url);
     }
     
+    // Remove selected track from queue
     this.delete = function(index) {
-        this.player.getPlaybackQueue().remove(index);
+        player.getPlaybackQueue().remove(index);
     }
 }]);

@@ -1,6 +1,6 @@
 <h2>Playback Queue</h2>
 <div class="list">
-    <div class="track" ng-repeat="track in playbackCtrl.player.getPlaybackQueue().getTracks() track by $index">
+    <div class="track" ng-repeat="track in playbackCtrl.getPlaybackQueue() track by $index">
         <div ng-bind="track.user.username"></div>
         <div ng-bind="track.title"></div>
         <div ng-bind="track.genre"></div>
