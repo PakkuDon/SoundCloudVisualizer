@@ -6,9 +6,6 @@
         <link rel="stylesheet" href="style.css" />
     </head>
     <body ng-app="SoundCloudVisualizer">
-        <div id="notifications">
-        </div>
-        
         <div id="main">
             <input id="toggle-sidebar" type="checkbox" />
             <div id="sidebar">
@@ -18,6 +15,7 @@
             <label for="toggle-sidebar">&#9664;</label>
             
             <div id="body">
+                <notifications></notifications>
                 <visualizer></visualizer>
                 <label for="toggle-player">&#9660;</label>
                 <input id="toggle-player" type="checkbox" />
@@ -57,6 +55,7 @@
         <script src="js/controllers/PlaybackQueueController.js"></script>
         <script src="js/controllers/PlayerController.js"></script>
         <script src="js/controllers/VisualizerController.js"></script>
+        <script src="js/controllers/NotificationsController.js"></script>
         
         <!-- Services -->
         <script src="js/services/player.js"></script>
@@ -64,6 +63,7 @@
         <script src="js/services/history.js"></script>
         <script src="js/services/playback-queue.js"></script>
         <script src="js/services/audio.js"></script>
+        <script src="js/services/notifications.js"></script>
         
         <!-- Filters / Directives -->
         <script src="js/filters.js"></script>
@@ -72,6 +72,7 @@
         <script src="js/directives/player.js"></script>
         <script src="js/directives/visualizer.js"></script>
         <script src="js/directives/rendered.js"></script>
+        <script src="js/directives/notifications.js"></script>
         
         <!-- Visualizers -->
         <script src="js/visualizer.js"></script>

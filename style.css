@@ -116,12 +116,18 @@ svg.white {
     fill: #FFF;
 }
 
+.icon.small {
+    width: 12px;
+    height: 12px;
+}
+
 /* Main body container */
 #body {
     background-color: #000;
     flex: 3 0 auto;
     display: flex;
     flex-flow: column nowrap;
+    position: relative;
 }
 
 /* Visualizer component */
@@ -194,13 +200,24 @@ label[for="toggle-player"] {
 } 
 
 /* Notifications */
-#notifications {
-    width: 100%;
-    background-color: rgba(0, 160, 230, 0.1);
-    margin: auto;
+notifications {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
 }
 
-#notifications .message {
+notifications .message {
     text-align: center;
     color: #FFF;
+    background-color: rgba(0, 160, 230, 0.2);
+    padding: 5px;
+    margin: 1px;
+    position: relative;
+}
+
+.message .delete {
+    padding: 0px;
+    border-radius: 100%;
 }

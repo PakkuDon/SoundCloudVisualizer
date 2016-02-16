@@ -1,0 +1,11 @@
+<div class="message" 
+    ng-repeat="notification in notificationsCtrl.getNotifications() track by $index">
+    <span ng-bind="notification"></span>
+    <button class="delete" 
+        ng-click="notificationsCtrl.delete($index)" 
+        title="Delete message">
+        <svg class="icon small">
+            <use xlink:href="#delete"></use>
+        </svg>
+    </button>
+</div>
