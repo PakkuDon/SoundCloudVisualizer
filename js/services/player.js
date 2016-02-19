@@ -1,18 +1,30 @@
 angular.module('scvServices').factory('player', 
-['$rootScope', 'soundcloudResolver', 'history', 'playbackQueue', 
-function($rootScope, soundcloudResolver, history, playbackQueue) {
+['$rootScope', 'notifications', 'soundcloudResolver', 'history', 'playbackQueue', 
+function($rootScope, notifications, soundcloudResolver, history, playbackQueue) {
     function Player() {
         var self = this;
         var currentTrack = {};
         
         this.play = function(trackUrl) {
             // Retrieve track 
-            soundcloudResolver.load(trackUrl, function(track) {
-                // Play song and add to history
-                $rootScope.$apply(function() {
-                    currentTrack = track;
-                    history.add(track);
-                })
+            soundcloudResolver.load(trackUrl, function(sound) {
+                // Display error if track not resolved or if 
+                // result is not valid track or playlist
+                if (sound.errors) {
+                    notifications.addMessage('Error: Failed to load data for ' 
+                        + trackUrl + '.');
+                }
+                else if (sound.uri.indexOf('/tracks/') === -1) {
+                    notifications.addMessage('Error: ' + trackUrl 
+                        + ' is not a valid track.');
+                }
+                else {
+                    // Play song and add to history
+                    $rootScope.$apply(function() {
+                        currentTrack = sound;
+                        history.add(sound);
+                    })
+                }
             });
         }
         
