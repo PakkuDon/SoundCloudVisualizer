@@ -8,7 +8,7 @@
         Visualizer:
     </label>
     <select id="visualizer-dropdown" 
-        ng-model="visualizer.strategy" ng-change="visualizerCtrl.setStrategy(visualizer.strategy)"
-        ng-options="key as visualizer.name for (key, visualizer) in visualizerCtrl.visualizer.strategies">
+        ng-model="visualizerCtrl.strategy" ng-change="visualizerCtrl.setStrategy(visualizerCtrl.strategy)"
+        ng-options="key as visualizer.name for (key, visualizer) in visualizerCtrl.getStrategies()">
     </select>
 </div>

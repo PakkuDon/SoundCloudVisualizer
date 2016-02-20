@@ -8,7 +8,7 @@ angular.module('scvDirectives').directive('player', function() {
             // Play next song from queue once current song ends
             var audio = element.find('audio');
             audio.on('ended', function(e) {
-               scope.playerCtrl.player.next();
+               scope.playerCtrl.playNext();
             });
         }
     };

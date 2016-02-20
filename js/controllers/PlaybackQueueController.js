@@ -9,7 +9,7 @@ angular.module('scvControllers').controller('PlaybackQueueController',
     this.play = function(index) {
         var track = this.getPlaybackQueue()[index];
         player.getPlaybackQueue().remove(index);
-        player.play(track.permalink_url);
+        player.play(track);
     }
     
     // Remove selected track from queue

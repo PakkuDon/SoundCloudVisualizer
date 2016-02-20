@@ -7,14 +7,14 @@
     </form>
 </div>
 <div id="song-information">
-    <img id="thumbnail" ng-src="{{ playerCtrl.player.getCurrentTrack().artwork_url }}" />
+    <img id="thumbnail" ng-src="{{ playerCtrl.getCurrentTrack().artwork_url }}" />
     <div id="details">
-        <div id="artist" ng-bind="playerCtrl.player.getCurrentTrack().user.username"></div>
-        <div id="title" ng-bind="playerCtrl.player.getCurrentTrack().title"></div>
-        <div id="genre" ng-bind="playerCtrl.player.getCurrentTrack().genre"></div>
+        <div id="artist" ng-bind="playerCtrl.getCurrentTrack().user.username"></div>
+        <div id="title" ng-bind="playerCtrl.getCurrentTrack().title"></div>
+        <div id="genre" ng-bind="playerCtrl.getCurrentTrack().genre"></div>
     </div>
 </div>
-<audio id="player" autoplay crossorigin="anonymous" controls ng-src="{{ playerCtrl.player.getCurrentTrack().stream_url | trusted }}" >
+<audio id="player" autoplay crossorigin="anonymous" controls ng-src="{{ playerCtrl.getCurrentTrack().stream_url | trusted }}" >
     Your browser does not support the HTML5 audio element.
 </audio>
 <footer>

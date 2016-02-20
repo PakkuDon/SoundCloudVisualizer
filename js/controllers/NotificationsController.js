@@ -7,7 +7,4 @@ angular.module('scvControllers')
     this.delete = function(index) {
         notifications.deleteMessage(index);
     }
-    
-    notifications.addMessage('Testing!');
-   
 }]);

@@ -7,8 +7,8 @@ angular.module('scvControllers')
     
     // Play selected song
     this.play = function(index) {
-        var trackUrl = this.getHistory()[index].permalink_url;
-        player.play(trackUrl);
+        var track = this.getHistory()[index];
+        player.play(track);
     }
     
     // Remove selected song from history

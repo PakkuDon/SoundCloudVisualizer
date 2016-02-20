@@ -1,4 +1,4 @@
-angular.module('scvServices').factory('notifications', ['$rootScope', function($rootScope) {
+angular.module('scvServices').factory('notifications', function() {
     function Notifications() {
         var messages = [];
         
@@ -15,4 +15,4 @@ angular.module('scvServices').factory('notifications', ['$rootScope', function($
         }
     }
     return new Notifications();
-}]);
+});

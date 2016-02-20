@@ -1,22 +1,34 @@
 angular.module('scvControllers').controller('VisualizerController', 
 ['$scope', 'audio', function($scope, audio) {
     var self = this;
-    this.analyser;
-    this.visualizer;
+    var analyser;
+    var visualizer;
     this.strategy = '';
     
     this.setStrategy = function(strategy) {
-        self.visualizer.setStrategy(strategy);
+        visualizer.setStrategy(strategy);
+    }
+    
+    this.getStrategies = function() {
+        if (typeof visualizer !== 'undefined') {
+            return visualizer.strategies;
+        }
+        else {
+            return {};
+        }
     }
     
     // Initialise analyser and visualizer after AngularJS elements rendered
     $scope.$on('rendered', function(event, messages) {
         var graphicsContext = document.querySelector('canvas').getContext('2d');
-        self.analyser = audio.getAnalyser();
-        self.visualizer = new Visualizer(graphicsContext, self.analyser);
+        analyser = audio.getAnalyser();
+        visualizer = new Visualizer(graphicsContext, analyser);
+        // Set initial visualizer 
+        var key = Object.keys(visualizer.strategies)[0];
+        self.strategy = visualizer.strategies[key];
         
         var draw = function() {
-            self.visualizer.draw();
+            visualizer.draw();
             requestAnimationFrame(draw);
         }
         

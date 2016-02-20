@@ -11,7 +11,6 @@ function Visualizer(graphics, analyser) {
             name : "Waveform",
             obj : new WaveformVisualizer()
         }
-
     };
 
     this.setStrategy = function(key) {
