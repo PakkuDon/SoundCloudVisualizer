@@ -41,14 +41,24 @@ function(notifications, soundcloudResolver, history, playbackQueue) {
                     notifications.addMessage('Error: Failed to load data for ' 
                         + trackUrl + '.');
                 }
-                else if (sound.uri.indexOf('/tracks') === -1) {
+                else if (sound.uri.indexOf('/tracks') === -1 
+                    && sound.uri.indexOf('/playlists') === -1) {
                     notifications.addMessage('Error: ' + trackUrl 
                         + ' is not a valid track.');
                 }
                 else {
+                    // If result is a track, play song
                     if (sound.uri.indexOf('/tracks') >= 0) {
                         sound.stream_url += '?client_id=' + soundcloudResolver.clientID;
                         self.play(sound);
+                    }
+                    // Else, queue songs and play first track
+                    else {
+                        for (var i = 0; i < sound.tracks.length; i++) {
+                            sound.tracks[i].stream_url += '?client_id=' + soundcloudResolver.clientID;
+                            playbackQueue.add(sound.tracks[i]);
+                        }
+                        self.next();
                     }
                 }
             });
