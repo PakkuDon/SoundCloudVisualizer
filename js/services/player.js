@@ -37,11 +37,7 @@ function(notifications, soundcloudResolver, history, playbackQueue) {
             soundcloudResolver.load(trackUrl, function(sound) {
                 // Display error if track not resolved or if 
                 // result is not valid track or playlist
-                if (sound.errors) {
-                    notifications.addMessage('Error: Failed to load data for ' 
-                        + trackUrl + '.');
-                }
-                else if (sound.uri.indexOf('/tracks') === -1 
+                if (sound.uri.indexOf('/tracks') === -1 
                     && sound.uri.indexOf('/playlists') === -1) {
                     notifications.addMessage('Error: ' + trackUrl 
                         + ' is not a valid track.');
@@ -61,6 +57,8 @@ function(notifications, soundcloudResolver, history, playbackQueue) {
                         self.next();
                     }
                 }
+            }, function(error) {
+                notifications.addMessage('Error: ' + error);
             });
         }
     }
