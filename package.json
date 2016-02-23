@@ -11,6 +11,9 @@
   },
   "author": "PakkuDon",
   "devDependencies": {
-    "bower": "^1.7.2"
+    "bower": "^1.7.2",
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.0",
+    "gulp-uglify": "^1.5.3"
   }
 }
