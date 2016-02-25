@@ -16,11 +16,9 @@
     "test",
     "tests"
   ],
-  "devDependencies": {
-    "angular": "~1.4.8",
-    "jquery": "~2.2.0"
-  },
   "dependencies": {
+    "angular": "~1.4.8",
+    "jquery": "~2.2.0",
     "angular-sanitize": "~1.4.9"
   }
 }
