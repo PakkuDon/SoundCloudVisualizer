@@ -1,6 +1,6 @@
 angular.module('scvServices').factory('player', 
-['notifications', 'soundcloudResolver', 'history', 'playbackQueue', 
-function(notifications, soundcloudResolver, history, playbackQueue) {
+['notifications', 'soundcloudResolver', 'soundcloudId', 'history', 'playbackQueue', 
+function(notifications, soundcloudResolver, soundcloudId, history, playbackQueue) {
     function Player() {
         var self = this;
         var currentTrack = {};
@@ -45,13 +45,13 @@ function(notifications, soundcloudResolver, history, playbackQueue) {
                 else {
                     // If result is a track, play song
                     if (sound.uri.indexOf('/tracks') >= 0) {
-                        sound.stream_url += '?client_id=' + soundcloudResolver.clientID;
+                        sound.stream_url += '?client_id=' + soundcloudId;
                         self.play(sound);
                     }
                     // Else, queue songs and play first track
                     else {
                         for (var i = 0; i < sound.tracks.length; i++) {
-                            sound.tracks[i].stream_url += '?client_id=' + soundcloudResolver.clientID;
+                            sound.tracks[i].stream_url += '?client_id=' + soundcloudId;
                             playbackQueue.add(sound.tracks[i]);
                         }
                         self.next();
