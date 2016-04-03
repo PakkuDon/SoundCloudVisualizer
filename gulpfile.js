@@ -12,4 +12,11 @@ gulp.task('vendor', function() {
     .pipe(gulp.dest('public/js'));
 });
 
-gulp.task('default', ['vendor']);
+gulp.task('bundle', function() {
+    return gulp.src('js/**/*.js')
+        .pipe(concat('bundle.js'))
+        .pipe(uglify({ mangle: false }))
+        .pipe(gulp.dest('public/js'));
+});
+
+gulp.task('default', ['vendor', 'bundle']);
