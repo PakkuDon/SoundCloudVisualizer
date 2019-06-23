@@ -4,7 +4,8 @@
   "description": "Just playing around with the SoundCloud and Web Audio APIs.",
   "license": "MIT",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "webpack",
+    "dev": "webpack --watch"
   },
   "repository": {
     "type": "git",
