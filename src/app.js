@@ -2,8 +2,15 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import './style.css'
 
+import Sidebar from './components/Sidebar'
+
 const App = () => (
-  <div>Hello World</div>
+  <main>
+    <Sidebar>
+      <div>History</div>
+      <div>Playback queue</div>
+    </Sidebar>
+  </main>
 )
 
 ReactDOM.render(
