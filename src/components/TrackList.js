@@ -1,15 +1,14 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { SoundCloudTrack } from '../propTypes'
+import TrackListItem from './TrackListItem'
 
 const TrackList = ({ title, tracks }) => (
   <React.Fragment>
     <h2>{title}</h2>
     <div className="list">
       {tracks.reverse().map(track => (
-        <div className="track" key={track.id}>
-          {track.title}
-        </div>
+        <TrackListItem track={track} />
       ))}
     </div>
   </React.Fragment>
