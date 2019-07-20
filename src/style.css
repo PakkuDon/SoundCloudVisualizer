@@ -63,19 +63,12 @@ footer {
     padding: 5px;
 }
 
-input#toggle-sidebar {
-    display: none;
-}
-
-label[for="toggle-sidebar"] {
+.toggle-sidebar {
     background-color: rgba(0, 160, 230, 0.25);
     border-color: transparent;
     color: #FFF;
     padding: 2px;
-}
-
-input#toggle-sidebar:checked ~ #sidebar {
-    display: none;
+    border-radius: 0;
 }
 
 /* Sidebar components */
