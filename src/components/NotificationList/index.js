@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import IconDelete from './IconDelete'
+import IconDelete from '../icons/IconDelete'
 
 const NotificationList = ({ notifications }) => (
   <React.Fragment>

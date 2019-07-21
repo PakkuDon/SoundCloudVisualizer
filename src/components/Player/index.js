@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { SoundCloudTrack } from '../propTypes'
+import { SoundCloudTrack } from '../../propTypes'
 
 const Player = ({ inputUrl, track }) => (
   <React.Fragment>

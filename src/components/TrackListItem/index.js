@@ -1,10 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { SoundCloudTrack } from '../propTypes'
+import { SoundCloudTrack } from '../../propTypes'
 
-import IconDelete from './IconDelete'
-import IconPlay from './IconPlay'
-import IconQueue from './IconQueue'
+import IconDelete from '../icons/IconDelete'
+import IconPlay from '../icons/IconPlay'
+import IconQueue from '../icons/IconQueue'
 
 const TrackListItem = ({ track }) => (
   <div className="track">
