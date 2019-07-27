@@ -6,15 +6,17 @@ import IconDelete from '../icons/IconDelete'
 import IconPlay from '../icons/IconPlay'
 import IconQueue from '../icons/IconQueue'
 
+import styles from './styles.css'
+
 const TrackListItem = ({ track }) => (
-  <div className="track">
+  <div className={styles.root}>
     <div>{track.user.username}</div>
     <div>{track.title}</div>
     <div>{track.genre}</div>
     <div>
       <a href={track.permalink_url}>Permalink</a>
     </div>
-    <div className="actions">
+    <div className={styles.actions}>
       <button><IconPlay /></button>
       <button><IconDelete /></button>
       <button><IconQueue /></button>
