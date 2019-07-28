@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { SoundCloudTrack } from '../../propTypes'
+import styles from './styles.css'
 
 const Player = ({ inputUrl, track }) => (
   <React.Fragment>
@@ -16,8 +17,8 @@ const Player = ({ inputUrl, track }) => (
       </form>
     </div>
     <div id="song-information">
-      <img id="thumbnail" src={track.artwork_url} />
-      <div id="details">
+      <img className={styles.thumbnail} src={track.artwork_url} />
+      <div className={styles.details}>
         <div id="artist">{track && track.user.username}</div>
         <div id="title">{track.title}</div>
         <div id="genre">{track.genre}</div>
