@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import styles from './styles.css'
 
 const Sidebar = (props) => {
   const [isOpen, toggleSidebar] = useState(true)
@@ -6,12 +7,12 @@ const Sidebar = (props) => {
   return (
     <React.Fragment>
       {isOpen && (
-        <div id="sidebar">
+        <div className={styles.root}>
           {props.children}
         </div>
       )}
       <button
-        className="toggle-sidebar"
+        className={styles.toggleSidebar}
         onClick={() => toggleSidebar(!isOpen)}
       >
         &#9664;
