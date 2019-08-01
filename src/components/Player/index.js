@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import Button from '../Button'
 import { SoundCloudTrack } from '../../propTypes'
 import styles from './styles.css'
 
@@ -13,7 +14,7 @@ const Player = ({ inputUrl, track }) => (
           size="40"
           value={inputUrl}
         />
-        <button type="button">Load song</button>
+      <Button>Load song</Button>
       </form>
     </div>
     <div id="song-information">

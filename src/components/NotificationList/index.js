@@ -1,5 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+
+import Button from '../Button'
 import IconDelete from '../icons/IconDelete'
 import styles from './styles.css'
 
@@ -8,9 +10,9 @@ const NotificationList = ({ notifications }) => (
     {notifications.map(notification => (
       <div key={notification} className={styles.root}>
         <span>{notification}</span>
-        <button className={styles.delete} title="Delete message">
+        <Button className={styles.delete} title="Delete message">
           <IconDelete />
-        </button>
+        </Button>
       </div>
     ))}
   </React.Fragment>

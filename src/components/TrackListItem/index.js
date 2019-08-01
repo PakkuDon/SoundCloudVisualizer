@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { SoundCloudTrack } from '../../propTypes'
 
+import Button from '../Button'
 import IconDelete from '../icons/IconDelete'
 import IconPlay from '../icons/IconPlay'
 import IconQueue from '../icons/IconQueue'
@@ -17,9 +18,9 @@ const TrackListItem = ({ track }) => (
       <a href={track.permalink_url}>Permalink</a>
     </div>
     <div className={styles.actions}>
-      <button><IconPlay /></button>
-      <button><IconDelete /></button>
-      <button><IconQueue /></button>
+      <Button><IconPlay /></Button>
+      <Button><IconDelete /></Button>
+      <Button><IconQueue /></Button>
     </div>
   </div>
 )
