@@ -34,19 +34,6 @@ h2 {
     font-size: 1.2em;
 }
 
-button {
-    background-color: rgba(0, 160, 230, 0.1);
-    border-color: rgba(0, 160, 230, 0.25);
-    color: #FFF;
-    padding: 5px 10px;
-    border-radius: 10%;
-}
-
-button:hover {
-    background-color: rgba(0, 160, 230, 0.25);
-    border-color: rgba(0, 160, 230, 0.4);
-}
-
 footer {
     text-align: right;
 }
