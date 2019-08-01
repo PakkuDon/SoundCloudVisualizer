@@ -7,25 +7,24 @@ import styles from './styles.css'
 const Player = ({ inputUrl, track }) => (
   <React.Fragment>
     <div>
-      <form id="player-form">
+      <form>
         <input
           type="text"
-          id="track-url"
           size="40"
           value={inputUrl}
         />
       <Button>Load song</Button>
       </form>
     </div>
-    <div id="song-information">
+    <div>
       <img className={styles.thumbnail} src={track.artwork_url} />
       <div className={styles.details}>
-        <div id="artist">{track && track.user.username}</div>
-        <div id="title">{track.title}</div>
-        <div id="genre">{track.genre}</div>
+        <div>{track && track.user.username}</div>
+        <div>{track.title}</div>
+        <div>{track.genre}</div>
       </div>
     </div>
-    <audio id="player" autoplay crossorigin="anonymous" controls src={track.stream_url} >
+    <audio autoplay crossorigin="anonymous" controls src={track.stream_url} >
       Your browser does not support the HTML5 audio element.
     </audio>
     <footer>
