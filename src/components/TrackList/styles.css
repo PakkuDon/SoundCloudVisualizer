@@ -2,3 +2,7 @@
   overflow-y: auto;
   flex: 1 1 auto;
 }
+
+.title {
+  font-size: 1.2em;
+}

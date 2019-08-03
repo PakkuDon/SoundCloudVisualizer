@@ -6,7 +6,7 @@ import styles from './styles.css'
 
 const TrackList = ({ title, tracks }) => (
   <React.Fragment>
-    <h2>{title}</h2>
+    <h2 className={styles.title}>{title}</h2>
     <div className={styles.root}>
       {tracks.reverse().map(track => (
         <TrackListItem track={track} />
