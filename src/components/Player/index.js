@@ -27,9 +27,9 @@ const Player = ({ inputUrl, track }) => (
     <audio autoplay crossorigin="anonymous" controls src={track.stream_url} >
       Your browser does not support the HTML5 audio element.
     </audio>
-    <footer>
+    <div className={styles.footer}>
       <a href="https://github.com/PakkuDon/SoundCloudVisualizer">Source code on GitHub</a>
-    </footer>
+    </div>
   </React.Fragment>
 )
 
