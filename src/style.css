@@ -30,62 +30,7 @@ a:hover {
     text-decoration: underline;
 }
 
-h2 {
-    font-size: 1.2em;
-}
-
-footer {
-    text-align: right;
-}
-
-.hidden {
-    display: none;
-}
-
 .history,
 .playbackQueue {
   height: 50%;
-}
-
-/* Main body container */
-#body {
-    background-color: #000;
-    flex: 3 0 auto;
-    display: flex;
-    flex-flow: column nowrap;
-    align-items: center;
-    position: relative;
-}
-
-/* Visualizer component */
-visualizer {
-    flex: 1 1 auto;
-    display: flex;
-    flex-flow: column nowrap;
-}
-
-/* Audio player component */
-#container {
-    color: #FFF;
-    background-color: rgba(0, 160, 230, 0.1);
-    text-align: center;
-    flex: 0 1 auto;
-}
-
-/* Toggle control for player component */
-#toggle-player {
-    display: none;
-}
-
-label[for="toggle-player"] {
-    background-color: rgba(0, 160, 230, 0.20);
-    margin: 0;
-    border-color: transparent;
-    color: #FFF;
-    width: 100%;
-    text-align: center;
-}
-
-#toggle-player:checked ~ #container {
-    display: none;
 }
