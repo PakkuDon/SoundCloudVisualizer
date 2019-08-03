@@ -1,3 +1,9 @@
+.root {
+  background-color: rgba(0, 160, 230, 0.1);
+  width: 100%;
+  text-align: center;
+}
+
 .thumbnail,
 .details {
   display: inline-block;

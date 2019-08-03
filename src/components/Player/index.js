@@ -5,7 +5,7 @@ import { SoundCloudTrack } from '../../propTypes'
 import styles from './styles.css'
 
 const Player = ({ inputUrl, track }) => (
-  <React.Fragment>
+  <div className={styles.root}>
     <div>
       <form>
         <input
@@ -30,7 +30,7 @@ const Player = ({ inputUrl, track }) => (
     <div className={styles.footer}>
       <a href="https://github.com/PakkuDon/SoundCloudVisualizer">Source code on GitHub</a>
     </div>
-  </React.Fragment>
+  </div>
 )
 
 Player.propTypes = {
