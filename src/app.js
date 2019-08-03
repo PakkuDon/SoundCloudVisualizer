@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import styles from './style.css'
+import 'normalize.css'
 
 import Sidebar from './components/Sidebar'
 import TrackList from './components/TrackList'
@@ -8,6 +8,7 @@ import MainContent from './components/MainContent'
 import NotificationList from './components/NotificationList'
 import Visualizer from './components/Visualizer'
 import Player from './components/Player'
+import styles from './style.css'
 
 const tracks = [
   {
