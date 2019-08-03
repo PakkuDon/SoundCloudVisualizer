@@ -1,33 +1,33 @@
-/* Main layout and styles */
 body {
-    font-size: 100%;
-    font-family: sans-serif;
-    background-color: #000;
-    color: #FFF;
+  font-size: 100%;
+  font-family: sans-serif;
+  background-color: #000;
+  color: #FFF;
 }
 
-body, main {
-    margin: 0;
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    height: 100%;
-    width: 100%;
+body,
+main {
+  margin: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
 }
 
 main {
-    display: flex;
+  display: flex;
 }
 
 a {
-    color: #FFF;
-    text-decoration: none;
+  color: #FFF;
+  text-decoration: none;
 }
 
 a:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 .history,
