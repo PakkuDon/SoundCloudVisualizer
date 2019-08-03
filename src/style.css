@@ -42,12 +42,9 @@ footer {
     display: none;
 }
 
-/* Sidebar components */
-history, playback-queue {
-    height: 50%;
-    flex: 1 1 auto;
-    display: flex;
-    flex-direction: column;
+.history,
+.playbackQueue {
+  height: 50%;
 }
 
 /* Main body container */

@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import './style.css'
+import styles from './style.css'
 
 import Sidebar from './components/Sidebar'
 import TrackList from './components/TrackList'
@@ -35,8 +35,12 @@ const testState = {
 const App = () => (
   <main>
     <Sidebar>
-      <TrackList title={'Recently played'} tracks={testState.history} />
-      <TrackList title={'Queued'} tracks={testState.playbackQueue} />
+      <div className={styles.history}>
+        <TrackList title={'Recently played'} tracks={testState.history} />
+      </div>
+      <div className={styles.playbackQueue}>
+        <TrackList title={'Queued'} tracks={testState.playbackQueue} />
+      </div>
     </Sidebar>
     <MainContent>
       <NotificationList notifications={testState.notifications} />
