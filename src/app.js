@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import ReactDOM from 'react-dom'
 import 'normalize.css'
 
@@ -33,26 +33,31 @@ const testState = {
   playbackQueue: tracks,
 }
 
-const App = () => (
-  <main>
-    <Sidebar>
-      <div className={styles.history}>
-        <TrackList title={'Recently played'} tracks={testState.history} />
-      </div>
-      <div className={styles.playbackQueue}>
-        <TrackList title={'Queued'} tracks={testState.playbackQueue} />
-      </div>
-    </Sidebar>
-    <MainContent>
-      <NotificationList notifications={testState.notifications} />
-      <Visualizer />
-      <Player
-        track={testState.playbackQueue[0]}
-        inputUrl={testState.playbackQueue[0].permalink_url}
-      />
-    </MainContent>
-  </main>
-)
+const App = () => {
+  const [inputUrl, setInputTrack] = useState()
+
+  return (
+    <main>
+      <Sidebar>
+        <div className={styles.history}>
+          <TrackList title={'Recently played'} tracks={testState.history} />
+        </div>
+        <div className={styles.playbackQueue}>
+          <TrackList title={'Queued'} tracks={testState.playbackQueue} />
+        </div>
+      </Sidebar>
+      <MainContent>
+        <NotificationList notifications={testState.notifications} />
+        <Visualizer />
+        <Player
+          track={testState.playbackQueue[0]}
+          inputUrl={inputUrl}
+          onUrlEdit={(trackUrl) => setInputTrack(trackUrl)}
+        />
+      </MainContent>
+    </main>
+  )
+}
 
 ReactDOM.render(
   <App />,
