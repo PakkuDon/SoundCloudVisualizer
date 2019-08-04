@@ -20,7 +20,7 @@ const Player = ({ inputUrl, onUrlEdit, track }) => (
     <div>
       <img className={styles.thumbnail} src={track.artwork_url} />
       <div className={styles.details}>
-        <div>{track && track.user.username}</div>
+        <div>{track.user && track.user.username}</div>
         <div>{track.title}</div>
         <div>{track.genre}</div>
       </div>
@@ -42,6 +42,7 @@ Player.propTypes = {
 
 Player.defaultProps = {
   inputUrl: '',
+  track: {},
   onUrlEdit: () => {},
 }
 
