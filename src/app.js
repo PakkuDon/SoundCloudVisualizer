@@ -47,6 +47,10 @@ const App = () => {
           stream_url: `${response.stream_url}?client_id=${SOUNDCLOUD_CLIENT_ID}`
         }
         setCurrentSong(responseWithAuthorisedStreamUrl)
+        setHistory([
+          ...history,
+          responseWithAuthorisedStreamUrl,
+        ])
       })
       .catch(error => {
         console.error(error)
