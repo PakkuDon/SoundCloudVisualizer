@@ -4,7 +4,7 @@ import Button from '../Button'
 import { SoundCloudTrack } from '../../propTypes'
 import styles from './styles.css'
 
-const Player = ({ inputUrl, onUrlEdit, track }) => (
+const Player = ({ inputUrl, onSongSelect, onUrlEdit, track }) => (
   <div className={styles.root}>
     <div>
       <form>
@@ -14,7 +14,7 @@ const Player = ({ inputUrl, onUrlEdit, track }) => (
           value={inputUrl}
           onChange={(event) => onUrlEdit(event.target.value)}
         />
-      <Button>Load song</Button>
+      <Button onClick={onSongSelect}>Load song</Button>
       </form>
     </div>
     <div>
@@ -37,6 +37,7 @@ const Player = ({ inputUrl, onUrlEdit, track }) => (
 Player.propTypes = {
   inputUrl: PropTypes.string,
   track: SoundCloudTrack,
+  onSongSelect: PropTypes.func,
   onUrlEdit: PropTypes.func,
 }
 

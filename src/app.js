@@ -8,6 +8,7 @@ import MainContent from './components/MainContent'
 import NotificationList from './components/NotificationList'
 import Visualizer from './components/Visualizer'
 import Player from './components/Player'
+import SoundCloudClient from './SoundCloudClient'
 import styles from './style.css'
 
 const tracks = [
@@ -35,6 +36,17 @@ const testState = {
 
 const App = () => {
   const [inputUrl, setInputTrack] = useState()
+  const [currentSong, setCurrentSong] = useState()
+
+  const loadSong = () => {
+    SoundCloudClient.resolve(inputUrl)
+      .then(response => {
+        console.log(response)
+      })
+      .catch(error => {
+        console.error(error)
+      })
+  }
 
   return (
     <main>
@@ -50,9 +62,10 @@ const App = () => {
         <NotificationList notifications={testState.notifications} />
         <Visualizer />
         <Player
-          track={testState.playbackQueue[0]}
+          track={currentSong}
           inputUrl={inputUrl}
           onUrlEdit={(trackUrl) => setInputTrack(trackUrl)}
+          onSongSelect={loadSong}
         />
       </MainContent>
     </main>
