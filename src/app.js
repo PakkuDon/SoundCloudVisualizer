@@ -37,6 +37,7 @@ const testState = {
 const App = () => {
   const [inputUrl, setInputTrack] = useState()
   const [currentSong, setCurrentSong] = useState()
+  const [history, setHistory] = useState([])
 
   const loadSong = () => {
     SoundCloudClient.resolve(inputUrl)
@@ -56,7 +57,7 @@ const App = () => {
     <main>
       <Sidebar>
         <div className={styles.history}>
-          <TrackList title={'Recently played'} tracks={testState.history} />
+          <TrackList title={'Recently played'} tracks={history} />
         </div>
         <div className={styles.playbackQueue}>
           <TrackList title={'Queued'} tracks={testState.playbackQueue} />
