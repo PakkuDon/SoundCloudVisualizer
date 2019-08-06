@@ -4,8 +4,8 @@
   "description": "Just playing around with the SoundCloud and Web Audio APIs.",
   "license": "MIT",
   "scripts": {
-    "build": "webpack",
-    "dev": "webpack-dev-server"
+    "build": "webpack --config webpack/webpack.config.js",
+    "dev": "webpack-dev-server --config webpack/webpack.config.js"
   },
   "repository": {
     "type": "git",
