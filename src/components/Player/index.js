@@ -25,7 +25,7 @@ const Player = ({ inputUrl, onSongSelect, onUrlEdit, track }) => (
         <div>{track.genre}</div>
       </div>
     </div>
-    <audio autoplay crossorigin="anonymous" controls src={track.stream_url} >
+    <audio autoPlay crossOrigin="anonymous" controls src={track.stream_url} >
       Your browser does not support the HTML5 audio element.
     </audio>
     <div className={styles.footer}>
