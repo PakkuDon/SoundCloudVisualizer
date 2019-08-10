@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Button from '../Button'
+import Audio from '../Audio'
 import { SoundCloudTrack } from '../../propTypes'
 import styles from './styles.css'
 
@@ -31,9 +32,7 @@ const Player = ({ inputUrl, onSongSelect, onUrlEdit, track }) => {
           <div>{track.genre}</div>
         </div>
       </div>
-      <audio autoPlay crossOrigin="anonymous" controls src={track.stream_url} >
-        Your browser does not support the HTML5 audio element.
-      </audio>
+      <Audio src={track.stream_url} />
       <div className={styles.footer}>
         <a href="https://github.com/PakkuDon/SoundCloudVisualizer">Source code on GitHub</a>
       </div>
