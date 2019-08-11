@@ -10,25 +10,6 @@ import Player from './components/Player'
 import SoundCloudClient, { SOUNDCLOUD_CLIENT_ID } from './SoundCloudClient'
 import styles from './style.css'
 
-const tracks = [
-  {
-    id: 42873590,
-    title: "Awakened",
-    genre: "Drum & Bass",
-    permalink_url: "https://soundcloud.com/dub-motion/dub-motion-awakened",
-    artwork_url: "https://i1.sndcdn.com/artworks-000027918643-q12cxv-large.jpg",
-    stream_url: "https://api.soundcloud.com/tracks/42873590/stream",
-    user: {
-      username: "Dub Motion",
-    },
-  },
-]
-
-const testState = {
-  history: tracks,
-  playbackQueue: tracks,
-}
-
 const App = () => {
   const [inputUrl, setInputTrack] = useState()
   const [currentSong, setCurrentSong] = useState()
