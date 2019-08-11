@@ -5,7 +5,6 @@ import 'normalize.css'
 import Sidebar from './components/Sidebar'
 import TrackList from './components/TrackList'
 import MainContent from './components/MainContent'
-import NotificationList from './components/NotificationList'
 import Visualizer from './components/Visualizer'
 import Player from './components/Player'
 import SoundCloudClient, { SOUNDCLOUD_CLIENT_ID } from './SoundCloudClient'
@@ -26,10 +25,6 @@ const tracks = [
 ]
 
 const testState = {
-  notifications: [
-    'This is a test notification',
-    'Another test',
-  ],
   history: tracks,
   playbackQueue: tracks,
 }
@@ -68,7 +63,6 @@ const App = () => {
         </div>
       </Sidebar>
       <MainContent>
-        <NotificationList notifications={testState.notifications} />
         <Visualizer />
         <Player
           track={currentSong}
