@@ -34,6 +34,13 @@ const App = () => {
   const [currentSong, setCurrentSong] = useState()
   const [history, setHistory] = useState([])
 
+  const addToHistory = resolvedTrack => {
+    setHistory([
+      ...history.filter(track => track.id !== resolvedTrack.id),
+      resolvedTrack,
+    ])
+  }
+
   const loadSong = () => {
     SoundCloudClient.resolve(inputUrl)
       .then(response => {
@@ -42,10 +49,7 @@ const App = () => {
           stream_url: `${response.stream_url}?client_id=${SOUNDCLOUD_CLIENT_ID}`
         }
         setCurrentSong(responseWithAuthorisedStreamUrl)
-        setHistory([
-          ...history,
-          responseWithAuthorisedStreamUrl,
-        ])
+        addToHistory(responseWithAuthorisedStreamUrl)
       })
       .catch(error => {
         console.error(error)
