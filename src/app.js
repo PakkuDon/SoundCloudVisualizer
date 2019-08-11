@@ -62,9 +62,6 @@ const App = () => {
         <div className={styles.history}>
           <TrackList title={'Recently played'} tracks={history} />
         </div>
-        <div className={styles.playbackQueue}>
-          <TrackList title={'Queued'} tracks={testState.playbackQueue} />
-        </div>
       </Sidebar>
       <MainContent>
         <Visualizer />
