@@ -4,20 +4,6 @@
   text-align: center;
 }
 
-.thumbnail,
-.details {
-  display: inline-block;
-}
-
-.thumbnail {
-  width: 100px;
-  height: 100px;
-}
-
-.details {
-  text-align: left;
-}
-
 .footer {
   text-align: right;
 }

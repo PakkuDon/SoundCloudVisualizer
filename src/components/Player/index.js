@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Button from '../Button'
 import Audio from '../Audio'
+import TrackInformation from '../TrackInformation'
 import { SoundCloudTrack } from '../../propTypes'
 import styles from './styles.css'
 
@@ -24,14 +25,7 @@ const Player = ({ inputUrl, onSongSelect, onUrlEdit, track }) => {
           <Button type="submit">Load song</Button>
         </form>
       </div>
-      <div>
-        <img className={styles.thumbnail} src={track.artwork_url} />
-        <div className={styles.details}>
-          <div>{track.user && track.user.username}</div>
-          <div>{track.title}</div>
-          <div>{track.genre}</div>
-        </div>
-      </div>
+      <TrackInformation track={track} />
       <Audio src={track.stream_url} />
       <div className={styles.footer}>
         <a href="https://github.com/PakkuDon/SoundCloudVisualizer">Source code on GitHub</a>
