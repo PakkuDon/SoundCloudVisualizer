@@ -6,7 +6,7 @@ import TrackInformation from '../TrackInformation'
 import { SoundCloudTrack } from '../../propTypes'
 import styles from './styles.css'
 
-const Player = ({ inputUrl, onSongSelect, onUrlEdit, track }) => {
+const Player = ({ inputUrl, onAudioRender, onSongSelect, onUrlEdit, track }) => {
   const onSubmit = (event) => {
     event.preventDefault()
     onSongSelect()
@@ -26,7 +26,7 @@ const Player = ({ inputUrl, onSongSelect, onUrlEdit, track }) => {
         </form>
       </div>
       <TrackInformation track={track} />
-      <Audio src={track.stream_url} />
+      <Audio src={track.stream_url} onRender={onAudioRender}/>
       <div className={styles.footer}>
         <a href="https://github.com/PakkuDon/SoundCloudVisualizer">Source code on GitHub</a>
       </div>
@@ -37,6 +37,7 @@ const Player = ({ inputUrl, onSongSelect, onUrlEdit, track }) => {
 Player.propTypes = {
   inputUrl: PropTypes.string,
   track: SoundCloudTrack,
+  onAudioRender: PropTypes.func,
   onSongSelect: PropTypes.func,
   onUrlEdit: PropTypes.func,
 }
@@ -44,6 +45,7 @@ Player.propTypes = {
 Player.defaultProps = {
   inputUrl: '',
   track: {},
+  onAudioRender: () => {},
   onUrlEdit: () => {},
 }
 

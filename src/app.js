@@ -15,6 +15,7 @@ const App = () => {
   const [currentSong, setCurrentSong] = useState()
   const [history, setHistory] = useState([])
   const [errorMessage, setErrorMessage] = useState()
+  const [analyser, setAnalyser] = useState()
 
   const addToHistory = resolvedTrack => {
     setHistory([
@@ -50,6 +51,7 @@ const App = () => {
         <Player
           track={currentSong}
           inputUrl={inputUrl}
+          onAudioRender={(audioAnalyser) => setAnalyser(audioAnalyser)}
           onUrlEdit={(trackUrl) => setInputTrack(trackUrl)}
           onSongSelect={loadSong}
         />
