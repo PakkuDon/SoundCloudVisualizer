@@ -14,6 +14,7 @@ const App = () => {
   const [inputUrl, setInputTrack] = useState()
   const [currentSong, setCurrentSong] = useState()
   const [history, setHistory] = useState([])
+  const [errorMessage, setErrorMessage] = useState()
 
   const addToHistory = resolvedTrack => {
     setHistory([
@@ -33,7 +34,7 @@ const App = () => {
         addToHistory(responseWithAuthorisedStreamUrl)
       })
       .catch(error => {
-        console.error(error)
+        setErrorMessage(error.message)
       })
   }
 
