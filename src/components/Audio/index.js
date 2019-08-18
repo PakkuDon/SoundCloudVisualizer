@@ -14,6 +14,7 @@ class Audio extends React.Component {
       const analyser = audioContext.createAnalyser()
       source.connect(analyser)
       analyser.connect(audioContext.destination)
+      analyser.fftSize = 256
       this.props.onRender(analyser)
     }
   }
