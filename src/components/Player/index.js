@@ -14,17 +14,15 @@ const Player = ({ inputUrl, onAudioRender, onSongSelect, onUrlEdit, track }) => 
 
   return (
     <div className={styles.root}>
-      <div>
-        <form onSubmit={onSubmit}>
-          <input
-            type="text"
-            size="40"
-            value={inputUrl}
-            onChange={(event) => onUrlEdit(event.target.value)}
-          />
-          <Button type="submit">Load song</Button>
-        </form>
-      </div>
+      <form onSubmit={onSubmit}>
+        <input
+          type="text"
+          size="40"
+          value={inputUrl}
+          onChange={(event) => onUrlEdit(event.target.value)}
+        />
+        <Button type="submit">Load song</Button>
+      </form>
       <TrackInformation track={track} />
       <Audio src={track.stream_url} onRender={onAudioRender}/>
       <div className={styles.footer}>
