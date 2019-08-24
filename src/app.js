@@ -49,6 +49,7 @@ const App = () => {
       <MainContent>
         <Visualizer />
         <Player
+          errorMessage={errorMessage}
           track={currentSong}
           inputUrl={inputUrl}
           onAudioRender={(audioAnalyser) => setAnalyser(audioAnalyser)}

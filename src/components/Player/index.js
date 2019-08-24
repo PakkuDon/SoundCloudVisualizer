@@ -6,7 +6,7 @@ import TrackInformation from '../TrackInformation'
 import { SoundCloudTrack } from '../../propTypes'
 import styles from './styles.css'
 
-const Player = ({ inputUrl, onAudioRender, onSongSelect, onUrlEdit, track }) => {
+const Player = ({ errorMessage, inputUrl, onAudioRender, onSongSelect, onUrlEdit, track }) => {
   const onSubmit = (event) => {
     event.preventDefault()
     onSongSelect()
@@ -23,6 +23,7 @@ const Player = ({ inputUrl, onAudioRender, onSongSelect, onUrlEdit, track }) => 
         />
         <Button type="submit">Load song</Button>
       </form>
+      <div>{errorMessage}</div>
       <TrackInformation track={track} />
       <Audio src={track.stream_url} onRender={onAudioRender}/>
       <footer className={styles.footer}>
@@ -33,6 +34,7 @@ const Player = ({ inputUrl, onAudioRender, onSongSelect, onUrlEdit, track }) => 
 }
 
 Player.propTypes = {
+  errorMessage: PropTypes.string,
   inputUrl: PropTypes.string,
   track: SoundCloudTrack,
   onAudioRender: PropTypes.func,
@@ -41,6 +43,7 @@ Player.propTypes = {
 }
 
 Player.defaultProps = {
+  errorMessage: '',
   inputUrl: '',
   track: {},
   onAudioRender: () => {},
