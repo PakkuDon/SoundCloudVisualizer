@@ -25,6 +25,7 @@ const App = () => {
   }
 
   const loadSong = () => {
+    setErrorMessage('')
     SoundCloudClient.resolve(inputUrl)
       .then(response => {
         const responseWithAuthorisedStreamUrl = {
