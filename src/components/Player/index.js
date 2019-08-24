@@ -25,9 +25,9 @@ const Player = ({ inputUrl, onAudioRender, onSongSelect, onUrlEdit, track }) => 
       </form>
       <TrackInformation track={track} />
       <Audio src={track.stream_url} onRender={onAudioRender}/>
-      <div className={styles.footer}>
+      <footer className={styles.footer}>
         <a href="https://github.com/PakkuDon/SoundCloudVisualizer">Source code on GitHub</a>
-      </div>
+      </footer>
     </div>
   )
 }
