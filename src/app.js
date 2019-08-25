@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import ReactDOM from 'react-dom'
 import 'normalize.css'
 
@@ -10,52 +10,90 @@ import Player from './components/Player'
 import SoundCloudClient from './SoundCloudClient'
 import styles from './style.css'
 
-const App = () => {
-  const [inputUrl, setInputTrack] = useState()
-  const [currentSong, setCurrentSong] = useState()
-  const [history, setHistory] = useState([])
-  const [errorMessage, setErrorMessage] = useState()
-  const [analyser, setAnalyser] = useState()
+class App extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      history: [],
+    }
 
-  const addToHistory = resolvedTrack => {
-    setHistory([
-      ...history.filter(track => track.id !== resolvedTrack.id),
+    this.loadSong = this.loadSong.bind(this)
+    this.addToHistory = this.addToHistory.bind(this)
+    this.setHistory = this.setHistory.bind(this)
+    this.setCurrentSong = this.setCurrentSong.bind(this)
+    this.setErrorMessage = this.setErrorMessage.bind(this)
+    this.setInputTrack = this.setInputTrack.bind(this)
+    this.setAnalyser = this.setAnalyser.bind(this)
+  }
+
+  loadSong() {
+    this.setErrorMessage('')
+    SoundCloudClient.resolve(this.state.inputUrl)
+      .then(response => {
+        this.setCurrentSong(response)
+        this.addToHistory(response)
+      })
+      .catch(error => {
+        this.setErrorMessage(error.message)
+      })
+  }
+
+  addToHistory(resolvedTrack) {
+    this.setHistory([
+      ...this.state.history.filter(track => track.id !== resolvedTrack.id),
       resolvedTrack,
     ])
   }
 
-  const loadSong = () => {
-    setErrorMessage('')
-    SoundCloudClient.resolve(inputUrl)
-      .then(response => {
-        setCurrentSong(response)
-        addToHistory(response)
-      })
-      .catch(error => {
-        setErrorMessage(error.message)
-      })
+  setHistory(history) {
+    this.setState({ history })
   }
 
-  return (
-    <main>
-      <Sidebar>
-        <div className={styles.history}>
-          <TrackList title={'Recently played'} tracks={history} />
-        </div>
-      </Sidebar>
-      <MainContent>
-        <Visualizer />
-        <Player
-          errorMessage={errorMessage}
-          track={currentSong}
-          inputUrl={inputUrl}
-          onAudioRender={(audioAnalyser) => setAnalyser(audioAnalyser)}
-          onUrlEdit={(trackUrl) => setInputTrack(trackUrl)}
-          onSongSelect={loadSong}
-        />
-      </MainContent>
-    </main>
-  )
+  setCurrentSong(currentSong) {
+    this.setState({ currentSong })
+  }
+
+  setErrorMessage(errorMessage) {
+    this.setState({ errorMessage })
+  }
+
+  setInputTrack(inputUrl) {
+    this.setState({ inputUrl })
+  }
+
+  setAnalyser(audioAnalyser) {
+    this.setState({ audioAnalyser })
+  }
+
+  render() {
+    const {
+      currentSong,
+      errorMessage,
+      history,
+      inputUrl,
+    } = this.state
+
+    return (
+      <main>
+        <Sidebar>
+          <div className={styles.history}>
+            <TrackList title={'Recently played'} tracks={history} />
+          </div>
+        </Sidebar>
+        <MainContent>
+          <Visualizer />
+          <Player
+            errorMessage={errorMessage}
+            track={currentSong}
+            inputUrl={inputUrl}
+            onAudioRender={(audioAnalyser) => this.setAnalyser(audioAnalyser)}
+            onUrlEdit={(trackUrl) => this.setInputTrack(trackUrl)}
+            onSongSelect={this.loadSong}
+          />
+        </MainContent>
+      </main>
+    )
+  }
 }
 
 ReactDOM.render(
