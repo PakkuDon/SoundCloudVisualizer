@@ -14,6 +14,7 @@ class App extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
+      audioData: [],
       history: [],
     }
 
@@ -83,6 +84,7 @@ class App extends React.Component {
 
   render() {
     const {
+      audioData,
       currentSong,
       errorMessage,
       history,
@@ -97,7 +99,7 @@ class App extends React.Component {
           </div>
         </Sidebar>
         <MainContent>
-          <Visualizer />
+          <Visualizer audioData={audioData} />
           <Player
             errorMessage={errorMessage}
             track={currentSong}
