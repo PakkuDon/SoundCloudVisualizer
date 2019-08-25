@@ -24,6 +24,7 @@ class App extends React.Component {
     this.setErrorMessage = this.setErrorMessage.bind(this)
     this.setInputTrack = this.setInputTrack.bind(this)
     this.setAnalyser = this.setAnalyser.bind(this)
+    this.setAudioData = this.setAudioData.bind(this)
   }
 
   loadSong() {
@@ -62,7 +63,22 @@ class App extends React.Component {
   }
 
   setAnalyser(audioAnalyser) {
-    this.setState({ audioAnalyser })
+    this.setState({ audioAnalyser }, () => {
+      this.setAudioData()
+    })
+  }
+
+  setAudioData() {
+    const { audioAnalyser } = this.state
+
+    const updateAudioData = () => {
+      const audioData = new Uint8Array(audioAnalyser.frequencyBinCount)
+      audioAnalyser.getByteFrequencyData(audioData)
+      this.setState({ audioData })
+      requestAnimationFrame(updateAudioData)
+    }
+
+    requestAnimationFrame(updateAudioData)
   }
 
   render() {
