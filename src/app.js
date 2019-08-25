@@ -7,7 +7,7 @@ import TrackList from './components/TrackList'
 import MainContent from './components/MainContent'
 import Visualizer from './components/Visualizer'
 import Player from './components/Player'
-import SoundCloudClient, { SOUNDCLOUD_CLIENT_ID } from './SoundCloudClient'
+import SoundCloudClient from './SoundCloudClient'
 import styles from './style.css'
 
 const App = () => {
@@ -28,12 +28,8 @@ const App = () => {
     setErrorMessage('')
     SoundCloudClient.resolve(inputUrl)
       .then(response => {
-        const responseWithAuthorisedStreamUrl = {
-          ...response,
-          stream_url: `${response.stream_url}?client_id=${SOUNDCLOUD_CLIENT_ID}`
-        }
-        setCurrentSong(responseWithAuthorisedStreamUrl)
-        addToHistory(responseWithAuthorisedStreamUrl)
+        setCurrentSong(response)
+        addToHistory(response)
       })
       .catch(error => {
         setErrorMessage(error.message)
