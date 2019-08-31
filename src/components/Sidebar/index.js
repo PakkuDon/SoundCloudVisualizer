@@ -5,9 +5,9 @@ const Sidebar = (props) => {
   const [isOpen, toggleSidebar] = useState(true)
 
   return (
-    <React.Fragment>
+    <div className={styles.root}>
       {isOpen && (
-        <div className={styles.root}>
+        <div className={styles.sidebarWrapper}>
           {props.children}
         </div>
       )}
@@ -17,7 +17,7 @@ const Sidebar = (props) => {
       >
         &#9664;
       </button>
-    </React.Fragment>
+    </div>
   )
 }
 
