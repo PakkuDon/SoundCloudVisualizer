@@ -3,9 +3,6 @@ body {
   font-family: sans-serif;
   background-color: #000;
   color: #FFF;
-}
-
-body {
   margin: 0;
   height: 100vh;
 }
@@ -17,9 +14,4 @@ body {
 
 a {
   color: #FFF;
-}
-
-.history,
-.playbackQueue {
-  height: 50%;
 }

@@ -2,6 +2,6 @@
   background-color: #000;
   flex: 3 0 auto;
   display: flex;
-  flex-flow: column nowrap;
+  flex-direction: column;
   align-items: center;
 }
