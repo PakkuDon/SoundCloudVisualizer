@@ -92,7 +92,7 @@ class App extends React.Component {
     } = this.state
 
     return (
-      <main>
+      <main className={styles.root}>
         <Sidebar>
           <div className={styles.history}>
             <TrackList title={'Recently played'} tracks={history} />
