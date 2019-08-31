@@ -102,7 +102,7 @@ class App extends React.Component {
               <Tab>Playback queue</Tab>
             </TabList>
             <TabPanel>
-              <TrackList title={'Recently played'} tracks={history} />
+              <TrackList tracks={history} />
             </TabPanel>
             <TabPanel>
             </TabPanel>

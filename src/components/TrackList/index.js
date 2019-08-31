@@ -4,9 +4,8 @@ import { SoundCloudTrack } from '../../propTypes'
 import TrackListItem from '../TrackListItem'
 import styles from './styles.css'
 
-const TrackList = ({ title, tracks }) => (
+const TrackList = ({ tracks }) => (
   <React.Fragment>
-    <h2 className={styles.title}>{title}</h2>
     <div className={styles.root}>
       {tracks.reverse().map(track => (
         <TrackListItem track={track} />
@@ -16,12 +15,10 @@ const TrackList = ({ title, tracks }) => (
 )
 
 TrackList.propTypes = {
-  title: PropTypes.string,
   tracks: PropTypes.arrayOf(SoundCloudTrack),
 }
 
 TrackList.defaultProps = {
-  title: '',
   tracks: [],
 }
 
