@@ -8,7 +8,7 @@ const TrackList = ({ tracks }) => (
   <React.Fragment>
     <div className={styles.root}>
       {tracks.reverse().map(track => (
-        <TrackListItem track={track} />
+        <TrackListItem key={`track-${track.id}`} track={track} />
       ))}
     </div>
   </React.Fragment>
