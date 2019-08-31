@@ -1,6 +1,8 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import { Tab, Tabs, TabList, TabPanel } from 'react-tabs'
 import 'normalize.css'
+import "react-tabs/style/react-tabs.css"
 
 import Sidebar from './components/Sidebar'
 import TrackList from './components/TrackList'
@@ -94,9 +96,17 @@ class App extends React.Component {
     return (
       <main className={styles.root}>
         <Sidebar>
-          <div className={styles.history}>
-            <TrackList title={'Recently played'} tracks={history} />
-          </div>
+          <Tabs>
+            <TabList>
+              <Tab>Recently played</Tab>
+              <Tab>Playback queue</Tab>
+            </TabList>
+            <TabPanel>
+              <TrackList title={'Recently played'} tracks={history} />
+            </TabPanel>
+            <TabPanel>
+            </TabPanel>
+          </Tabs>
         </Sidebar>
         <MainContent>
           <Visualizer audioData={audioData} />
