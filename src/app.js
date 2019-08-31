@@ -21,6 +21,7 @@ class App extends React.Component {
     }
 
     this.loadSong = this.loadSong.bind(this)
+    this.playSong = this.playSong.bind(this)
     this.addToHistory = this.addToHistory.bind(this)
     this.setHistory = this.setHistory.bind(this)
     this.setCurrentSong = this.setCurrentSong.bind(this)
@@ -34,12 +35,20 @@ class App extends React.Component {
     this.setErrorMessage('')
     SoundCloudClient.resolve(this.state.inputUrl)
       .then(response => {
-        this.setCurrentSong(response)
-        this.addToHistory(response)
+        this.playSong(response)
       })
       .catch(error => {
         this.setErrorMessage(error.message)
       })
+  }
+
+  playSong(song) {
+    this.setCurrentSong(song)
+    this.addToHistory(song)
+  }
+
+  setCurrentSong(currentSong) {
+    this.setState({ currentSong })
   }
 
   addToHistory(resolvedTrack) {
@@ -51,10 +60,6 @@ class App extends React.Component {
 
   setHistory(history) {
     this.setState({ history })
-  }
-
-  setCurrentSong(currentSong) {
-    this.setState({ currentSong })
   }
 
   setErrorMessage(errorMessage) {
