@@ -10,7 +10,8 @@ class Visualizer extends React.Component {
 
   componentDidMount() {
     this.graphicsContext = this.canvasRef.current.getContext('2d')
-    this.graphicsContext.strokeStyle = "#69C"
+    this.graphicsContext.strokeStyle = "#000"
+    this.graphicsContext.fillStyle = "#69C"
   }
 
   componentDidUpdate() {
@@ -25,13 +26,14 @@ class Visualizer extends React.Component {
 
     for (let i = 0; i < bufferLength; i++) {
       const frequency = audioData[i]
-      const barHeight = height - gridHeight * frequency
+      const barHeight = gridHeight * frequency
 
-      this.graphicsContext.beginPath()
-      this.graphicsContext.moveTo(i * gridWidth, barHeight)
-      this.graphicsContext.lineTo((i + 1) * gridWidth, barHeight)
-      this.graphicsContext.stroke()
-      this.graphicsContext.closePath()
+      this.graphicsContext.fillRect(
+        i * gridWidth,
+        height - barHeight,
+        gridWidth - 1,
+        height,
+      )
     }
   }
 
