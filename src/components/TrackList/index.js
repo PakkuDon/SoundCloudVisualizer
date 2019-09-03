@@ -7,7 +7,7 @@ import styles from './styles.css'
 const TrackList = ({ tracks }) => (
   <React.Fragment>
     <div className={styles.root}>
-      {tracks.reverse().map(track => (
+      {tracks.slice().reverse().map(track => (
         <TrackListItem key={`track-${track.id}`} track={track} />
       ))}
     </div>
