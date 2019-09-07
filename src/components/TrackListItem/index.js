@@ -15,7 +15,7 @@ const TrackListItem = ({ track }) => (
     <div>{track.title}</div>
     <div>{track.genre}</div>
     <div>
-      <a href={track.permalink_url}>Permalink</a>
+      <a href={track.permalink_url} target="_blank" rel="nofollow">Permalink</a>
     </div>
     <div className={styles.actions}>
       <Button><IconPlay /></Button>
