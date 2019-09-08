@@ -26,8 +26,6 @@ TrackList.propTypes = {
 }
 
 TrackList.defaultProps = {
-  onTrackDelete: () => {},
-  onTrackSelect: () => {},
   tracks: [],
 }
 

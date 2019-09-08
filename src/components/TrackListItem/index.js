@@ -18,8 +18,12 @@ const TrackListItem = ({ onDelete, onSelect, track }) => (
       <a href={track.permalink_url} target="_blank" rel="nofollow">Permalink</a>
     </div>
     <div className={styles.actions}>
-      <Button onClick={() => onSelect(track.id)}><IconPlay /></Button>
-      <Button onClick={() => onDelete(track.id)}><IconDelete /></Button>
+      {onSelect && (
+        <Button onClick={() => onSelect(track.id)}><IconPlay /></Button>
+      )}
+      {onDelete && (
+        <Button onClick={() => onDelete(track.id)}><IconDelete /></Button>
+      )}
       <Button><IconQueue /></Button>
     </div>
   </div>
@@ -29,11 +33,6 @@ TrackListItem.propTypes = {
   track: SoundCloudTrack.isRequired,
   onDelete: PropTypes.func,
   onSelect: PropTypes.func,
-}
-
-TrackListItem.defaultProps = {
-  onDelete: () => {},
-  onSelect: () => {},
 }
 
 export default TrackListItem
