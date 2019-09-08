@@ -18,6 +18,7 @@ class App extends React.Component {
     this.state = {
       audioData: [],
       history: [],
+      queue: [],
     }
 
     this.loadSong = this.loadSong.bind(this)
@@ -109,6 +110,7 @@ class App extends React.Component {
       errorMessage,
       history,
       inputUrl,
+      queue,
     } = this.state
 
     return (
@@ -127,6 +129,9 @@ class App extends React.Component {
               />
             </TabPanel>
             <TabPanel>
+              <TrackList
+                tracks={queue}
+              />
             </TabPanel>
           </Tabs>
         </Sidebar>
