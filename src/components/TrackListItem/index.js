@@ -9,7 +9,7 @@ import IconQueue from '../icons/IconQueue'
 
 import styles from './styles.css'
 
-const TrackListItem = ({ track }) => (
+const TrackListItem = ({ onDelete, track }) => (
   <div className={styles.root}>
     <div>{track.user.username}</div>
     <div>{track.title}</div>
@@ -19,7 +19,7 @@ const TrackListItem = ({ track }) => (
     </div>
     <div className={styles.actions}>
       <Button><IconPlay /></Button>
-      <Button><IconDelete /></Button>
+      <Button onClick={() => onDelete(track.id)}><IconDelete /></Button>
       <Button><IconQueue /></Button>
     </div>
   </div>
@@ -27,6 +27,11 @@ const TrackListItem = ({ track }) => (
 
 TrackListItem.propTypes = {
   track: SoundCloudTrack.isRequired,
+  onDelete: PropTypes.func,
+}
+
+TrackListItem.defaultProps = {
+  onDelete: () => {},
 }
 
 export default TrackListItem
