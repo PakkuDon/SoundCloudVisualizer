@@ -6,7 +6,7 @@
   "scripts": {
     "build": "webpack --config webpack/production.config.js",
     "dev": "webpack-dev-server --config webpack/development.config.js",
-    "prettier:fix": "prettier --write \"src/**/*.js\""
+    "prettier:fix": "prettier --write \"{src,webpack}/**/*.js\""
   },
   "repository": {
     "type": "git",
