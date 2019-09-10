@@ -27,6 +27,7 @@ class App extends React.Component {
     this.addToQueue = this.addToQueue.bind(this)
     this.deleteFromHistory = this.deleteFromHistory.bind(this)
     this.playFromHistory = this.playFromHistory.bind(this)
+    this.playNextQueued = this.playNextQueued.bind(this)
     this.setHistory = this.setHistory.bind(this)
     this.setCurrentSong = this.setCurrentSong.bind(this)
     this.setErrorMessage = this.setErrorMessage.bind(this)
@@ -49,6 +50,16 @@ class App extends React.Component {
   playSong(song) {
     this.setCurrentSong(song)
     this.addToHistory(song)
+  }
+
+  playNextQueued() {
+    const { queue } = this.state
+    if (queue.length > 0) {
+      this.playSong(queue[0])
+      this.setState({
+        queue: queue.slice(1)
+      })
+    }
   }
 
   setCurrentSong(currentSong) {
@@ -151,6 +162,7 @@ class App extends React.Component {
             track={currentSong}
             inputUrl={inputUrl}
             onAudioRender={(audioAnalyser) => this.setAnalyser(audioAnalyser)}
+            onAudioEnded={this.playNextQueued}
             onUrlEdit={(trackUrl) => this.setInputTrack(trackUrl)}
             onSongSelect={this.loadSong}
           />

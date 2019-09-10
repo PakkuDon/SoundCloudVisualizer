@@ -20,10 +20,17 @@ class Audio extends React.Component {
   }
 
   render() {
-    const { src } = this.props
+    const { onEnded, src } = this.props
 
     return (
-      <audio ref={this.audioRef} src={src} autoPlay crossOrigin="anonymous" controls>
+      <audio
+        ref={this.audioRef}
+        src={src}
+        autoPlay
+        crossOrigin="anonymous"
+        controls
+        onEnded={onEnded}
+      >
         Your browser does not support the HTML5 audio element.
       </audio>
     )
@@ -32,10 +39,12 @@ class Audio extends React.Component {
 
 Audio.propTypes = {
   src: PropTypes.string,
+  onEnded: PropTypes.func,
   onRender: PropTypes.func,
 }
 
 Audio.defaultProps = {
+  onEnded: () => {},
   onRender: () => {},
 }
 
