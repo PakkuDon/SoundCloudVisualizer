@@ -1,16 +1,16 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
-import { Tab, Tabs, TabList, TabPanel } from 'react-tabs'
-import 'normalize.css'
+import React from "react"
+import ReactDOM from "react-dom"
+import { Tab, Tabs, TabList, TabPanel } from "react-tabs"
+import "normalize.css"
 import "react-tabs/style/react-tabs.css"
 
-import Sidebar from './components/Sidebar'
-import TrackList from './components/TrackList'
-import MainContent from './components/MainContent'
-import Visualizer from './components/Visualizer'
-import Player from './components/Player'
-import SoundCloudClient from './SoundCloudClient'
-import styles from './style.css'
+import Sidebar from "./components/Sidebar"
+import TrackList from "./components/TrackList"
+import MainContent from "./components/MainContent"
+import Visualizer from "./components/Visualizer"
+import Player from "./components/Player"
+import SoundCloudClient from "./SoundCloudClient"
+import styles from "./style.css"
 
 class App extends React.Component {
   constructor(props) {
@@ -37,7 +37,7 @@ class App extends React.Component {
   }
 
   loadSong() {
-    this.setErrorMessage('')
+    this.setErrorMessage("")
     SoundCloudClient.resolve(this.state.inputUrl)
       .then(response => {
         this.playSong(response)
@@ -57,7 +57,7 @@ class App extends React.Component {
     if (queue.length > 0) {
       this.playSong(queue[0])
       this.setState({
-        queue: queue.slice(1)
+        queue: queue.slice(1),
       })
     }
   }
@@ -81,9 +81,7 @@ class App extends React.Component {
   }
 
   deleteFromHistory(trackId) {
-    this.setHistory(
-      this.state.history.filter(track => track.id !== trackId),
-    )
+    this.setHistory(this.state.history.filter(track => track.id !== trackId))
   }
 
   playFromHistory(trackId) {
@@ -149,9 +147,7 @@ class App extends React.Component {
               />
             </TabPanel>
             <TabPanel>
-              <TrackList
-                tracks={queue}
-              />
+              <TrackList tracks={queue} />
             </TabPanel>
           </Tabs>
         </Sidebar>
@@ -161,9 +157,9 @@ class App extends React.Component {
             errorMessage={errorMessage}
             track={currentSong}
             inputUrl={inputUrl}
-            onAudioRender={(audioAnalyser) => this.setAnalyser(audioAnalyser)}
+            onAudioRender={audioAnalyser => this.setAnalyser(audioAnalyser)}
             onAudioEnded={this.playNextQueued}
-            onUrlEdit={(trackUrl) => this.setInputTrack(trackUrl)}
+            onUrlEdit={trackUrl => this.setInputTrack(trackUrl)}
             onSongSelect={this.loadSong}
           />
         </MainContent>
@@ -172,7 +168,4 @@ class App extends React.Component {
   }
 }
 
-ReactDOM.render(
-  <App />,
-  document.querySelector('#app'),
-)
+ReactDOM.render(<App />, document.querySelector("#app"))

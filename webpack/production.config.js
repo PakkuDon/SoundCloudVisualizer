@@ -1,12 +1,12 @@
-const HtmlWebpackPlugin = require('html-webpack-plugin')
-const path = require('path')
+const HtmlWebpackPlugin = require("html-webpack-plugin")
+const path = require("path")
 
 module.exports = {
-  mode: 'production',
-  entry: './src/app.js',
+  mode: "production",
+  entry: "./src/app.js",
   output: {
-    path: path.resolve(__dirname, '../dist'),
-    filename: 'bundle.js',
+    path: path.resolve(__dirname, "../dist"),
+    filename: "bundle.js",
   },
   module: {
     rules: [
@@ -15,7 +15,7 @@ module.exports = {
         exclude: /node_modules/,
         use: [
           {
-            loader: 'babel-loader',
+            loader: "babel-loader",
           },
         ],
       },
@@ -24,14 +24,14 @@ module.exports = {
         exclude: /node_modules/,
         use: [
           {
-            loader: 'style-loader',
+            loader: "style-loader",
           },
           {
-            loader: 'css-loader',
+            loader: "css-loader",
             options: {
               importLoaders: 1,
               modules: {
-                localIdentName: '[name]__[local]___[hash:base64:5]',
+                localIdentName: "[name]__[local]___[hash:base64:5]",
               },
             },
           },
@@ -42,10 +42,10 @@ module.exports = {
         include: /node_modules/,
         use: [
           {
-            loader: 'style-loader',
+            loader: "style-loader",
           },
           {
-            loader: 'css-loader',
+            loader: "css-loader",
           },
         ],
       },
@@ -53,7 +53,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: 'src/index.html',
+      template: "src/index.html",
     }),
   ],
 }

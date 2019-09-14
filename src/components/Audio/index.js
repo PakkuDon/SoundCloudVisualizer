@@ -1,5 +1,5 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import React from "react"
+import PropTypes from "prop-types"
 
 class Audio extends React.Component {
   constructor(props) {
@@ -8,9 +8,12 @@ class Audio extends React.Component {
   }
 
   componentDidMount() {
-    const audioContext = new (window.AudioContext || window.webkitAudioContext)
+    const audioContext = new (window.AudioContext ||
+      window.webkitAudioContext)()
     if (audioContext) {
-      const source = audioContext.createMediaElementSource(this.audioRef.current)
+      const source = audioContext.createMediaElementSource(
+        this.audioRef.current,
+      )
       const analyser = audioContext.createAnalyser()
       source.connect(analyser)
       analyser.connect(audioContext.destination)

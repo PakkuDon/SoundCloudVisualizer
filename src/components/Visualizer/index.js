@@ -1,6 +1,6 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import styles from './styles.css'
+import React from "react"
+import PropTypes from "prop-types"
+import styles from "./styles.css"
 
 class Visualizer extends React.Component {
   constructor(props) {
@@ -9,7 +9,7 @@ class Visualizer extends React.Component {
   }
 
   componentDidMount() {
-    this.graphicsContext = this.canvasRef.current.getContext('2d')
+    this.graphicsContext = this.canvasRef.current.getContext("2d")
     this.graphicsContext.strokeStyle = "#000"
     this.graphicsContext.fillStyle = "#69C"
   }
@@ -39,7 +39,12 @@ class Visualizer extends React.Component {
 
   render() {
     return (
-      <canvas ref={this.canvasRef} className={styles.root} width="500" height="500">
+      <canvas
+        ref={this.canvasRef}
+        className={styles.root}
+        width="500"
+        height="500"
+      >
         Your browser does not support the HTML5 canvas element.
       </canvas>
     )

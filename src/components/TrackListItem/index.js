@@ -1,13 +1,13 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { SoundCloudTrack } from '../../propTypes'
+import React from "react"
+import PropTypes from "prop-types"
+import { SoundCloudTrack } from "../../propTypes"
 
-import Button from '../Button'
-import IconDelete from '../icons/IconDelete'
-import IconPlay from '../icons/IconPlay'
-import IconQueue from '../icons/IconQueue'
+import Button from "../Button"
+import IconDelete from "../icons/IconDelete"
+import IconPlay from "../icons/IconPlay"
+import IconQueue from "../icons/IconQueue"
 
-import styles from './styles.css'
+import styles from "./styles.css"
 
 const TrackListItem = ({ onDelete, onQueue, onSelect, track }) => (
   <div className={styles.root}>
@@ -15,17 +15,25 @@ const TrackListItem = ({ onDelete, onQueue, onSelect, track }) => (
     <div>{track.title}</div>
     <div>{track.genre}</div>
     <div>
-      <a href={track.permalink_url} target="_blank" rel="nofollow">Permalink</a>
+      <a href={track.permalink_url} target="_blank" rel="nofollow">
+        Permalink
+      </a>
     </div>
     <div className={styles.actions}>
       {onSelect && (
-        <Button onClick={() => onSelect(track.id)}><IconPlay /></Button>
+        <Button onClick={() => onSelect(track.id)}>
+          <IconPlay />
+        </Button>
       )}
       {onDelete && (
-        <Button onClick={() => onDelete(track.id)}><IconDelete /></Button>
+        <Button onClick={() => onDelete(track.id)}>
+          <IconDelete />
+        </Button>
       )}
       {onQueue && (
-        <Button onClick={() => onQueue(track.id)}><IconQueue /></Button>
+        <Button onClick={() => onQueue(track.id)}>
+          <IconQueue />
+        </Button>
       )}
     </div>
   </div>
