@@ -26,6 +26,7 @@ class App extends React.Component {
     this.addToHistory = this.addToHistory.bind(this)
     this.addToQueue = this.addToQueue.bind(this)
     this.deleteFromHistory = this.deleteFromHistory.bind(this)
+    this.deleteFromQueue = this.deleteFromQueue.bind(this)
     this.playFromHistory = this.playFromHistory.bind(this)
     this.playNextQueued = this.playNextQueued.bind(this)
     this.setHistory = this.setHistory.bind(this)
@@ -82,6 +83,12 @@ class App extends React.Component {
 
   deleteFromHistory(trackId) {
     this.setHistory(this.state.history.filter(track => track.id !== trackId))
+  }
+
+  deleteFromQueue(trackId) {
+    this.setState({
+      queue: this.state.queue.filter(track => track.id !== trackId),
+    })
   }
 
   playFromHistory(trackId) {
@@ -147,7 +154,10 @@ class App extends React.Component {
               />
             </TabPanel>
             <TabPanel>
-              <TrackList tracks={queue} />
+              <TrackList
+                tracks={queue}
+                onTrackDelete={this.deleteFromQueue}
+              />
             </TabPanel>
           </Tabs>
         </Sidebar>
