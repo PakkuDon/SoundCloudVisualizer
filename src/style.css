@@ -7,6 +7,14 @@ body {
   height: 100vh;
 }
 
+/*
+  FIXME: Target app root without needing to use
+  direct child selector 
+*/
+body > div {
+  height: 100%;
+}
+
 .root {
   display: flex;
   height: 100%;
