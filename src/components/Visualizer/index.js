@@ -1,6 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 import styles from "./styles.css"
+import BarVisualization from "../../visualizations/BarVisualization"
 
 class Visualizer extends React.Component {
   constructor(props) {
@@ -15,26 +16,10 @@ class Visualizer extends React.Component {
   }
 
   componentDidUpdate() {
-    const { audioData } = this.props
-    const bufferLength = audioData.length
-
-    const width = this.graphicsContext.canvas.width
-    const height = this.graphicsContext.canvas.height
-    const gridWidth = width / bufferLength
-    const gridHeight = height / 256
-    this.graphicsContext.clearRect(0, 0, width, height)
-
-    for (let i = 0; i < bufferLength; i++) {
-      const frequency = audioData[i]
-      const barHeight = gridHeight * frequency
-
-      this.graphicsContext.fillRect(
-        i * gridWidth,
-        height - barHeight,
-        gridWidth - 1,
-        height,
-      )
-    }
+    BarVisualization({
+      audioData: this.props.audioData,
+      graphicsContext: this.graphicsContext,
+    })
   }
 
   render() {
