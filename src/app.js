@@ -17,6 +17,7 @@ class App extends React.Component {
     super(props)
     this.state = {
       frequencyData: [],
+      waveformData: [],
       history: [],
       queue: [],
     }
@@ -126,8 +127,10 @@ class App extends React.Component {
 
     const updateAudioData = () => {
       const frequencyData = new Uint8Array(audioAnalyser.frequencyBinCount)
+      const waveformData = new Uint8Array(audioAnalyser.fftSize)
       audioAnalyser.getByteFrequencyData(frequencyData)
-      this.setState({ frequencyData })
+      audioAnalyser.getByteTimeDomainData(waveformData)
+      this.setState({ frequencyData, waveformData })
       requestAnimationFrame(updateAudioData)
     }
 
