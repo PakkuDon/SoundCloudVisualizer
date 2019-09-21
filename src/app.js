@@ -16,7 +16,7 @@ class App extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      audioData: [],
+      frequencyData: [],
       history: [],
       queue: [],
     }
@@ -125,9 +125,9 @@ class App extends React.Component {
     const { audioAnalyser } = this.state
 
     const updateAudioData = () => {
-      const audioData = new Uint8Array(audioAnalyser.frequencyBinCount)
-      audioAnalyser.getByteFrequencyData(audioData)
-      this.setState({ audioData })
+      const frequencyData = new Uint8Array(audioAnalyser.frequencyBinCount)
+      audioAnalyser.getByteFrequencyData(frequencyData)
+      this.setState({ frequencyData })
       requestAnimationFrame(updateAudioData)
     }
 
@@ -136,7 +136,7 @@ class App extends React.Component {
 
   render() {
     const {
-      audioData,
+      frequencyData,
       currentSong,
       errorMessage,
       history,
@@ -170,7 +170,7 @@ class App extends React.Component {
           </Tabs>
         </Sidebar>
         <MainContent>
-          <Visualizer audioData={audioData} />
+          <Visualizer audioData={frequencyData} />
           <Player
             errorMessage={errorMessage}
             track={currentSong}
