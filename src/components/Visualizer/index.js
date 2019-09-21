@@ -1,7 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 import styles from "./styles.css"
-import BarVisualization from "../../visualizations/BarVisualization"
+import Visualization from "../../visualizations"
 
 class Visualizer extends React.Component {
   constructor(props) {
@@ -16,7 +16,7 @@ class Visualizer extends React.Component {
   }
 
   componentDidUpdate() {
-    BarVisualization({
+    Visualization.draw({
       audioData: this.props.audioData,
       graphicsContext: this.graphicsContext,
     })
