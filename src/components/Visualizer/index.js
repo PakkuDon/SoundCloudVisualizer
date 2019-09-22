@@ -14,7 +14,7 @@ class Visualizer extends React.Component {
   }
 
   componentDidUpdate() {
-    Visualization.draw({
+    Visualization.draw("bar", {
       frequencyData: this.props.frequencyData,
       waveformData: this.props.waveformData,
       graphicsContext: this.graphicsContext,
