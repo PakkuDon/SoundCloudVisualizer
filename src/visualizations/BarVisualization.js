@@ -1,6 +1,6 @@
 export default {
-  draw: ({ audioData, graphicsContext }) => {
-    const bufferLength = audioData.length
+  draw: ({ frequencyData, graphicsContext }) => {
+    const bufferLength = frequencyData.length
 
     const width = graphicsContext.canvas.width
     const height = graphicsContext.canvas.height
@@ -9,7 +9,7 @@ export default {
     graphicsContext.clearRect(0, 0, width, height)
 
     for (let i = 0; i < bufferLength; i++) {
-      const frequency = audioData[i]
+      const frequency = frequencyData[i]
       const barHeight = gridHeight * frequency
 
       graphicsContext.fillRect(

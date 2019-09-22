@@ -140,6 +140,7 @@ class App extends React.Component {
   render() {
     const {
       frequencyData,
+      waveformData,
       currentSong,
       errorMessage,
       history,
@@ -173,7 +174,10 @@ class App extends React.Component {
           </Tabs>
         </Sidebar>
         <MainContent>
-          <Visualizer audioData={frequencyData} />
+          <Visualizer
+            frequencyData={frequencyData}
+            waveformData={waveformData}
+          />
           <Player
             errorMessage={errorMessage}
             track={currentSong}

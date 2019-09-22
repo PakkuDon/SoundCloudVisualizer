@@ -17,7 +17,8 @@ class Visualizer extends React.Component {
 
   componentDidUpdate() {
     Visualization.draw({
-      audioData: this.props.audioData,
+      frequencyData: this.props.frequencyData,
+      waveformData: this.props.waveformData,
       graphicsContext: this.graphicsContext,
     })
   }
@@ -37,7 +38,8 @@ class Visualizer extends React.Component {
 }
 
 Visualizer.propTypes = {
-  audioData: PropTypes.arrayOf(PropTypes.number),
+  frequencyData: PropTypes.arrayOf(PropTypes.number),
+  waveformData: PropTypes.arrayOf(PropTypes.number),
 }
 
 export default Visualizer
