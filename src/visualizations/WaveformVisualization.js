@@ -6,6 +6,9 @@ export default {
     const height = graphicsContext.canvas.height
     const gridWidth = width / bufferLength
     const gridHeight = height / 256
+
+    graphicsContext.strokeStyle = "#69C"
+    graphicsContext.fillStyle = "none"
     graphicsContext.clearRect(0, 0, width, height)
     graphicsContext.beginPath()
 

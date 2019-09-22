@@ -11,8 +11,6 @@ class Visualizer extends React.Component {
 
   componentDidMount() {
     this.graphicsContext = this.canvasRef.current.getContext("2d")
-    this.graphicsContext.strokeStyle = "#000"
-    this.graphicsContext.fillStyle = "#69C"
   }
 
   componentDidUpdate() {
