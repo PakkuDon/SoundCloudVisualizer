@@ -4,7 +4,7 @@
 
 Just playing around with the SoundCloud and Web Audio APIs.
 
-May not work in some browsers due to the fact that the Web Audio API isn't widely supported yet. Refer to [this page](https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API#Browser_compatibility) for browser compatibility details.
+Note: Visualisations will not work in Internet Explorer as the Web Audio API is not supported in IE. (See: [MDN | Web Audio API#Browser Compatibility](https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API#Browser_compatibility))
 
 ## References
 
