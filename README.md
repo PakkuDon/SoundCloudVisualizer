@@ -15,6 +15,20 @@ yarn install
 yarn dev
 ```
 
+## Project History
+- 2015
+  - [First commit](https://github.com/PakkuDon/SoundCloudVisualizer/commit/325fe6331e3a242c1484f3fe38d64efc66f17991)
+  - First iteration using vanilla HTML, CSS and JS
+- 2016
+  - Started managing dependencies using `bower.json` and `package.json`
+  - Migrated to Angular 1
+  - Used gulp for build tasks
+- 2019
+  - Removed `bower.json`
+  - Started managing dependencies using Yarn
+  - Migrated from gulp to webpack
+  - Migrated from Angular 1 to React
+
 ## References
 
 [Visualizations with Web Audio API - Web API Interfaces | MDN](https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API/Visualizations_with_Web_Audio_API)
