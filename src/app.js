@@ -25,6 +25,7 @@ class App extends React.Component {
     this.loadSong = this.loadSong.bind(this)
     this.playSong = this.playSong.bind(this)
     this.addToHistory = this.addToHistory.bind(this)
+    this.addToQueue = this.addToQueue.bind(this)
     this.addToQueueFromId = this.addToQueueFromId.bind(this)
     this.deleteFromHistory = this.deleteFromHistory.bind(this)
     this.deleteFromQueue = this.deleteFromQueue.bind(this)
@@ -43,7 +44,12 @@ class App extends React.Component {
     this.setErrorMessage("")
     SoundCloudClient.resolve(this.state.inputUrl)
       .then(response => {
-        this.playSong(response)
+        if (!this.state.currentSong) {
+          this.playSong(response)
+        }
+        else {
+          this.addToQueue(response)
+        }
       })
       .catch(error => {
         this.setErrorMessage(error.message)
@@ -77,6 +83,15 @@ class App extends React.Component {
       ...this.state.history.filter(track => track.id !== resolvedTrack.id),
       resolvedTrack,
     ])
+  }
+
+  addToQueue(resolvedTrack) {
+    this.setState({
+      queue: [
+        ...this.state.queue,
+        resolvedTrack,
+      ]
+    })
   }
 
   addToQueueFromId(trackId) {
