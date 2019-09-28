@@ -25,7 +25,7 @@ class App extends React.Component {
     this.loadSong = this.loadSong.bind(this)
     this.playSong = this.playSong.bind(this)
     this.addToHistory = this.addToHistory.bind(this)
-    this.addToQueue = this.addToQueue.bind(this)
+    this.addToQueueFromId = this.addToQueueFromId.bind(this)
     this.deleteFromHistory = this.deleteFromHistory.bind(this)
     this.deleteFromQueue = this.deleteFromQueue.bind(this)
     this.playFromHistory = this.playFromHistory.bind(this)
@@ -79,7 +79,7 @@ class App extends React.Component {
     ])
   }
 
-  addToQueue(trackId) {
+  addToQueueFromId(trackId) {
     const selectedSong = this.state.history.find(track => track.id === trackId)
     this.setState({
       queue: this.state.queue.concat(selectedSong),
@@ -163,7 +163,7 @@ class App extends React.Component {
               <TrackList
                 tracks={history}
                 onTrackDelete={this.deleteFromHistory}
-                onTrackQueue={this.addToQueue}
+                onTrackQueue={this.addToQueueFromId}
                 onTrackSelect={this.playFromHistory}
               />
             </TabPanel>
