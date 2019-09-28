@@ -3,9 +3,9 @@ import PropTypes from "prop-types"
 import { SoundCloudTrack } from "../../propTypes"
 
 import Button from "../Button"
-import IconDelete from "../icons/IconDelete"
-import IconPlay from "../icons/IconPlay"
-import IconQueue from "../icons/IconQueue"
+import IconDelete from "../Icons/IconDelete"
+import IconPlay from "../Icons/IconPlay"
+import IconQueue from "../Icons/IconQueue"
 
 import styles from "./styles.css"
 
