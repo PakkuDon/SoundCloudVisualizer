@@ -63,6 +63,9 @@ class App extends React.Component {
         queue: queue.slice(1),
       })
     }
+    else {
+      this.setCurrentSong(undefined)
+    }
   }
 
   setCurrentSong(currentSong) {
