@@ -24,8 +24,8 @@ const Player = ({
     <div className={styles.root}>
       <form onSubmit={onSubmit}>
         <input
+          className={styles.input}
           type="text"
-          size="40"
           value={inputUrl}
           onChange={event => onUrlEdit(event.target.value)}
         />
