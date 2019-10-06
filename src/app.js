@@ -16,6 +16,7 @@ class App extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
+      currentSong: null,
       frequencyData: [],
       waveformData: [],
       history: [],
@@ -70,7 +71,7 @@ class App extends React.Component {
       })
     }
     else {
-      this.setCurrentSong(undefined)
+      this.setCurrentSong(null)
     }
   }
 
