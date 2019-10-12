@@ -1,7 +1,6 @@
 {
   "name": "soundcloudvisualizer",
   "version": "1.0.0",
-  "description": "Just playing around with the SoundCloud and Web Audio APIs.",
   "license": "MIT",
   "scripts": {
     "build": "webpack --config webpack/production.config.js",
