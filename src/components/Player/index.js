@@ -32,9 +32,9 @@ const Player = ({
         <Button type="submit">Load song</Button>
       </form>
       <div>{errorMessage}</div>
-      <TrackInformation track={track} />
+      {track && <TrackInformation track={track} />}
       <Audio
-        src={track.stream_url}
+        src={track && track.stream_url}
         onEnded={onAudioEnded}
         onRender={onAudioRender}
       />
@@ -59,7 +59,6 @@ Player.propTypes = {
 Player.defaultProps = {
   errorMessage: "",
   inputUrl: "",
-  track: {},
   onAudioRender: () => {},
   onUrlEdit: () => {},
 }
