@@ -8,9 +8,7 @@ function Audio(props) {
     const audioContext = new (window.AudioContext ||
       window.webkitAudioContext)()
     if (audioContext) {
-      const source = audioContext.createMediaElementSource(
-        audioElement.current,
-      )
+      const source = audioContext.createMediaElementSource(audioElement.current)
       const analyser = audioContext.createAnalyser()
       source.connect(analyser)
       analyser.connect(audioContext.destination)

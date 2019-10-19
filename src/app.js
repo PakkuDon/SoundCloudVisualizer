@@ -47,8 +47,7 @@ class App extends React.Component {
       .then(response => {
         if (!this.state.currentSong) {
           this.playSong(response)
-        }
-        else {
+        } else {
           this.addToQueue(response)
         }
       })
@@ -69,8 +68,7 @@ class App extends React.Component {
       this.setState({
         queue: queue.slice(1),
       })
-    }
-    else {
+    } else {
       this.setCurrentSong(null)
     }
   }
@@ -88,10 +86,7 @@ class App extends React.Component {
 
   addToQueue(resolvedTrack) {
     this.setState({
-      queue: [
-        ...this.state.queue,
-        resolvedTrack,
-      ]
+      queue: [...this.state.queue, resolvedTrack],
     })
   }
 
