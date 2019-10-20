@@ -1,38 +1,29 @@
-import React from "react"
+import React, { useEffect, useRef } from "react"
 import PropTypes from "prop-types"
 import styles from "./styles.css"
 import Visualization from "../../visualizations"
 
-class Visualizer extends React.Component {
-  constructor(props) {
-    super(props)
-    this.canvasRef = React.createRef()
-  }
+function Visualizer(props) {
+  const canvasElement = useRef(null)
 
-  componentDidMount() {
-    this.graphicsContext = this.canvasRef.current.getContext("2d")
-  }
-
-  componentDidUpdate() {
+  useEffect(() => {
     Visualization.draw("bar", {
-      frequencyData: this.props.frequencyData,
-      waveformData: this.props.waveformData,
-      graphicsContext: this.graphicsContext,
+      frequencyData: props.frequencyData,
+      waveformData: props.waveformData,
+      graphicsContext: canvasElement.current.getContext("2d"),
     })
-  }
+  }, [props.frequencyData, props.waveformData])
 
-  render() {
-    return (
-      <canvas
-        ref={this.canvasRef}
-        className={styles.root}
-        width="500"
-        height="500"
-      >
-        Your browser does not support the HTML5 canvas element.
-      </canvas>
-    )
-  }
+  return (
+    <canvas
+      ref={canvasElement}
+      className={styles.root}
+      width="500"
+      height="500"
+    >
+      Your browser does not support the HTML5 canvas element.
+    </canvas>
+  )
 }
 
 Visualizer.propTypes = {
