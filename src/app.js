@@ -45,10 +45,17 @@ class App extends React.Component {
     this.setErrorMessage("")
     SoundCloudClient.resolve(this.state.inputUrl)
       .then(response => {
-        if (!this.state.currentSong) {
-          this.playSong(response)
+        if (Array.isArray(response)) {
+          if (!this.state.currentSong) {
+            this.playSong(response.shift())
+          }
+          response.reverse().forEach(track => this.addToQueue(track))
         } else {
-          this.addToQueue(response)
+          if (!this.state.currentSong) {
+            this.playSong(response)
+          } else {
+            this.addToQueue(response)
+          }
         }
       })
       .catch(error => {
