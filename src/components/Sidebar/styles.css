@@ -2,10 +2,10 @@
   display: flex;
   flex-direction: row;
   height: 100%;
+  max-width: 25%;
 }
 
 .sidebarWrapper {
-  flex: 1 0 auto;
   background-color: rgba(0, 160, 230, 0.1);
   color: #FFF;
   padding: 5px;
