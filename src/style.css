@@ -1,31 +1,29 @@
-*,
-*:before,
-*:after {
-  box-sizing: border-box;
-}
+:global {
+  *,
+  *:before,
+  *:after {
+    box-sizing: border-box;
+  }
 
-body {
-  font-size: 100%;
-  font-family: sans-serif;
-  background-color: #000;
-  color: #FFF;
-  margin: 0;
-  height: 100vh;
-}
+  body {
+    font-size: 100%;
+    font-family: sans-serif;
+    background-color: #000;
+    color: #FFF;
+    margin: 0;
+    height: 100vh;
+  }
 
-/*
-  FIXME: Target app root without needing to use
-  direct child selector 
-*/
-body > div {
-  height: 100%;
+  #app {
+    height: 100%;
+  }
+
+  a {
+    color: #FFF;
+  }
 }
 
 .root {
   display: flex;
   height: 100%;
-}
-
-a {
-  color: #FFF;
 }
