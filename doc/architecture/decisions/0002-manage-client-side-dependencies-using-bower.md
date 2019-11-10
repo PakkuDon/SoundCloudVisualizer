@@ -4,7 +4,7 @@ Date: 2016-01-14 (Backfilled 2019-11-10)
 
 ## Status
 
-Accepted
+Superceded by [5. Manage dependencies using Yarn](0005-manage-dependencies-using-yarn.md)
 
 ## Context
 
