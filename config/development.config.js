@@ -44,9 +44,9 @@ module.exports = {
             options: {
               config: {
                 path: "config/postcss.config.js",
-              }
-            }
-          }
+              },
+            },
+          },
         ],
       },
       {
