@@ -1,3 +1,6 @@
+# Text-editor config
+.vscode
+
 # Dependencies
 node_modules/
 
