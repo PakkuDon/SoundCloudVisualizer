@@ -1,5 +1,5 @@
 import React from "react"
-import styles from "./styles.css"
+import styles from "./Icon.css"
 
 const IconPlay = () => (
   <svg className={styles.root} viewBox="0 0 50 50">
