@@ -5,22 +5,20 @@ import TrackListItem from "../TrackListItem"
 import styles from "./TrackList.css"
 
 const TrackList = ({ onTrackDelete, onTrackQueue, onTrackSelect, tracks }) => (
-  <React.Fragment>
-    <div className={styles.root}>
-      {tracks
-        .slice()
-        .reverse()
-        .map(track => (
-          <TrackListItem
-            key={`track-${track.id}`}
-            onDelete={onTrackDelete}
-            onQueue={onTrackQueue}
-            onSelect={onTrackSelect}
-            track={track}
-          />
-        ))}
-    </div>
-  </React.Fragment>
+  <div className={styles.root}>
+    {tracks
+      .slice()
+      .reverse()
+      .map(track => (
+        <TrackListItem
+          key={`track-${track.id}`}
+          onDelete={onTrackDelete}
+          onQueue={onTrackQueue}
+          onSelect={onTrackSelect}
+          track={track}
+        />
+      ))}
+  </div>
 )
 
 TrackList.propTypes = {
