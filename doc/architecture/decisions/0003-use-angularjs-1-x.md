@@ -4,7 +4,7 @@ Date: 2016-01-17 (Backfilled 2019-11-10)
 
 ## Status
 
-Accepted
+Superceded by [7. Use React](0007-use-react.md)
 
 ## Context
 
