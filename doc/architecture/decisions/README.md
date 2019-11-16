@@ -9,3 +9,4 @@
 * [7. Use React](0007-use-react.md)
 * [8. Use CSS modules to create scoped CSS for components](0008-use-css-modules-to-create-scoped-css-for-components.md)
 * [9. Use PostCSS](0009-use-postcss.md)
+* [10. Use Jest and Cypress for tests](0010-use-jest-and-cypress-for-tests.md)
