@@ -5,7 +5,8 @@
   "scripts": {
     "build": "webpack --config config/production.config.js",
     "dev": "webpack-dev-server --config config/development.config.js",
-    "prettier:fix": "prettier --write \"{config,src}/**/*.js\""
+    "prettier:fix": "prettier --write \"{config,src}/**/*.js\"",
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -20,6 +21,7 @@
     "case-sensitive-paths-webpack-plugin": "^2.2.0",
     "css-loader": "^3.2.0",
     "html-webpack-plugin": "^3.2.0",
+    "jest": "^24.9.0",
     "postcss": "^7.0.21",
     "postcss-import": "^12.0.1",
     "postcss-loader": "^3.0.0",
