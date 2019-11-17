@@ -1,5 +1,7 @@
+@import "../../styles/colors";
+
 .root {
-  background-color: rgba(0, 160, 230, 0.1);
+  background-color: $blue300;
   width: 100%;
   text-align: center;
   padding: 1em;

@@ -1,3 +1,5 @@
+@import "./styles/colors";
+
 :global {
   *,
   *:before,
@@ -8,8 +10,8 @@
   body {
     font-size: 100%;
     font-family: sans-serif;
-    background-color: #000;
-    color: #FFF;
+    background-color: $black;
+    color: $white;
     margin: 0;
     height: 100vh;
   }
@@ -19,7 +21,7 @@
   }
 
   a {
-    color: #FFF;
+    color: $white;
   }
 }
 

@@ -1,3 +1,5 @@
+@import "../../styles/colors";
+
 .root {
   display: flex;
   flex-direction: row;
@@ -6,15 +8,15 @@
 }
 
 .sidebarWrapper {
-  background-color: rgba(0, 160, 230, 0.1);
-  color: #FFF;
+  background-color: $blue300;
+  color: $white;
   padding: 5px;
 }
 
 .toggleSidebar {
-  background-color: rgba(0, 160, 230, 0.25);
+  background-color: $blue200;
   border-color: transparent;
-  color: #FFF;
+  color: $white;
   padding: 2px;
   border-radius: 0;
   align-self: center;

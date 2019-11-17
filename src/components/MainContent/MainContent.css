@@ -1,5 +1,7 @@
+@import "../../styles/colors";
+
 .root {
-  background-color: #000;
+  background-color: $black;
   flex: 3 0 auto;
   display: flex;
   flex-direction: column;

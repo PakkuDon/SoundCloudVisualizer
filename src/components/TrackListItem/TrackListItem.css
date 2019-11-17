@@ -1,9 +1,11 @@
+@import "../../styles/colors";
+
 .root {
-  border-bottom: 1px solid rgba(0, 160, 230, 0.1);
+  border-bottom: 1px solid $blue300;
   padding: 5px;
 
   &:hover {
-    background-color: rgba(0, 160, 230, 0.1);
+    background-color: $blue300;
   }
 }
 
