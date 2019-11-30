@@ -5,5 +5,5 @@ module.exports = {
   },
   setupFilesAfterEnv: ["./config/enzyme.config.js"],
   testEnvironment: "node",
-  testMatch: ["**/__tests__/**/*.js?(x)"],
+  testMatch: ["**/__test__/**/*.js?(x)"],
 }
