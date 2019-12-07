@@ -16,7 +16,7 @@ describe("Sidebar", () => {
       const children = <div>Hello world</div>
       const wrapper = shallow(<Sidebar>{children}</Sidebar>)
 
-      wrapper.find('button').simulate('click')
+      wrapper.find("button").simulate("click")
 
       expect(wrapper.contains(children)).toBe(false)
     })
