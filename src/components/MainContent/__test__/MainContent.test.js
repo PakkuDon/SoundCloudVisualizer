@@ -8,6 +8,6 @@ describe("MainContent", () => {
     const children = <div>Hello world</div>
     const wrapper = shallow(<MainContent>{children}</MainContent>)
 
-    expect(wrapper.contains(children)).toBe(true)
+    expect(wrapper).toMatchSnapshot()
   })
 })

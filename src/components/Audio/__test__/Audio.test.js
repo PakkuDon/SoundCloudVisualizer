@@ -8,9 +8,7 @@ describe("Audio", () => {
     const src = "https://example.com/example.mp3"
     const wrapper = shallow(<Audio src={src} />)
 
-    const audioSrc = wrapper.find("audio").prop("src")
-
-    expect(audioSrc).toBe(src)
+    expect(wrapper).toMatchSnapshot()
   })
 
   describe("on audio end", () => {

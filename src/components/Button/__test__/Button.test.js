@@ -8,7 +8,7 @@ describe("Button", () => {
     const children = <div>Hello world</div>
     const wrapper = shallow(<Button>{children}</Button>)
 
-    expect(wrapper.contains(children)).toBe(true)
+    expect(wrapper).toMatchSnapshot()
   })
 
   describe("on click", () => {

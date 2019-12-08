@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Audio uses provided src 1`] = `
+<audio
+  autoPlay={true}
+  controls={true}
+  crossOrigin="anonymous"
+  onEnded={[Function]}
+  src="https://example.com/example.mp3"
+>
+  Your browser does not support the HTML5 audio element.
+</audio>
+`;

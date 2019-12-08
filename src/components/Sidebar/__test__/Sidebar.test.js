@@ -8,7 +8,7 @@ describe("Sidebar", () => {
     const children = <div>Hello world</div>
     const wrapper = shallow(<Sidebar>{children}</Sidebar>)
 
-    expect(wrapper.contains(children)).toBe(true)
+    expect(wrapper).toMatchSnapshot()
   })
 
   describe("when collapsed", () => {
