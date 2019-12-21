@@ -1,0 +1,56 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Player renders track details 1`] = `
+<div
+  className="root"
+>
+  <form
+    onSubmit={[Function]}
+  >
+    <input
+      className="input"
+      onChange={[Function]}
+      type="text"
+      value=""
+    />
+    <Button
+      className=""
+      onClick={[Function]}
+      title=""
+      type="submit"
+    >
+      Load song
+    </Button>
+  </form>
+  <div />
+  <TrackInformation
+    track={
+      Object {
+        "artwork_url": "",
+        "genre": "",
+        "id": 1,
+        "permalink_url": "",
+        "stream_url": "",
+        "title": "Hello World",
+        "user": Object {
+          "username": "Bob",
+        },
+      }
+    }
+  />
+  <Audio
+    onEnded={[Function]}
+    onRender={[Function]}
+    src=""
+  />
+  <footer
+    className="footer"
+  >
+    <a
+      href="https://github.com/PakkuDon/SoundCloudVisualizer"
+    >
+      Source code on GitHub
+    </a>
+  </footer>
+</div>
+`;
