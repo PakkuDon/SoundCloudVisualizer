@@ -6,3 +6,7 @@ node_modules/
 
 # Bundled / Compiled dists
 dist
+
+# Test artifacts
+cypress/videos/
+cypress/screenshots/
