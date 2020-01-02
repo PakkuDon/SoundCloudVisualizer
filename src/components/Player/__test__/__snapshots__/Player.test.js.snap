@@ -7,12 +7,18 @@ exports[`Player renders track details 1`] = `
   <form
     onSubmit={[Function]}
   >
-    <input
-      className="input"
-      onChange={[Function]}
-      type="text"
-      value=""
-    />
+    <label
+      htmlFor="track-input"
+    >
+      SoundCloud track URL
+      <input
+        className="input"
+        id="track-input"
+        onChange={[Function]}
+        type="text"
+        value=""
+      />
+    </label>
     <Button
       className=""
       onClick={[Function]}

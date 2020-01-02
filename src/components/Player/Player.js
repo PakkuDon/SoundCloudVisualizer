@@ -23,12 +23,16 @@ const Player = ({
   return (
     <div className={styles.root}>
       <form onSubmit={onSubmit}>
-        <input
-          className={styles.input}
-          type="text"
-          value={inputUrl}
-          onChange={event => onUrlEdit(event.target.value)}
-        />
+        <label htmlFor="track-input">
+          SoundCloud track URL
+          <input
+            id="track-input"
+            className={styles.input}
+            type="text"
+            value={inputUrl}
+            onChange={event => onUrlEdit(event.target.value)}
+          />
+        </label>
         <Button type="submit">Load song</Button>
       </form>
       <div>{errorMessage}</div>
