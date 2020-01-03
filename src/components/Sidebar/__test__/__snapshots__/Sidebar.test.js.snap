@@ -3,6 +3,7 @@
 exports[`Sidebar renders children 1`] = `
 <div
   className="root"
+  data-testid="sidebar"
 >
   <div
     className="sidebarWrapper"
