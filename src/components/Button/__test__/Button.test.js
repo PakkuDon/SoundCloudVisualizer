@@ -1,22 +1,22 @@
 import React from "react"
-import { shallow } from "enzyme"
+import { render, fireEvent } from "@testing-library/react"
 
 import Button from "../Button"
 
 describe("Button", () => {
   it("renders children", () => {
     const children = <div>Hello world</div>
-    const wrapper = shallow(<Button>{children}</Button>)
+    const { container } = render(<Button>{children}</Button>)
 
-    expect(wrapper).toMatchSnapshot()
+    expect(container).toMatchSnapshot()
   })
 
   describe("on click", () => {
     it("calls supplied onClick handler", () => {
       const spy = jest.fn()
-      const wrapper = shallow(<Button onClick={spy} />)
+      const { getByText } = render(<Button onClick={spy}>Click</Button>)
 
-      wrapper.simulate("click")
+      fireEvent.click(getByText("Click"))
 
       expect(spy).toBeCalled()
     })

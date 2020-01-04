@@ -1,14 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Button renders children 1`] = `
-<button
-  className="root"
-  onClick={[Function]}
-  title=""
-  type="button"
->
-  <div>
-    Hello world
-  </div>
-</button>
+<div>
+  <button
+    class="root"
+    title=""
+    type="button"
+  >
+    <div>
+      Hello world
+    </div>
+  </button>
+</div>
 `;
