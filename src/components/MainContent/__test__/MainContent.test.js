@@ -1,13 +1,13 @@
 import React from "react"
-import { shallow } from "enzyme"
+import { render } from "@testing-library/react"
 
 import MainContent from "../MainContent"
 
 describe("MainContent", () => {
   it("renders children", () => {
     const children = <div>Hello world</div>
-    const wrapper = shallow(<MainContent>{children}</MainContent>)
+    const { container } = render(<MainContent>{children}</MainContent>)
 
-    expect(wrapper).toMatchSnapshot()
+    expect(container).toMatchSnapshot()
   })
 })

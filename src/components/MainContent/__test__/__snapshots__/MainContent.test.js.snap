@@ -1,11 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`MainContent renders children 1`] = `
-<div
-  className="root"
->
-  <div>
-    Hello world
+<div>
+  <div
+    class="root"
+  >
+    <div>
+      Hello world
+    </div>
   </div>
 </div>
 `;
