@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useCallback } from "react"
 import PropTypes from "prop-types"
 import Button from "../Button"
 import Audio from "../Audio"
@@ -15,10 +15,10 @@ const Player = ({
   onUrlEdit,
   track,
 }) => {
-  const onSubmit = event => {
+  const onSubmit = useCallback(event => {
     event.preventDefault()
     onSongSelect()
-  }
+  })
 
   return (
     <div className={styles.root}>
