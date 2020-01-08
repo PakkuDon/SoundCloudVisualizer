@@ -21,6 +21,7 @@ class App extends React.Component {
       waveformData: [],
       history: [],
       queue: [],
+      selectedVisualizer: "bar",
     }
 
     this.loadSong = this.loadSong.bind(this)
@@ -167,6 +168,7 @@ class App extends React.Component {
       history,
       inputUrl,
       queue,
+      selectedVisualizer,
     } = this.state
 
     return (
@@ -198,6 +200,7 @@ class App extends React.Component {
           <Visualizer
             frequencyData={frequencyData}
             waveformData={waveformData}
+            selectedVisualizer={selectedVisualizer}
           />
           <Player
             errorMessage={errorMessage}

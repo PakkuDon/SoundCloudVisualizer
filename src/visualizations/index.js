@@ -7,6 +7,7 @@ const strategies = {
 }
 
 export default {
+  types: () => Object.keys(strategies),
   draw: (selectedVisualizer, ...args) => {
     const visualizer = strategies[selectedVisualizer]
     visualizer.draw(...args)

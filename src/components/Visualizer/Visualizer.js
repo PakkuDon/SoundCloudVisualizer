@@ -7,7 +7,7 @@ function Visualizer(props) {
   const canvasElement = useRef(null)
 
   useEffect(() => {
-    Visualization.draw("bar", {
+    Visualization.draw(props.selectedVisualizer, {
       frequencyData: props.frequencyData,
       waveformData: props.waveformData,
       graphicsContext: canvasElement.current.getContext("2d"),
@@ -29,6 +29,7 @@ function Visualizer(props) {
 Visualizer.propTypes = {
   frequencyData: PropTypes.arrayOf(PropTypes.number),
   waveformData: PropTypes.arrayOf(PropTypes.number),
+  selectedVisualizer: PropTypes.oneOf(Visualization.types()),
 }
 
 export default Visualizer
