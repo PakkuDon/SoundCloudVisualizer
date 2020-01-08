@@ -40,6 +40,7 @@ class App extends React.Component {
     this.setInputTrack = this.setInputTrack.bind(this)
     this.setAnalyser = this.setAnalyser.bind(this)
     this.setAudioData = this.setAudioData.bind(this)
+    this.setVisualizer = this.setVisualizer.bind(this)
   }
 
   loadSong() {
@@ -159,6 +160,12 @@ class App extends React.Component {
     requestAnimationFrame(updateAudioData)
   }
 
+  setVisualizer(visualizer) {
+    this.setState({
+      selectedVisualizer: visualizer,
+    })
+  }
+
   render() {
     const {
       frequencyData,
@@ -201,6 +208,7 @@ class App extends React.Component {
             frequencyData={frequencyData}
             waveformData={waveformData}
             selectedVisualizer={selectedVisualizer}
+            onVisualizerSelect={this.setVisualizer}
           />
           <Player
             errorMessage={errorMessage}
