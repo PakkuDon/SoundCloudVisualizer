@@ -9,6 +9,7 @@ const Sidebar = props => {
       {isOpen && <div className={styles.sidebarWrapper}>{props.children}</div>}
       <button
         className={styles.toggleSidebar}
+        title="Toggle sidebar"
         onClick={() => toggleSidebar(!isOpen)}
       >
         &#9664;
