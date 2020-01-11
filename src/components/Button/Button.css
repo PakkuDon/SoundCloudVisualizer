@@ -1,14 +1,14 @@
 @import "../../styles/colors";
 
 .root {
-  background-color: $blue300;
-  border-color: $blue200;
+  background-color: $blue400;
+  border-color: $blue100;
   color: $white;
   padding: 5px 10px;
   border-radius: 5px;
 
   &:hover {
-    background-color: $blue200;
-    border-color: $blue100;
+    background-color: $blue500;
+    border-color: $blue200;
   }
 }

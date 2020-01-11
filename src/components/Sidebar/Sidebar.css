@@ -1,6 +1,7 @@
 @import "../../styles/colors";
 
 .root {
+  background-color: $blue200;
   display: flex;
   flex-direction: row;
   height: 100%;
@@ -8,13 +9,12 @@
 }
 
 .sidebarWrapper {
-  background-color: $blue300;
   color: $white;
   padding: 5px;
 }
 
 .toggleSidebar {
-  background-color: $blue200;
+  background-color: inherit;
   border-color: transparent;
   color: $white;
   padding: 2px;
