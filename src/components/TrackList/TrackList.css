@@ -1,3 +1,5 @@
 .root {
   overflow-y: auto;
+  /* FIXME Hack to prevent tracklist from overflowing past container height */
+  max-height: 90vh;
 }
