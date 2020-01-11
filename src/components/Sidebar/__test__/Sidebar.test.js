@@ -1,24 +1,26 @@
 import React from "react"
-import { shallow } from "enzyme"
+import { render, fireEvent } from "@testing-library/react"
 
 import Sidebar from "../Sidebar"
 
 describe("Sidebar", () => {
   it("renders children", () => {
     const children = <div>Hello world</div>
-    const wrapper = shallow(<Sidebar>{children}</Sidebar>)
+    const { container } = render(<Sidebar>{children}</Sidebar>)
 
-    expect(wrapper).toMatchSnapshot()
+    expect(container).toMatchSnapshot()
   })
 
   describe("when collapsed", () => {
     it("hides children", () => {
       const children = <div>Hello world</div>
-      const wrapper = shallow(<Sidebar>{children}</Sidebar>)
+      const { container, debug, queryByText, getByTitle } = render(
+        <Sidebar>{children}</Sidebar>,
+      )
 
-      wrapper.find("button").simulate("click")
+      fireEvent.click(getByTitle("Toggle sidebar"))
 
-      expect(wrapper.contains(children)).toBe(false)
+      expect(queryByText("Hello world")).toBeNull()
     })
   })
 })

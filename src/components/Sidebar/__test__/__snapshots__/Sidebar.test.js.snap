@@ -1,22 +1,24 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Sidebar renders children 1`] = `
-<div
-  className="root"
-  data-testid="sidebar"
->
+<div>
   <div
-    className="sidebarWrapper"
+    class="root"
+    data-testid="sidebar"
   >
-    <div>
-      Hello world
+    <div
+      class="sidebarWrapper"
+    >
+      <div>
+        Hello world
+      </div>
     </div>
+    <button
+      class="toggleSidebar"
+      title="Toggle sidebar"
+    >
+      ◀
+    </button>
   </div>
-  <button
-    className="toggleSidebar"
-    onClick={[Function]}
-  >
-    ◀
-  </button>
 </div>
 `;
