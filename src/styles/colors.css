@@ -1,6 +1,8 @@
 $white: #FFF;
 $black: #000;
 
-$blue300: rgb(6, 40, 57);
-$blue200: rgb(5, 28, 40);
-$blue100: rgb(5, 16, 23);
+$blue500: rgb(0, 115, 200);
+$blue400: rgb(0, 90, 160);
+$blue300: rgb(0, 65, 120);
+$blue200: rgb(0, 40, 80);
+$blue100: rgb(0, 15, 40);
