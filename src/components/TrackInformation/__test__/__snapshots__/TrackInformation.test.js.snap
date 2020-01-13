@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TrackInformation renders track information 1`] = `
+<div>
+  <div>
+    <img
+      class="thumbnail"
+      src=""
+    />
+    <div
+      class="details"
+    >
+      <div>
+        Bob
+      </div>
+      <div>
+        Hello World
+      </div>
+      <div />
+    </div>
+  </div>
+</div>
+`;
