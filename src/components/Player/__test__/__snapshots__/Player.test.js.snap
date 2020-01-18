@@ -1,62 +1,65 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Player renders track details 1`] = `
-<div
-  className="root"
->
-  <form
-    onSubmit={[Function]}
+<div>
+  <div
+    class="root"
   >
-    <label
-      htmlFor="track-input"
-    >
-      SoundCloud track URL
-      <input
-        className="input"
-        id="track-input"
-        onChange={[Function]}
-        type="text"
-        value=""
+    <form>
+      <label
+        for="track-input"
+      >
+        SoundCloud track URL
+        <input
+          class="input"
+          id="track-input"
+          type="text"
+          value=""
+        />
+      </label>
+      <button
+        class="root"
+        title=""
+        type="submit"
+      >
+        Load song
+      </button>
+    </form>
+    <div />
+    <div>
+      <img
+        class="thumbnail"
+        src=""
       />
-    </label>
-    <Button
-      className=""
-      onClick={[Function]}
-      title=""
-      type="submit"
+      <div
+        class="details"
+      >
+        <div>
+          Bob
+        </div>
+        <div>
+          Hello World
+        </div>
+        <div />
+      </div>
+    </div>
+    <audio
+      autoplay=""
+      controls=""
+      crossorigin="anonymous"
+      src=""
     >
-      Load song
-    </Button>
-  </form>
-  <div />
-  <TrackInformation
-    track={
-      Object {
-        "artwork_url": "",
-        "genre": "",
-        "id": 1,
-        "permalink_url": "",
-        "stream_url": "",
-        "title": "Hello World",
-        "user": Object {
-          "username": "Bob",
-        },
-      }
-    }
-  />
-  <Audio
-    onEnded={[Function]}
-    onRender={[Function]}
-    src=""
-  />
-  <footer
-    className="footer"
-  >
-    <a
-      href="https://github.com/PakkuDon/SoundCloudVisualizer"
+      Your browser does not support the HTML5 audio element.
+    </audio>
+    <footer
+      class="footer"
     >
-      Source code on GitHub
-    </a>
-  </footer>
+      <a
+        href="https://github.com/PakkuDon/SoundCloudVisualizer"
+      >
+        Source code on GitHub
+      </a>
+    </footer>
+  </div>
 </div>
 `;

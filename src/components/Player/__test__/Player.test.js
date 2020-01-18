@@ -1,25 +1,42 @@
 import React from "react"
-import { shallow } from "enzyme"
+import { render, fireEvent } from "@testing-library/react"
 
 import Player from "../Player"
-import Audio from "../../Audio"
 import TrackFactory from "../../../testHelpers/trackFactory"
 
 describe("Player", () => {
+  beforeEach(() => {
+    window.AudioContext = jest.fn().mockImplementation(() => {
+      return {
+        createMediaElementSource: () => ({ connect() {} }),
+        createAnalyser: () => ({ connect() {} }),
+      }
+    })
+  })
+
+  afterEach(() => {
+    window.AudioContext.mockRestore()
+  })
+
   it("renders track details", () => {
     const track = TrackFactory.create()
-    const wrapper = shallow(<Player track={track} />)
+    const { container } = render(<Player track={track} />)
 
-    expect(wrapper).toMatchSnapshot()
+    expect(container).toMatchSnapshot()
   })
 
   describe("on url edit", () => {
     it("calls supplied onUrlEdit handler", () => {
       const spy = jest.fn()
       const track = TrackFactory.create()
-      const wrapper = shallow(<Player track={track} onUrlEdit={spy} />)
+      const { getByLabelText } = render(
+        <Player track={track} onUrlEdit={spy} />,
+      )
 
-      wrapper.find("input").simulate("change", { target: {} })
+      fireEvent.change(getByLabelText("SoundCloud track URL"), {
+        target: { value: "https://soundcloud.com" },
+      })
+
       expect(spy).toBeCalled()
     })
   })
@@ -28,9 +45,12 @@ describe("Player", () => {
     it("calls supplied onSongSelect handler", () => {
       const spy = jest.fn()
       const track = TrackFactory.create()
-      const wrapper = shallow(<Player track={track} onSongSelect={spy} />)
+      const { container, getByText } = render(
+        <Player track={track} onSongSelect={spy} />,
+      )
 
-      wrapper.find("form").simulate("submit", { preventDefault: () => {} })
+      fireEvent.click(getByText("Load song"))
+
       expect(spy).toBeCalled()
     })
   })
@@ -39,9 +59,10 @@ describe("Player", () => {
     it("calls supplied onAudioEnded handler", () => {
       const spy = jest.fn()
       const track = TrackFactory.create()
-      const wrapper = shallow(<Player track={track} onAudioEnded={spy} />)
+      const { container } = render(<Player track={track} onAudioEnded={spy} />)
 
-      wrapper.find(Audio).prop("onEnded")()
+      fireEvent.ended(container.querySelector("audio"))
+
       expect(spy).toBeCalled()
     })
   })
@@ -50,9 +71,8 @@ describe("Player", () => {
     it("calls supplied onAudioRender handler", () => {
       const spy = jest.fn()
       const track = TrackFactory.create()
-      const wrapper = shallow(<Player track={track} onAudioRender={spy} />)
+      const { container } = render(<Player track={track} onAudioRender={spy} />)
 
-      wrapper.find(Audio).prop("onRender")()
       expect(spy).toBeCalled()
     })
   })
