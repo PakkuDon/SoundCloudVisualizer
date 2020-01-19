@@ -1,0 +1,56 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TrackList renders list of tracks 1`] = `
+<div>
+  <div
+    class="root"
+  >
+    <div
+      class="root"
+    >
+      <div>
+        Bob
+      </div>
+      <div>
+        Hello World
+      </div>
+      <div />
+      <div>
+        <a
+          href=""
+          rel="nofollow"
+          target="_blank"
+        >
+          Permalink
+        </a>
+      </div>
+      <div
+        class="actions"
+      />
+    </div>
+    <div
+      class="root"
+    >
+      <div>
+        Bob
+      </div>
+      <div>
+        Hello World
+      </div>
+      <div />
+      <div>
+        <a
+          href=""
+          rel="nofollow"
+          target="_blank"
+        >
+          Permalink
+        </a>
+      </div>
+      <div
+        class="actions"
+      />
+    </div>
+  </div>
+</div>
+`;
