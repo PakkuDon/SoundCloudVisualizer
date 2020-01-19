@@ -14,9 +14,7 @@ describe("Sidebar", () => {
   describe("when collapsed", () => {
     it("hides children", () => {
       const children = <div>Hello world</div>
-      const { container, debug, queryByText, getByTitle } = render(
-        <Sidebar>{children}</Sidebar>,
-      )
+      const { queryByText, getByTitle } = render(<Sidebar>{children}</Sidebar>)
 
       fireEvent.click(getByTitle("Toggle sidebar"))
 

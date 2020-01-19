@@ -45,9 +45,7 @@ describe("Player", () => {
     it("calls supplied onSongSelect handler", () => {
       const spy = jest.fn()
       const track = TrackFactory.create()
-      const { container, getByText } = render(
-        <Player track={track} onSongSelect={spy} />,
-      )
+      const { getByText } = render(<Player track={track} onSongSelect={spy} />)
 
       fireEvent.click(getByText("Load song"))
 
@@ -67,11 +65,11 @@ describe("Player", () => {
     })
   })
 
-  describe("on audio render", () => {
+  describe("on render", () => {
     it("calls supplied onAudioRender handler", () => {
       const spy = jest.fn()
       const track = TrackFactory.create()
-      const { container } = render(<Player track={track} onAudioRender={spy} />)
+      render(<Player track={track} onAudioRender={spy} />)
 
       expect(spy).toBeCalled()
     })
