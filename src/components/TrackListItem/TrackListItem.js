@@ -22,17 +22,17 @@ const TrackListItem = ({ onDelete, onQueue, onSelect, track }) => (
     <div className={styles.actions}>
       {onSelect && (
         <Button onClick={() => onSelect(track.id)}>
-          <IconPlay />
+          <IconPlay title="Play track" />
         </Button>
       )}
       {onDelete && (
         <Button onClick={() => onDelete(track.id)}>
-          <IconDelete />
+          <IconDelete title="Delete track" />
         </Button>
       )}
       {onQueue && (
         <Button onClick={() => onQueue(track.id)}>
-          <IconQueue />
+          <IconQueue title="Add to playback queue" />
         </Button>
       )}
     </div>
