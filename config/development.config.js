@@ -2,6 +2,8 @@ const HtmlWebpackPlugin = require("html-webpack-plugin")
 const CaseSensitivePathsWebpackPlugin = require("case-sensitive-paths-webpack-plugin")
 const path = require("path")
 
+require("dotenv").config()
+
 module.exports = {
   mode: "development",
   entry: "./src/app.js",
