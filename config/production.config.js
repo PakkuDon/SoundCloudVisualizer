@@ -1,3 +1,4 @@
+const webpack = require("webpack")
 const HtmlWebpackPlugin = require("html-webpack-plugin")
 const CaseSensitivePathsWebpackPlugin = require("case-sensitive-paths-webpack-plugin")
 const path = require("path")
@@ -67,5 +68,6 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: "src/index.html",
     }),
+    new webpack.EnvironmentPlugin(["SOUNDCLOUD_CLIENT_ID"]),
   ],
 }
