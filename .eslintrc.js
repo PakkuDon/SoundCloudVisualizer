@@ -5,6 +5,7 @@ module.exports = {
     },
     "extends": [
         "eslint:recommended",
+        "plugin:react/recommended"
     ],
     "globals": {
         "Atomics": "readonly",
@@ -18,6 +19,7 @@ module.exports = {
         "sourceType": "module"
     },
     "plugins": [
+        "react"
     ],
     "rules": {
     }
