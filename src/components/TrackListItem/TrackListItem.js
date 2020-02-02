@@ -15,7 +15,7 @@ const TrackListItem = ({ onDelete, onQueue, onSelect, track }) => (
     <div>{track.title}</div>
     <div>{track.genre}</div>
     <div>
-      <a href={track.permalink_url} target="_blank" rel="nofollow">
+      <a href={track.permalink_url} target="_blank" rel="noopener noreferrer">
         Permalink
       </a>
     </div>
