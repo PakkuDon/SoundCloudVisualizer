@@ -14,7 +14,7 @@ export default {
           ...response,
           stream_url: `${response.stream_url}?client_id=${SOUNDCLOUD_CLIENT_ID}`,
         }
-        return new Promise((resolve, reject) => {
+        return new Promise((resolve) => {
           resolve(responseWithAuthorisedStreamUrl)
         })
       } else if (response.kind === "playlist") {
@@ -23,7 +23,7 @@ export default {
           stream_url: `${track.stream_url}?client_id=${SOUNDCLOUD_CLIENT_ID}`,
         }))
 
-        return new Promise((resolve, reject) => {
+        return new Promise((resolve) => {
           resolve(tracksWithAuthorisedStreamUrl)
         })
       } else {
