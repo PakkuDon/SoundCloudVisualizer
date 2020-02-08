@@ -55,6 +55,7 @@ Player.propTypes = {
   errorMessage: PropTypes.string,
   inputUrl: PropTypes.string,
   track: SoundCloudTrack,
+  onAudioEnded: PropTypes.func,
   onAudioRender: PropTypes.func,
   onSongSelect: PropTypes.func,
   onUrlEdit: PropTypes.func,
@@ -63,6 +64,7 @@ Player.propTypes = {
 Player.defaultProps = {
   errorMessage: "",
   inputUrl: "",
+  onAudioEnded: () => {},
   onAudioRender: () => {},
   onUrlEdit: () => {},
 }
