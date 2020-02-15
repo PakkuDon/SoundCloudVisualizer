@@ -7,6 +7,7 @@ module.exports = {
     },
     "extends": [
         "eslint:recommended",
+        "plugin:jsx-a11y/recommended",
         "plugin:react/recommended"
     ],
     "globals": {
@@ -22,6 +23,7 @@ module.exports = {
         "sourceType": "module"
     },
     "plugins": [
+        "jsx-a11y",
         "react"
     ],
     "rules": {
