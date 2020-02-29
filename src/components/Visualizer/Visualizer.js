@@ -29,7 +29,7 @@ function Visualizer(props) {
           Visualization
           <select
             id="visualizer-type"
-            onChange={(event) => props.onVisualizerSelect(event.target.value)}
+            onBlur={(event) => props.onVisualizerSelect(event.target.value)}
           >
             {Visualization.types().map((type) => (
               <option key={type} selected={type === props.selectedVisualizer}>
