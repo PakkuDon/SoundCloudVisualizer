@@ -8,6 +8,7 @@
     "cypress:run": "cypress run",
     "dev": "webpack-dev-server --config config/development.config.js",
     "lint": "eslint {cypress,config,src}",
+    "prettier:list": "prettier -l \"{config,cypress,src}/**/*.js\"",
     "prettier:fix": "prettier --write \"{config,cypress,src}/**/*.js\"",
     "test": "jest"
   },
