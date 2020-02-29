@@ -50,4 +50,9 @@ Visualizer.propTypes = {
   onVisualizerSelect: PropTypes.func,
 }
 
+Visualizer.defaultProps = {
+  selectedVisualizer: Visualization.types()[0],
+  onVisualizerSelect: () => {},
+}
+
 export default Visualizer
