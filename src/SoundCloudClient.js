@@ -8,7 +8,7 @@ SoundCloudSDK.initialize({
 
 export default {
   resolve(inputUrl) {
-    return SoundCloudSDK.resolve(inputUrl).then(response => {
+    return SoundCloudSDK.resolve(inputUrl).then((response) => {
       if (response.kind === "track") {
         const responseWithAuthorisedStreamUrl = {
           ...response,
@@ -18,7 +18,7 @@ export default {
           resolve(responseWithAuthorisedStreamUrl)
         })
       } else if (response.kind === "playlist") {
-        const tracksWithAuthorisedStreamUrl = response.tracks.map(track => ({
+        const tracksWithAuthorisedStreamUrl = response.tracks.map((track) => ({
           ...track,
           stream_url: `${track.stream_url}?client_id=${SOUNDCLOUD_CLIENT_ID}`,
         }))

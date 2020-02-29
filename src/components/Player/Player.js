@@ -15,7 +15,7 @@ const Player = ({
   onUrlEdit,
   track,
 }) => {
-  const onSubmit = useCallback(event => {
+  const onSubmit = useCallback((event) => {
     event.preventDefault()
     onSongSelect()
   })
@@ -30,7 +30,7 @@ const Player = ({
             className={styles.input}
             type="text"
             value={inputUrl}
-            onChange={event => onUrlEdit(event.target.value)}
+            onChange={(event) => onUrlEdit(event.target.value)}
           />
         </label>
         <Button type="submit">Load song</Button>

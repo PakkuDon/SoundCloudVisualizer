@@ -46,12 +46,12 @@ class App extends React.Component {
   loadSong() {
     this.setErrorMessage("")
     SoundCloudClient.resolve(this.state.inputUrl)
-      .then(response => {
+      .then((response) => {
         if (Array.isArray(response)) {
           if (!this.state.currentSong) {
             this.playSong(response.shift())
           }
-          response.reverse().forEach(track => this.addToQueue(track))
+          response.reverse().forEach((track) => this.addToQueue(track))
         } else {
           if (!this.state.currentSong) {
             this.playSong(response)
@@ -60,7 +60,7 @@ class App extends React.Component {
           }
         }
       })
-      .catch(error => {
+      .catch((error) => {
         this.setErrorMessage(error.message)
       })
   }
@@ -88,7 +88,7 @@ class App extends React.Component {
 
   addToHistory(resolvedTrack) {
     this.setHistory([
-      ...this.state.history.filter(track => track.id !== resolvedTrack.id),
+      ...this.state.history.filter((track) => track.id !== resolvedTrack.id),
       resolvedTrack,
     ])
   }
@@ -100,29 +100,35 @@ class App extends React.Component {
   }
 
   addToQueueFromId(trackId) {
-    const selectedSong = this.state.history.find(track => track.id === trackId)
+    const selectedSong = this.state.history.find(
+      (track) => track.id === trackId,
+    )
     this.setState({
       queue: this.state.queue.concat(selectedSong),
     })
   }
 
   deleteFromHistory(trackId) {
-    this.setHistory(this.state.history.filter(track => track.id !== trackId))
+    this.setHistory(this.state.history.filter((track) => track.id !== trackId))
   }
 
   deleteFromQueue(trackId) {
     this.setState({
-      queue: this.state.queue.filter(track => track.id !== trackId),
+      queue: this.state.queue.filter((track) => track.id !== trackId),
     })
   }
 
   playFromHistory(trackId) {
-    const selectedSong = this.state.history.find(track => track.id === trackId)
+    const selectedSong = this.state.history.find(
+      (track) => track.id === trackId,
+    )
     this.playSong(selectedSong)
   }
 
   playFromQueue(trackId) {
-    const selectedSong = this.state.history.find(track => track.id === trackId)
+    const selectedSong = this.state.history.find(
+      (track) => track.id === trackId,
+    )
     this.playSong(selectedSong)
     this.deleteFromQueue(trackId)
   }
@@ -214,9 +220,9 @@ class App extends React.Component {
             errorMessage={errorMessage}
             track={currentSong}
             inputUrl={inputUrl}
-            onAudioRender={audioAnalyser => this.setAnalyser(audioAnalyser)}
+            onAudioRender={(audioAnalyser) => this.setAnalyser(audioAnalyser)}
             onAudioEnded={this.playNextQueued}
-            onUrlEdit={trackUrl => this.setInputTrack(trackUrl)}
+            onUrlEdit={(trackUrl) => this.setInputTrack(trackUrl)}
             onSongSelect={this.loadSong}
           />
         </MainContent>

@@ -9,7 +9,7 @@ const TrackList = ({ onTrackDelete, onTrackQueue, onTrackSelect, tracks }) => (
     {tracks
       .slice()
       .reverse()
-      .map(track => (
+      .map((track) => (
         <TrackListItem
           key={`track-${track.id}`}
           onDelete={onTrackDelete}
