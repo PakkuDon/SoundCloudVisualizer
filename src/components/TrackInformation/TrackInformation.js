@@ -5,7 +5,11 @@ import styles from "./TrackInformation.css"
 
 const TrackInformation = ({ track }) => (
   <div>
-    <img className={styles.thumbnail} src={track.artwork_url} />
+    <img
+      className={styles.thumbnail}
+      src={track.artwork_url}
+      alt={`${track.title} artwork`}
+    />
     <div className={styles.details}>
       <div>{track.user && track.user.username}</div>
       <div>{track.title}</div>
