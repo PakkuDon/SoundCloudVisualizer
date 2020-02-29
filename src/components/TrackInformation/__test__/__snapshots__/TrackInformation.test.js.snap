@@ -4,6 +4,7 @@ exports[`TrackInformation renders track information 1`] = `
 <div>
   <div>
     <img
+      alt="Hello World artwork"
       class="thumbnail"
       src=""
     />

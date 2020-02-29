@@ -28,6 +28,7 @@ exports[`Player renders track details 1`] = `
     <div />
     <div>
       <img
+        alt="Hello World artwork"
         class="thumbnail"
         src=""
       />
