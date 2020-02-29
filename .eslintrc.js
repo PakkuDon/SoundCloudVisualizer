@@ -28,6 +28,7 @@ module.exports = {
         "react"
     ],
     "rules": {
+        "jsx-a11y/media-has-caption": "off"
     },
     "settings": {
         "react": {
