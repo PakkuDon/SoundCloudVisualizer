@@ -56,9 +56,7 @@ describe("SoundCloudVisualizer", () => {
       })
 
       it("adds song to playback queue", () => {
-        cy.get("[data-testid='sidebar']")
-          .contains("Playback queue")
-          .click()
+        cy.get("[data-testid='sidebar']").contains("Playback queue").click()
         cy.get("[data-testid='sidebar']")
           .should("contain", "Nitro Fun - New Game")
           .should("contain", "Monstercat")
