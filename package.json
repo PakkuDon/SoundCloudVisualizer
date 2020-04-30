@@ -24,6 +24,6 @@
   "dependencies": {
     "angular": "^1.4.8",
     "angular-sanitize": "^1.4.9",
-    "jquery": "^2.2.0"
+    "jquery": "^3.5.0"
   }
 }
