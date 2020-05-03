@@ -4,7 +4,7 @@ import { SoundCloudTrack } from "../../propTypes"
 import styles from "./TrackInformation.css"
 
 const TrackInformation = ({ track }) => (
-  <div>
+  <div className={styles.root}>
     <img
       className={styles.thumbnail}
       src={track.artwork_url}
