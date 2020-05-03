@@ -24,7 +24,7 @@ function Visualizer(props) {
       >
         Your browser does not support the HTML5 canvas element.
       </canvas>
-      <div>
+      <div className={styles.options}>
         <label htmlFor="visualizer-type">
           Visualization
           <select
