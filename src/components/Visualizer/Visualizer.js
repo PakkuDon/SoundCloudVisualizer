@@ -12,7 +12,7 @@ function Visualizer(props) {
       waveformData: props.waveformData,
       graphicsContext: canvasElement.current.getContext("2d"),
     })
-  }, [props.frequencyData, props.waveformData])
+  }, [props.frequencyData, props.waveformData, props.selectedVisualizer])
 
   return (
     <Fragment>
