@@ -14,11 +14,15 @@
 }
 
 .toggleSidebar {
-  background-color: inherit;
+  background-color: $blue200;
   border-color: transparent;
   color: $white;
   padding: 2px;
   border-radius: 0;
   align-self: center;
   height: 100%;
+
+  &:hover {
+    background-color: $blue300;
+  }
 }
