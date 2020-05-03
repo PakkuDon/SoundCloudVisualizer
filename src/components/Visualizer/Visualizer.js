@@ -3,16 +3,21 @@ import PropTypes from "prop-types"
 import styles from "./Visualizer.css"
 import Visualization from "../../visualizations"
 
-function Visualizer(props) {
+function Visualizer({
+  frequencyData,
+  onVisualizerSelect,
+  selectedVisualizer,
+  waveformData,
+}) {
   const canvasElement = useRef(null)
 
   useEffect(() => {
-    Visualization.draw(props.selectedVisualizer, {
-      frequencyData: props.frequencyData,
-      waveformData: props.waveformData,
+    Visualization.draw(selectedVisualizer, {
+      frequencyData: frequencyData,
+      waveformData: waveformData,
       graphicsContext: canvasElement.current.getContext("2d"),
     })
-  }, [props.frequencyData, props.waveformData, props.selectedVisualizer])
+  }, [frequencyData, waveformData, selectedVisualizer])
 
   return (
     <Fragment>
@@ -29,10 +34,10 @@ function Visualizer(props) {
           Visualization
           <select
             id="visualizer-type"
-            onBlur={(event) => props.onVisualizerSelect(event.target.value)}
+            onBlur={(event) => onVisualizerSelect(event.target.value)}
           >
             {Visualization.types().map((type) => (
-              <option key={type} selected={type === props.selectedVisualizer}>
+              <option key={type} selected={type === selectedVisualizer}>
                 {type}
               </option>
             ))}
