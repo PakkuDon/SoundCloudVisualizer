@@ -13,7 +13,7 @@ const Sidebar = ({ children }) => {
         title="Toggle sidebar"
         onClick={() => toggleSidebar(!isOpen)}
       >
-        &#9664;
+        {isOpen ? "◀" : "▶"}
       </button>
     </div>
   )
