@@ -25,10 +25,13 @@ module.exports = {
     },
     "plugins": [
         "jsx-a11y",
-        "react"
+        "react",
+        "react-hooks"
     ],
     "rules": {
-        "jsx-a11y/media-has-caption": "off"
+        "jsx-a11y/media-has-caption": "off",
+        "react-hooks/rules-of-hooks": "error",
+        "react-hooks/exhaustive-deps": "warn"
     },
     "settings": {
         "react": {
