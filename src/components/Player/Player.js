@@ -15,10 +15,13 @@ const Player = ({
   onUrlEdit,
   track,
 }) => {
-  const onSubmit = useCallback((event) => {
-    event.preventDefault()
-    onSongSelect()
-  })
+  const onSubmit = useCallback(
+    (event) => {
+      event.preventDefault()
+      onSongSelect()
+    },
+    [onSongSelect],
+  )
 
   return (
     <div className={styles.root}>
