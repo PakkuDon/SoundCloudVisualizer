@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react"
 import PropTypes from "prop-types"
 
-function Audio(props) {
+function Audio({ onEnded, src, onRender }) {
   const audioElement = useRef(null)
 
   useEffect(() => {
@@ -13,11 +13,9 @@ function Audio(props) {
       source.connect(analyser)
       analyser.connect(audioContext.destination)
       analyser.fftSize = 256
-      props.onRender(analyser)
+      onRender(analyser)
     }
   }, [])
-
-  const { onEnded, src } = props
 
   return (
     <audio
