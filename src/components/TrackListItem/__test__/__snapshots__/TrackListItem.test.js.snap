@@ -7,6 +7,7 @@ exports[`TrackListItem renders track information 1`] = `
   >
     <div>
       <a
+        href="https://soundcloud.com/user2835985"
         rel="noopener noreferrer"
         target="_blank"
       >

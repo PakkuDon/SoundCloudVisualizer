@@ -9,6 +9,7 @@ export default {
       artwork_url: "",
       user: {
         username: "Bob",
+        permalink_url: "https://soundcloud.com/user2835985",
       },
       ...attributes,
     }

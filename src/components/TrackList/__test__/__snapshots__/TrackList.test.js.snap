@@ -10,6 +10,7 @@ exports[`TrackList renders list of tracks 1`] = `
     >
       <div>
         <a
+          href="https://soundcloud.com/user2835985"
           rel="noopener noreferrer"
           target="_blank"
         >
@@ -38,6 +39,7 @@ exports[`TrackList renders list of tracks 1`] = `
     >
       <div>
         <a
+          href="https://soundcloud.com/user2835985"
           rel="noopener noreferrer"
           target="_blank"
         >
