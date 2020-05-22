@@ -15,7 +15,7 @@ function Audio({ onEnded, src, onRender }) {
       analyser.fftSize = 256
       onRender(analyser)
     }
-  }, [onRender])
+  }, [])
 
   return (
     <audio
