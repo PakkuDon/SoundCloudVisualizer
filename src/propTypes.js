@@ -8,6 +8,7 @@ export const SoundCloudTrack = PropTypes.shape({
   stream_url: PropTypes.string,
   artwork_url: PropTypes.string,
   user: PropTypes.shape({
+    permalink_url: PropTypes.string,
     username: PropTypes.string,
   }),
 })
