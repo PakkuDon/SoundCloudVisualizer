@@ -9,7 +9,12 @@ exports[`TrackList renders list of tracks 1`] = `
       class="root"
     >
       <div>
-        Bob
+        <a
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          Bob
+        </a>
       </div>
       <div>
         Hello World
@@ -32,7 +37,12 @@ exports[`TrackList renders list of tracks 1`] = `
       class="root"
     >
       <div>
-        Bob
+        <a
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          Bob
+        </a>
       </div>
       <div>
         Hello World

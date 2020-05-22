@@ -11,7 +11,17 @@ const TrackInformation = ({ track }) => (
       alt={`${track.title} artwork`}
     />
     <div className={styles.details}>
-      <div>{track.user && track.user.username}</div>
+      <div>
+        {track.user && (
+          <a
+            href={track.user.permalink_url}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {track.user.username}
+          </a>
+        )}
+      </div>
       <div>{track.title}</div>
       <div>{track.genre}</div>
     </div>

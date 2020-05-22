@@ -14,7 +14,12 @@ exports[`TrackInformation renders track information 1`] = `
       class="details"
     >
       <div>
-        Bob
+        <a
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          Bob
+        </a>
       </div>
       <div>
         Hello World

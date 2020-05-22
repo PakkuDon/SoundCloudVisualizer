@@ -6,7 +6,12 @@ exports[`TrackListItem renders track information 1`] = `
     class="root"
   >
     <div>
-      Bob
+      <a
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        Bob
+      </a>
     </div>
     <div>
       Hello World

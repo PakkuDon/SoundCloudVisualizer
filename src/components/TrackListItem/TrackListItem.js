@@ -11,7 +11,15 @@ import styles from "./TrackListItem.css"
 
 const TrackListItem = ({ onDelete, onQueue, onSelect, track }) => (
   <div className={styles.root}>
-    <div>{track.user.username}</div>
+    <div>
+      <a
+        href={track.user.permalink_url}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        {track.user.username}
+      </a>
+    </div>
     <div>{track.title}</div>
     <div>{track.genre}</div>
     <div>
