@@ -15,18 +15,15 @@ exports[`TrackListItem renders track information 1`] = `
       </a>
     </div>
     <div>
-      Hello World
-    </div>
-    <div />
-    <div>
       <a
         href=""
         rel="noopener noreferrer"
         target="_blank"
       >
-        Permalink
+        Hello World
       </a>
     </div>
+    <div />
     <div
       class="actions"
     />

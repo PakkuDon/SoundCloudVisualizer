@@ -18,18 +18,15 @@ exports[`TrackList renders list of tracks 1`] = `
         </a>
       </div>
       <div>
-        Hello World
-      </div>
-      <div />
-      <div>
         <a
           href=""
           rel="noopener noreferrer"
           target="_blank"
         >
-          Permalink
+          Hello World
         </a>
       </div>
+      <div />
       <div
         class="actions"
       />
@@ -47,18 +44,15 @@ exports[`TrackList renders list of tracks 1`] = `
         </a>
       </div>
       <div>
-        Hello World
-      </div>
-      <div />
-      <div>
         <a
           href=""
           rel="noopener noreferrer"
           target="_blank"
         >
-          Permalink
+          Hello World
         </a>
       </div>
+      <div />
       <div
         class="actions"
       />

@@ -20,13 +20,12 @@ const TrackListItem = ({ onDelete, onQueue, onSelect, track }) => (
         {track.user.username}
       </a>
     </div>
-    <div>{track.title}</div>
-    <div>{track.genre}</div>
     <div>
       <a href={track.permalink_url} target="_blank" rel="noopener noreferrer">
-        Permalink
+        {track.title}
       </a>
     </div>
+    <div>{track.genre}</div>
     <div className={styles.actions}>
       {onSelect && (
         <Button onClick={() => onSelect(track.id)}>
