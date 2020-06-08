@@ -48,6 +48,7 @@ function App() {
           errorMessage={errorMessage}
           track={currentSong}
           inputUrl={inputUrl}
+          onUrlEdit={(trackUrl) => setInputUrl(trackUrl)}
         />
       </MainContent>
     </main>
