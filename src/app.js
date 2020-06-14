@@ -22,6 +22,31 @@ function App() {
   const [errorMessage, setErrorMessage] = useState("")
   const [inputUrl, setInputUrl] = useState("")
 
+  const loadSong = useCallback(() => {
+    setErrorMessage("")
+    SoundCloudClient.resolve(inputUrl)
+      .then((response) => {
+        if (Array.isArray(response)) {
+          if (!currentSong) {
+            const firstTrack = response.shift()
+            setCurrentSong(firstTrack)
+            setHistory([...history, firstTrack])
+          }
+          setPlaybackQueue([...playbackQueue, ...response.reverse()])
+        } else {
+          if (!currentSong) {
+            setCurrentSong(response)
+            setHistory([...history, response])
+          } else {
+            setPlaybackQueue([...playbackQueue, response])
+          }
+        }
+      })
+      .catch((error) => {
+        setErrorMessage(error.message)
+      })
+  }, [currentSong, history, playbackQueue, inputUrl])
+
   return (
     <main className={styles.root}>
       <Sidebar>
@@ -49,6 +74,7 @@ function App() {
           track={currentSong}
           inputUrl={inputUrl}
           onUrlEdit={(trackUrl) => setInputUrl(trackUrl)}
+          onSongSelect={loadSong}
         />
       </MainContent>
     </main>
