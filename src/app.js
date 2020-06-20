@@ -21,6 +21,7 @@ function App() {
   const [selectedVisualizer, setSelectedVisualizer] = useState("bar")
   const [errorMessage, setErrorMessage] = useState("")
   const [inputUrl, setInputUrl] = useState("")
+  const [audioAnalyser, setAudioAnalyser] = useState()
 
   const loadSong = useCallback(() => {
     setErrorMessage("")
@@ -75,6 +76,7 @@ function App() {
           inputUrl={inputUrl}
           onUrlEdit={(trackUrl) => setInputUrl(trackUrl)}
           onSongSelect={loadSong}
+          onAudioRender={(audioAnalyser) => setAudioAnalyser(audioAnalyser)}
         />
       </MainContent>
     </main>
