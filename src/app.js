@@ -55,6 +55,14 @@ function App() {
     [history],
   )
 
+  const addToQueueFromId = useCallback(
+    (trackId) => {
+      const selectedSong = history.find((track) => track.id === trackId)
+      setPlaybackQueue([...playbackQueue, selectedSong])
+    },
+    [history, playbackQueue],
+  )
+
   return (
     <main className={styles.root}>
       <Sidebar>
@@ -64,7 +72,11 @@ function App() {
             <Tab>Playback queue</Tab>
           </TabList>
           <TabPanel>
-            <TrackList tracks={history} onTrackDelete={deleteFromHistory} />
+            <TrackList
+              tracks={history}
+              onTrackDelete={deleteFromHistory}
+              onTrackQueue={addToQueueFromId}
+            />
           </TabPanel>
           <TabPanel>
             <TrackList tracks={playbackQueue} />
