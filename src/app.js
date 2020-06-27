@@ -88,6 +88,7 @@ function App() {
           frequencyData={frequencyData}
           waveformData={waveformData}
           selectedVisualizer={selectedVisualizer}
+          onVisualizerSelect={(visualizer) => setSelectedVisualizer(visualizer)}
         />
         <Player
           errorMessage={errorMessage}
