@@ -30,14 +30,12 @@ function App() {
         if (Array.isArray(response)) {
           if (!currentSong) {
             const firstTrack = response.shift()
-            setCurrentSong(firstTrack)
-            setHistory([...history, firstTrack])
+            playSong(firstTrack)
           }
           setPlaybackQueue([...playbackQueue, ...response.reverse()])
         } else {
           if (!currentSong) {
-            setCurrentSong(response)
-            setHistory([...history, response])
+            playSong(response)
           } else {
             setPlaybackQueue([...playbackQueue, response])
           }
@@ -46,7 +44,7 @@ function App() {
       .catch((error) => {
         setErrorMessage(error.message)
       })
-  }, [currentSong, history, playbackQueue, inputUrl])
+  }, [currentSong, playbackQueue, inputUrl, playSong])
 
   const deleteFromHistory = useCallback(
     (trackId) => {
@@ -66,6 +64,13 @@ function App() {
   const playFromHistory = useCallback(
     (trackId) => {
       const selectedSong = history.find((track) => track.id === trackId)
+      playSong(selectedSong)
+    },
+    [history, playSong],
+  )
+
+  const playSong = useCallback(
+    (selectedSong) => {
       setCurrentSong(selectedSong)
       setHistory([
         ...history.filter((track) => track.id !== selectedSong.id),
