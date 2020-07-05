@@ -80,6 +80,13 @@ function App() {
     [history],
   )
 
+  const deleteFromQueue = useCallback(
+    (trackId) => {
+      setPlaybackQueue(playbackQueue.filter((track) => track.id !== trackId))
+    },
+    [playbackQueue],
+  )
+
   return (
     <main className={styles.root}>
       <Sidebar>
@@ -97,7 +104,7 @@ function App() {
             />
           </TabPanel>
           <TabPanel>
-            <TrackList tracks={playbackQueue} />
+            <TrackList tracks={playbackQueue} onTrackDelete={deleteFromQueue} />
           </TabPanel>
         </Tabs>
       </Sidebar>
