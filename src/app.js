@@ -87,6 +87,15 @@ function App() {
     [playbackQueue],
   )
 
+  const playFromQueue = useCallback(
+    (trackId) => {
+      const selectedSong = playbackQueue.find((track) => track.id === trackId)
+      playSong(selectedSong)
+      deleteFromQueue(trackId)
+    },
+    [playbackQueue, playSong, deleteFromQueue],
+  )
+
   return (
     <main className={styles.root}>
       <Sidebar>
@@ -104,7 +113,11 @@ function App() {
             />
           </TabPanel>
           <TabPanel>
-            <TrackList tracks={playbackQueue} onTrackDelete={deleteFromQueue} />
+            <TrackList
+              tracks={playbackQueue}
+              onTrackDelete={deleteFromQueue}
+              onTrackSelect={playFromQueue}
+            />
           </TabPanel>
         </Tabs>
       </Sidebar>
