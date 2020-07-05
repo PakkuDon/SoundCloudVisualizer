@@ -96,6 +96,15 @@ function App() {
     [playbackQueue, playSong, deleteFromQueue],
   )
 
+  const playNextQueued = useCallback(() => {
+    if (playbackQueue.length > 0) {
+      playSong(playbackQueue[0])
+      setPlaybackQueue(playbackQueue.slice(1))
+    } else {
+      setCurrentSong(null)
+    }
+  }, [playbackQueue, setCurrentSong, setPlaybackQueue, playSong])
+
   return (
     <main className={styles.root}>
       <Sidebar>
@@ -135,6 +144,7 @@ function App() {
           onUrlEdit={(trackUrl) => setInputUrl(trackUrl)}
           onSongSelect={loadSong}
           onAudioRender={(audioAnalyser) => setAudioAnalyser(audioAnalyser)}
+          onAudioEnded={playNextQueued}
         />
       </MainContent>
     </main>
