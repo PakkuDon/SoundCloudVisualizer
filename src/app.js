@@ -1,4 +1,10 @@
-import React, { useCallback, useState, useReducer } from "react"
+import React, {
+  useCallback,
+  useState,
+  useReducer,
+  useRef,
+  useEffect,
+} from "react"
 import ReactDOM from "react-dom"
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs"
 import "normalize.css"
@@ -22,6 +28,7 @@ function App() {
   const [errorMessage, setErrorMessage] = useState("")
   const [inputUrl, setInputUrl] = useState("")
   const [audioAnalyser, setAudioAnalyser] = useState()
+  const animationRef = useRef()
 
   const loadSong = useCallback(() => {
     setErrorMessage("")
@@ -104,6 +111,23 @@ function App() {
       setCurrentSong(null)
     }
   }, [playbackQueue, setCurrentSong, setPlaybackQueue, playSong])
+
+  const updateAudioData = useCallback(() => {
+    const frequencyData = new Uint8Array(audioAnalyser.frequencyBinCount)
+    const waveformData = new Uint8Array(audioAnalyser.fftSize)
+    audioAnalyser.getByteFrequencyData(frequencyData)
+    audioAnalyser.getByteTimeDomainData(waveformData)
+    setFrequencyData(frequencyData)
+    setWaveformData(waveformData)
+    animationRef.current = requestAnimationFrame(updateAudioData)
+  }, [audioAnalyser])
+
+  useEffect(() => {
+    if (audioAnalyser) {
+      animationRef.current = requestAnimationFrame(updateAudioData)
+      return () => cancelAnimationFrame(animationRef.current)
+    }
+  }, [audioAnalyser, updateAudioData])
 
   return (
     <main className={styles.root}>
