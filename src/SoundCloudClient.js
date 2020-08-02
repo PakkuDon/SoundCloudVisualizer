@@ -9,23 +9,21 @@ SoundCloudSDK.initialize({
 export default {
   resolve(inputUrl) {
     return SoundCloudSDK.resolve(inputUrl).then((response) => {
-      if (response.kind === "track") {
-        return new Promise((resolve) => {
-          resolve(withAuthorisedStreamUrl(response))
-        })
-      } else if (response.kind === "playlist") {
-        const tracksWithAuthorisedStreamUrl = response.tracks.map((track) =>
-          withAuthorisedStreamUrl(track),
-        )
+      let tracks
 
-        return new Promise((resolve) => {
-          resolve(tracksWithAuthorisedStreamUrl)
-        })
+      if (response.kind === "track") {
+        tracks = [withAuthorisedStreamUrl(response)]
+      } else if (response.kind === "playlist") {
+        tracks = response.tracks.map((track) => withAuthorisedStreamUrl(track))
       } else {
         throw new Error(
           "Incompatible response type. Please enter either a track or playlist URL",
         )
       }
+
+      return new Promise((resolve) => {
+        resolve(tracks)
+      })
     })
   },
 }

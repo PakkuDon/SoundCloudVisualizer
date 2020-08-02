@@ -33,20 +33,12 @@ function App() {
   const loadSong = useCallback(() => {
     setErrorMessage("")
     SoundCloudClient.resolve(inputUrl)
-      .then((response) => {
-        if (Array.isArray(response)) {
-          if (!currentSong) {
-            const firstTrack = response.shift()
-            playSong(firstTrack)
-          }
-          setPlaybackQueue([...playbackQueue, ...response.reverse()])
-        } else {
-          if (!currentSong) {
-            playSong(response)
-          } else {
-            setPlaybackQueue([...playbackQueue, response])
-          }
+      .then((tracks) => {
+        if (!currentSong) {
+          const firstTrack = tracks.shift()
+          playSong(firstTrack)
         }
+        setPlaybackQueue([...playbackQueue, ...tracks.reverse()])
       })
       .catch((error) => {
         setErrorMessage(error.message)
