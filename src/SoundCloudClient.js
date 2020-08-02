@@ -10,18 +10,13 @@ export default {
   resolve(inputUrl) {
     return SoundCloudSDK.resolve(inputUrl).then((response) => {
       if (response.kind === "track") {
-        const responseWithAuthorisedStreamUrl = {
-          ...response,
-          stream_url: `${response.stream_url}?client_id=${SOUNDCLOUD_CLIENT_ID}`,
-        }
         return new Promise((resolve) => {
-          resolve(responseWithAuthorisedStreamUrl)
+          resolve(withAuthorisedStreamUrl(response))
         })
       } else if (response.kind === "playlist") {
-        const tracksWithAuthorisedStreamUrl = response.tracks.map((track) => ({
-          ...track,
-          stream_url: `${track.stream_url}?client_id=${SOUNDCLOUD_CLIENT_ID}`,
-        }))
+        const tracksWithAuthorisedStreamUrl = response.tracks.map((track) =>
+          withAuthorisedStreamUrl(track),
+        )
 
         return new Promise((resolve) => {
           resolve(tracksWithAuthorisedStreamUrl)
@@ -34,3 +29,8 @@ export default {
     })
   },
 }
+
+const withAuthorisedStreamUrl = (track) => ({
+  ...track,
+  stream_url: `${track.stream_url}?client_id=${SOUNDCLOUD_CLIENT_ID}`,
+})
