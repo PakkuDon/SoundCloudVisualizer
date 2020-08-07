@@ -1,10 +1,4 @@
-import React, {
-  useCallback,
-  useState,
-  useReducer,
-  useRef,
-  useEffect,
-} from "react"
+import React, { useCallback, useState, useRef, useEffect } from "react"
 import ReactDOM from "react-dom"
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs"
 import "normalize.css"
