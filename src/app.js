@@ -65,10 +65,7 @@ function App() {
   const playSong = useCallback(
     (selectedSong) => {
       setCurrentSong(selectedSong)
-      setHistory([
-        ...history.filter((track) => track.id !== selectedSong.id),
-        selectedSong,
-      ])
+      setHistory([...history, selectedSong])
     },
     [history],
   )
