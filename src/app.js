@@ -39,19 +39,12 @@ function App() {
       })
   }, [currentSong, playbackQueue, inputUrl, playSong])
 
-  const deleteFromHistory = useCallback(
-    (trackId) => {
-      setHistory(history.filter((track) => track.id !== trackId))
+  const playSong = useCallback(
+    (selectedSong) => {
+      setCurrentSong(selectedSong)
+      setHistory([...history, selectedSong])
     },
     [history],
-  )
-
-  const addToQueueFromId = useCallback(
-    (trackId) => {
-      const selectedSong = history.find((track) => track.id === trackId)
-      setPlaybackQueue([...playbackQueue, selectedSong])
-    },
-    [history, playbackQueue],
   )
 
   const playFromHistory = useCallback(
@@ -62,19 +55,11 @@ function App() {
     [history, playSong],
   )
 
-  const playSong = useCallback(
-    (selectedSong) => {
-      setCurrentSong(selectedSong)
-      setHistory([...history, selectedSong])
+  const deleteFromHistory = useCallback(
+    (trackId) => {
+      setHistory(history.filter((track) => track.id !== trackId))
     },
     [history],
-  )
-
-  const deleteFromQueue = useCallback(
-    (trackId) => {
-      setPlaybackQueue(playbackQueue.filter((track) => track.id !== trackId))
-    },
-    [playbackQueue],
   )
 
   const playFromQueue = useCallback(
@@ -94,6 +79,21 @@ function App() {
       setCurrentSong(null)
     }
   }, [playbackQueue, setCurrentSong, setPlaybackQueue, playSong])
+
+  const addToQueueFromId = useCallback(
+    (trackId) => {
+      const selectedSong = history.find((track) => track.id === trackId)
+      setPlaybackQueue([...playbackQueue, selectedSong])
+    },
+    [history, playbackQueue],
+  )
+
+  const deleteFromQueue = useCallback(
+    (trackId) => {
+      setPlaybackQueue(playbackQueue.filter((track) => track.id !== trackId))
+    },
+    [playbackQueue],
+  )
 
   const updateAudioData = useCallback(() => {
     const frequencyData = new Uint8Array(audioAnalyser.frequencyBinCount)
