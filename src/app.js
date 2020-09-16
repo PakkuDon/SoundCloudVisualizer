@@ -42,7 +42,10 @@ function App() {
   const playSong = useCallback(
     (selectedSong) => {
       setCurrentSong(selectedSong)
-      setHistory([...history, selectedSong])
+      setHistory([
+        ...history.filter((track) => track.id !== selectedSong.id),
+        selectedSong,
+      ])
     },
     [history],
   )
@@ -83,7 +86,10 @@ function App() {
   const addToQueueFromId = useCallback(
     (trackId) => {
       const selectedSong = history.find((track) => track.id === trackId)
-      setPlaybackQueue([...playbackQueue, selectedSong])
+      setPlaybackQueue([
+        ...playbackQueue.filter((track) => track.id !== trackId),
+        selectedSong,
+      ])
     },
     [history, playbackQueue],
   )
