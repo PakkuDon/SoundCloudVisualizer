@@ -6,6 +6,8 @@
     "build": "webpack --config config/production.config.js",
     "cypress:open": "cypress open",
     "cypress:run": "cypress run",
+    "predeploy": "yarn build",
+    "deploy": "gh-pages -d dist",
     "dev": "webpack-dev-server --config config/development.config.js",
     "lint": "eslint {cypress,config,src}",
     "format:list": "prettier -l \"{config,cypress,src}/**/*.js\"",
