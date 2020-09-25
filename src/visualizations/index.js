@@ -1,7 +1,9 @@
 import BarVisualization from "./BarVisualization"
+import NullVisualization from "./NullVisualization"
 import WaveformVisualization from "./WaveformVisualization"
 
 const strategies = {
+  none: NullVisualization,
   bar: BarVisualization,
   waveform: WaveformVisualization,
 }
