@@ -1,5 +1,5 @@
 export default {
-  draw: ({ waveformData, graphicsContext }) => {
+  draw({ waveformData, graphicsContext }) {
     const bufferLength = waveformData.length
 
     const width = graphicsContext.canvas.width

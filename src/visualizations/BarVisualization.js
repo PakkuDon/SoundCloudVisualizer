@@ -1,5 +1,5 @@
 export default {
-  draw: ({ frequencyData, graphicsContext }) => {
+  draw({ frequencyData, graphicsContext }) {
     const bufferLength = frequencyData.length
 
     const width = graphicsContext.canvas.width
