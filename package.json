@@ -8,7 +8,7 @@
     "cypress:run": "cypress run",
     "predeploy": "yarn build",
     "deploy": "gh-pages -d dist",
-    "dev": "webpack-dev-server --config config/development.config.js",
+    "dev": "webpack serve --config config/development.config.js",
     "lint": "eslint {cypress,config,src}",
     "format:list": "prettier -l \"{config,cypress,src}/**/*.js\"",
     "format": "prettier --write \"{config,cypress,src}/**/*.js\"",
