@@ -39,7 +39,7 @@
     "html-webpack-plugin": "^4.5.0",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^26.0.1",
-    "postcss": "^7.0.29",
+    "postcss": "^8.2.10",
     "postcss-import": "^12.0.1",
     "postcss-loader": "^4.0.4",
     "postcss-nested": "^4.2.1",
